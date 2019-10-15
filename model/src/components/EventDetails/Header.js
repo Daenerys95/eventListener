@@ -9,9 +9,9 @@ const Header = () => {
         <div className="header-event-infos">
           <p>NOV.<br />12</p>
           <br />
-          <p>DataJob Paris 2019</p>
+          <p>DataJob Paris 2019
           <br />
-          <p>par DataJob <button>Suivre</button></p>
+          par DataJob <button>Suivre</button></p>
           <br />
           <p>Payant</p>
         </div>
@@ -23,8 +23,7 @@ const Header = () => {
           <div className="header-event-bottom-status">
             <p>A venir</p>
           </div>
-        </div>
-        
+        </div> 
     </div>
   ); 
 }

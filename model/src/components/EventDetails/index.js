@@ -10,10 +10,10 @@ import './eventdetails.scss';
 
 // Composant EventDetails
 const EventDetails = () => (
-  <>
+  <div classname="full-page">
     <Nav />
     <Header />
-  </>
+  </div>
 );
 
 export default EventDetails;
