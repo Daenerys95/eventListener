@@ -3,11 +3,12 @@ import React from 'react';
 
 // == Import : local
 import './app.scss';
+import Modal from '../Modal'
 
 // == Composant
 const App = () => (
   <div id="app">
-    App React
+    <Modal />
   </div>
 );
 
