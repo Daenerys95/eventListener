@@ -1,6 +1,7 @@
 @import 'src/assets/styles/vars';
 
 .user {
+  min-width: 350px;
   
   .header {
     position: relative;
@@ -26,4 +27,127 @@
       border: 1px #333 solid;
     }
   }
+
+  .preferences {
+    background-color: #DFE6ED;
+    text-align: left;
+    padding: 8rem 3rem 2rem;
+
+    &-title {
+      color: #333;
+      width: 250px;
+      font-size: 1.3em;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #333;
+    }
+
+    &-infos {
+      margin: 2.5rem 1rem 1rem;
+
+      &-input {
+        display: flex;
+        flex-direction: column;
+
+        &-label-field {
+          color: #666;
+          font-size: 0.7em;
+          margin: 0.2rem 0;
+        }
+
+        &-field {
+          color: #333;
+          font-size: 0.9em;
+          margin-bottom: 0.2rem;
+        }
+
+        /* disabled input */
+        &-field[disabled] {
+          background: none;
+          border: none;
+          margin-bottom: 0.9rem;
+        }
+
+        &-checkbox {
+          position: relative;
+          margin: 0.2rem 0;
+
+          .checkbox {
+            margin: 0;
+          }
+
+          .label {
+            font-size: 0.8em;
+            color: #333;
+            padding-left: 0.2rem;
+          }
+
+          /* disabled input */
+          .checkbox[disabled] {
+            display: none;
+          }
+
+          /* disabled input */
+          .checkbox[disabled] + .label {
+            padding-left: 20px;
+          }
+
+          /* disabled input */
+          // checkbox custom (unchecked)
+          .checkbox[disabled] + .label::before {
+            position: absolute;
+            content: "";
+            left: 4px;
+            width: 8px;
+            height: 15px;
+            border: solid #bbb;
+            border-width: 0 2px 2px 0;
+            transform: rotate(40deg);
+          }
+
+          /* disabled input */
+          // checkbox custom (checked)
+          .checkbox[disabled]:checked + .label::before {
+            border: solid #008000;
+            border-width: 0 2px 2px 0;
+          }
+        }
+      }
+
+      &-buttons {
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: column;
+
+        .modeEditor {
+          background: none;
+          border: none;
+          text-align: left;
+          font-size: 0.85em;
+          color: #005c80;
+          text-decoration: underline;
+          margin: 0.3rem 0;
+          padding: 0;
+        }
+        
+        .deleteAccount {
+          display: inline-block;
+          text-align: left;
+          font-size: 0.85em;
+          color: #800000;
+          text-decoration: underline;
+          margin: 0.3rem 0;
+        }
+      }
+    }
+  }
 } 
+
+
+@media (min-width: 768px) {
+  .user {
+    
+    .preferences {
+      padding: 4rem 3rem 2rem;
+    }
+  }
+}
