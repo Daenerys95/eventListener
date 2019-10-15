@@ -7,13 +7,13 @@ const Header = () => {
     <div className="header-event">
       <div className="header-event-bg"></div>
         <div className="header-event-infos">
-          <p>NOV.<br />12</p>
+          <p className="header-event-infos-date">NOV.<br />12</p>
           <br />
-          <p>DataJob Paris 2019
+          <p className="header-event-infos-name">DataJob Paris 2019
           <br />
-          par DataJob <button>Suivre</button></p>
+          <span>par DataJob</span><button>Suivre</button></p>
           <br />
-          <p>Payant</p>
+          <p className="header-event-infos-price">Payant</p>
         </div>
         <div className="header-event-bottom">
           <div className="header-event-bottom-icons">

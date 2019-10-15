@@ -1,23 +1,82 @@
 body {
 background-image: url("https://images.unsplash.com/photo-1498462335304-e7263fe3925a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
 background-repeat: no-repeat;
-background-size: 100% 100%;
+background-size: 100% 60%;
+}
+
+.full-page {
+  width: 50%;
+  margin: auto;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  
 }
 
 .nav {
   height: 5rem;
   background-color: #fff;
   margin-bottom: 5rem;
+  display: flex;
+  justify-content: space-between;
+
+  &-left {
+    display: flex;
+    padding: 2rem;
+  }
+
+  &-logo {
+    color: 	#FF4500;
+    font-weight: bold;
+    align-self: center;
+    font-size: 1.5rem;
+    margin-right: 2rem;
+  }
+
+  &-form {
+    display: flex;
+
+    &-input {
+      align-self: center;
+      padding: 0.5em;
+      border-radius: 5px;
+      border: none;
+      margin-left: 0.4rem;
+
+      &:focus {
+        border: 1px solid lightblue;
+      }
+    }
+
+  }
+
+  &-icon {
+    align-self: center;
+    font-size: 1rem;
+    color: #FF4500;  
+  }
+
+  &-btn {
+    margin: 1.5rem;
+    padding: 0.5rem;
+    border: 1px solid #FF4500;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #FF4500;
+
+    &:hover {
+      background-color: #FF4500;
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.8em;
+    }
+  }
+  
 }
 
 .header-event {
-  width: 50%;
-  margin: auto;
+  // width: 50%;
+  // margin: auto;
   display: flex;
   flex-wrap: wrap;
-  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
-
-
 
   &-bg {
     background-image: url("images/event.png");
@@ -26,8 +85,8 @@ background-size: 100% 100%;
     background-repeat: no-repeat;
     height: 40vh;
     width: 70%;
-    border-bottom: 1px solid #6F7287;
-    border-radius: 5px 0;
+    border-bottom: 1px solid #D3D3D3;
+    border-radius: 5px 0 0 0;
   }
 
   &-infos {
@@ -37,9 +96,34 @@ background-size: 100% 100%;
     width: 30%;
     text-align: justify;
     background-color: #EBEBEE;
-    border-bottom: 1px solid #6F7287;
+    border-bottom: 1px solid #D3D3D3;
     padding: 1.5rem;
     border-radius: 0 5px 0 0;
+
+    &-date {
+      font-size: 1em;
+    }
+    &-name {
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding-bottom: 1em;;
+    }
+    span {
+      font-size: 0.7em;
+      color: 	#808080;
+      margin-right: 0.5em;
+    }
+    button {
+      border: 1px solid blue;
+      border-radius: 5px;
+      padding: 0.2em;
+      background-color: #fff;
+      color: blue;;
+    }
+    &-price {
+      color: #808080;
+      font-size: 0.8em;;
+    }
 
   }
 
@@ -48,10 +132,8 @@ background-size: 100% 100%;
     height: 5vh;
     width: 100%;
     padding: 1rem;
-    border-bottom: 1px solid #6F7287;
+    border-bottom: 1px solid #D3D3D3;
     background-color: #fff;
-    border-radius: 0 0 5px 5px;
-
 
     &-icons {
     width: 70%;
@@ -64,7 +146,28 @@ background-size: 100% 100%;
 
     &-status {
     width: 30%;
+      p {
+        color: red;
+      }
     }
   }
   
+}
+
+.description {
+  background-color: #fff;
+  border: 1px solid #E0E0E0;
+  border-radius: 0 0 5px 5px;
+
+  &-content {
+    width: 65%;
+   padding: 2rem;
+
+   p, ul {
+    padding-bottom: 0.5em;
+    font-size: 0.8em;
+    text-align: justify;
+   }
+
+  }
 }
