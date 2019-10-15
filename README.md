@@ -21,25 +21,24 @@ Voici l'Arborescence de notre projet.
 
 ## MCD Mocodo 
 
-USER: ID, pseudo, firstname, lastname, url_avatar, email, notif_new_event, notif_new_update, created_at, updated_at
-HAS_ROLE, NN USER_HAS_ROLE, NN USER
-USER_HAS_ROLE: ID, user_id, role_id
-HAS_USER, NN ROLE, NN USER_HAS_ROLE
-ROLE: ID, name, created_at, updated_at
+watches, 0N user, 0N event
+tag: id, name, created_at, updated_at
+has, 0N tag, 0N event
+receives, 0N event, 11 feed
+feed: id, content, created_at, updated_at
 
-:
-HAS_TAG, NN EVENT, NN EVENT_HAS_TAG
-EVENT_HAS_TAG: ID, event_id, tag_id
-HAS_EVENT, NN EVENT_HAS_TAG, NN TAG
-TAG: ID, name, created_at, updated_at
+user: id, pseudo, firstname, lastname, url_avatar, email, password, notif_new_event, notif_new_update, created_at, updated_at
+participates, 0N user, 0N event
+event: id, title, url_image, price, description, address, is_online, url_live, nbr_like, nbr_participant, date_start, date_end, created_at, updated_at
+is_shared, 0N event, 0N share
+share: id, name, link
 
-WATCHES, 0N USER, 11 EVENT
-EVENT: ID, title, url_image, price, description, address, is_online, url_live, nbr_like, nbr_participant, date_start, date_finish, created_at, updated_at, user_id, status_id
-HAS_ACTUALITY, 0N EVENT, 11 ACTUALITY
-ACTUALITY: ID, description, created_at, updated_at, event_id, user_id
+possesses, 0N role, 1N user
+role: id, name, created_at, updated_at
+is_created, 0N user, 11 event
+belongs_to, 11 event, 0N status
+status: id, name, created_at, updated_at
 
-HAS_STATUS, 11 EVENT, 0N STATUS
-STATUS: ID, name, created_date, updated_at
 
 <a href="medias/MCD--Teriyaki.png" target="_blank"><img src="medias/MCD--Teriyaki.png"></a>
 
@@ -88,3 +87,9 @@ Pour un dossier de travail donné, Git manipule différents « espaces virtuels 
 - **_Index (ou stage)_** : espace stockant les modifications en cours, **qui seront prises en compte par Git pour le prochain commit (mais pas encore commitées)**.
 - **_Local repository_** : espace stockant les modifications **déjà prises en compte par Git**.
 - **_Remote repository_** : désigne le dépôt distant (_remote_, sur GitHub par exemple), dépôt auquel est relié votre dépôt local. **Les commits du _local repository_ doivent y être pushés pour mettre le dépôt distant à jour** et collaborer avec d'autres personnes.
+
+*****************************************
+
+## /!\ AIDE -> Build du projet
+
+https://github.com/O-clock-Universe/React-modele/blob/master/INSTALL.md#build-du-projet
