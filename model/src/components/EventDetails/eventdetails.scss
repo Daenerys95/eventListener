@@ -1,0 +1,53 @@
+.nav {
+  height: 5rem;
+  background-color: #282A40;
+  margin-bottom: 5rem;
+}
+
+.header-event {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+
+
+  &-bg {
+    background-image: url("images/event.png");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    height: 40vh;
+    width: 70%;
+    border-bottom: 1px solid #6F7287;
+  }
+
+  &-infos {
+    width: 30%;
+    text-align: justify;
+    background-color: #EBEBEE;
+    border-bottom: 1px solid #6F7287;
+  }
+
+  &-bottom {
+    display: flex;
+    height: 5vh;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid #6F7287;
+
+    &-icons {
+    width: 70%;
+    text-align: start;
+      img {
+        cursor: pointer;
+        margin-right: 0.7rem;
+      }
+    }
+
+    &-status {
+    width: 30%;
+    }
+  }
+  
+}
