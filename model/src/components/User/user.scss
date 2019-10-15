@@ -1,0 +1,29 @@
+@import 'src/assets/styles/vars';
+
+.user {
+  
+  .header {
+    position: relative;
+    background-color: #b8c4c4;
+    background-image: url('https://image-placeholder.com/images/actual-size/1920x1080.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: $headerBgImageSize;
+
+    &-pseudo {
+      text-align: center;
+      padding-top: calc(#{$headerBgImageSize} / 2);
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    &-avatar {
+      position: absolute;
+      bottom: calc(#{$headerAvatarSize} / -2);
+      left: calc(50% - (#{$headerAvatarSize} / 2));
+      border-radius: 50%;
+      border: 1px #333 solid;
+    }
+  }
+} 
