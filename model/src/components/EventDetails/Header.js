@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Card, Horizontal, Row, Col } from 'react-materialize';
-
 const Header = () => {
   return (
     <div className="header-event">
