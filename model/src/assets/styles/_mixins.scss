@@ -1,0 +1,7 @@
+@mixin checkCustom($color, $size, $weight) {
+  width: calc(#{$size} / 2);
+  height: $size;
+  border: solid $color;
+  border-width: 0 $weight $weight 0;
+  transform: rotate(40deg);
+}

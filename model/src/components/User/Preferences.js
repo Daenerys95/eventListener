@@ -29,88 +29,110 @@ const Preferences = ({
       <h2 className="preferences-title">
         Mes informations
       </h2>
-      <div className="preferences-infos">
-        <div className="preferences-infos-input">
-          <label
-            className="preferences-infos-input-label-field"
-            htmlFor="firstnameInput"
-          >
-            Nom :
-          </label>
-          <input
-            className="preferences-infos-input-field"
-            id="firstnameInput"
-            name="firstname"
-            type="text"
-            value={lastname}
-            disabled={editorModeDisabled}
-          />
-          <label
-            className="preferences-infos-input-label-field"
-            htmlFor="lastnameInput"
-          >
-            Prenom :
-          </label>
-          <input
-            className="preferences-infos-input-field"
-            id="lastnameInput"
-            name="lastname"
-            type="text"
-            value={firstname}
-            disabled={editorModeDisabled}
-          />
-          <label
-            className="preferences-infos-input-label-field"
-            htmlFor="emailInput"
-          >
-            Adresse mail :
-          </label>
-          <input
-            className="preferences-infos-input-field"
-            id="emailInput"
-            name="email"
-            type="email"
-            value={email}
-            disabled={editorModeDisabled}
-          />
-          <div className="preferences-infos-input-checkbox">
-            <input
-              className="checkbox"
-              id="notifNewEvent"
-              name="notifNewEvent"
-              type="checkbox"
-              disabled={editorModeDisabled}
-              checked={notifNewEvent}
-            />
+      <form className="preferences-infos">
+
+        <div className="preferences-infos-container">
+
+          <div className="content content--left">
+
             <label
-              className="label"
-              htmlFor="notifNewEvent"
+              className="content-input-label-field"
+              htmlFor="firstnameInput"
             >
-              {nameForNotifNewEvent}
+              Nom :
             </label>
-          </div>
-          <div className="preferences-infos-input-checkbox">
             <input
-              className="checkbox"
-              id="notifNewUpdate"
-              name="notifNewUpdate"
-              type="checkbox"
+              className="content-input-field"
+              id="firstnameInput"
+              name="firstname"
+              type="text"
+              value={lastname}
               disabled={editorModeDisabled}
-              checked={notifNewUpdate}
             />
+
             <label
-              className="label"
-              htmlFor="notifNewUpdate"
+              className="content-input-label-field"
+              htmlFor="lastnameInput"
             >
-              {nameFornotifNewUpdate}
+              Prenom :
             </label>
+            <input
+              className="content-input-field"
+              id="lastnameInput"
+              name="lastname"
+              type="text"
+              value={firstname}
+              disabled={editorModeDisabled}
+            />
+
+            <label
+              className="content-input-label-field"
+              htmlFor="emailInput"
+            >
+              Adresse mail :
+            </label>
+            <input
+              className="content-input-field"
+              id="emailInput"
+              name="email"
+              type="email"
+              value={email}
+              disabled={editorModeDisabled}
+            />
+
           </div>
+
+          <div className="content content--right">
+
+            <div className="content-input-checkbox">
+              <input
+                className="checkbox"
+                id="notifNewEvent"
+                name="notifNewEvent"
+                type="checkbox"
+                disabled={editorModeDisabled}
+                checked={notifNewEvent}
+              />
+              <label
+                className="label"
+                htmlFor="notifNewEvent"
+              >
+                {nameForNotifNewEvent}
+              </label>
+            </div>
+
+            <div className="content-input-checkbox">
+              <input
+                className="checkbox"
+                id="notifNewUpdate"
+                name="notifNewUpdate"
+                type="checkbox"
+                disabled={editorModeDisabled}
+                checked={notifNewUpdate}
+              />
+              <label
+                className="label"
+                htmlFor="notifNewUpdate"
+              >
+                {nameFornotifNewUpdate}
+              </label>
+            </div>
+
+          </div>
+
         </div>
+
         <div className="preferences-infos-buttons">
-          <button className="modeEditor" type="submit">Modifier mes informations</button>
-          <a className="deleteAccount" href="#">Supprimer mon compte</a>
+          { editorModeDisabled && (
+            <button className="button button--mode-editor" type="button">Modifier mes informations</button>
+          ) }
+          { !editorModeDisabled && (
+            <button className="button button--validate-preferences" type="submit">Valider mes modifications</button>
+          ) }
+          <button className="button button--delete-account" type="button">Supprimer mon compte</button>
         </div>
-      </div>
+
+      </form>
     </div>
   );
 };

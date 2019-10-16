@@ -1,7 +1,9 @@
 @import 'src/assets/styles/vars';
+@import 'src/assets/styles/mixins';
 
 .user {
   min-width: 350px;
+  font-family: 'Ubuntu', sans-serif;
   
   .header {
     position: relative;
@@ -17,6 +19,7 @@
       padding-top: calc(#{$headerBgImageSize} / 2);
       font-size: 1.5em;
       font-weight: bold;
+      color: $preferenceTextColorDark;
     }
 
     &-avatar {
@@ -24,92 +27,93 @@
       bottom: calc(#{$headerAvatarSize} / -2);
       left: calc(50% - (#{$headerAvatarSize} / 2));
       border-radius: 50%;
-      border: 1px #333 solid;
+      border: 1px $preferenceTextColorDark solid;
     }
   }
 
   .preferences {
-    background-color: #DFE6ED;
+    background-color: $preferenceBgColor;
     text-align: left;
     padding: 8rem 3rem 2rem;
 
     &-title {
-      color: #333;
+      color: $preferenceTextColorDark;
       width: 250px;
       font-size: 1.3em;
       padding-bottom: 0.5rem;
-      border-bottom: 2px solid #333;
+      border-bottom: 2px solid $preferenceTextColorDark;
     }
 
     &-infos {
       margin: 2.5rem 1rem 1rem;
 
-      &-input {
+      &-container {
         display: flex;
         flex-direction: column;
-
-        &-label-field {
-          color: #666;
-          font-size: 0.7em;
-          margin: 0.2rem 0;
-        }
-
-        &-field {
-          color: #333;
-          font-size: 0.9em;
-          margin-bottom: 0.2rem;
-        }
-
-        /* disabled input */
-        &-field[disabled] {
-          background: none;
-          border: none;
-          margin-bottom: 0.9rem;
-        }
-
-        &-checkbox {
-          position: relative;
-          margin: 0.2rem 0;
-
-          .checkbox {
-            margin: 0;
+        
+        .content {
+          display: flex;
+          flex-direction: column;
+            
+          &-input-label-field {
+            color: $preferenceTextColorGrey;
+            font-size: $preferenceLabelFontSize;
+            margin: 0.2rem 0;
+            width: max-content;
           }
-
-          .label {
-            font-size: 0.8em;
-            color: #333;
-            padding-left: 0.2rem;
+  
+          &-input-field {
+            color: $preferenceTextColorDark;
+            font-size: $preferenceTextContentFontSize;
+            margin-bottom: 0.2rem;
+            width: max-content;
           }
-
+  
           /* disabled input */
-          .checkbox[disabled] {
-            display: none;
+          &-input-field[disabled] {
+            background: none;
+            border: none;
+            margin-bottom: 0.9rem;
+          }
+  
+          &-input-checkbox {
+            position: relative;
+            margin: 0.5rem 0;
+  
+            .checkbox {
+              margin: 0;
+            }
+  
+            .label {
+              font-size: $preferenceTextContentFontSize;
+              color: $preferenceTextColorDark;
+              padding-left: 0.2rem;
+            }
+  
+            /* disabled input */
+            .checkbox[disabled] {
+              display: none;
+            }
+  
+            /* disabled input */
+            .checkbox[disabled] + .label {
+              padding-left: 20px;
+            }
+  
+            /* disabled input */
+            .checkbox[disabled] + .label::before {
+              position: absolute;
+              content: "";
+              left: 4px;
+              @include checkCustom($preferenceUncheckedColor, 15px, 3px);
+            }
+  
+            /* disabled input */
+            .checkbox[disabled]:checked + .label::before {
+              @include checkCustom($preferenceCheckedColor, 15px, 3px);
+            }
           }
 
-          /* disabled input */
-          .checkbox[disabled] + .label {
-            padding-left: 20px;
-          }
-
-          /* disabled input */
-          // checkbox custom (unchecked)
-          .checkbox[disabled] + .label::before {
-            position: absolute;
-            content: "";
-            left: 4px;
-            width: 8px;
-            height: 15px;
-            border: solid #bbb;
-            border-width: 0 2px 2px 0;
-            transform: rotate(40deg);
-          }
-
-          /* disabled input */
-          // checkbox custom (checked)
-          .checkbox[disabled]:checked + .label::before {
-            border: solid #008000;
-            border-width: 0 2px 2px 0;
-          }
         }
       }
 
@@ -118,36 +122,69 @@
         display: flex;
         flex-direction: column;
 
-        .modeEditor {
+        .button {
+          display: inline-block;
+          width: max-content;
           background: none;
           border: none;
-          text-align: left;
-          font-size: 0.85em;
-          color: #005c80;
+          font-size: $preferenceTextContentFontSize;
           text-decoration: underline;
-          margin: 0.3rem 0;
+          margin: 0.2rem 0;
           padding: 0;
-        }
-        
-        .deleteAccount {
-          display: inline-block;
-          text-align: left;
-          font-size: 0.85em;
-          color: #800000;
-          text-decoration: underline;
-          margin: 0.3rem 0;
+
+          &--mode-editor {
+            color: $preferenceEditLinkColor;
+          }
+
+          &--validate-preferences {
+            color: $preferenceValidateLinkColor;
+          }
+          
+          &--delete-account {
+            color: $preferenceDeleteLinkColor;
+          }
         }
       }
     }
   }
 } 
 
-
+// adjust the title for other devices
 @media (min-width: 768px) {
   .user {
-    
     .preferences {
       padding: 4rem 3rem 2rem;
+    }
+  }
+}
+
+// separate infos into 2 block & centered buttons
+@media (min-width: 1024px) {
+  .user {
+    .preferences {
+      &-infos {
+        &-container {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          .content {
+            flex-direction: column;
+            width: max-content;
+            align-self: center;
+          }
+        }
+
+        &-buttons {
+          flex-direction: row;
+          justify-content: center;
+
+          .button {
+            margin: 0 1rem;
+          }
+        }
+      }
     }
   }
 }

@@ -1,5 +1,19 @@
-
-// User size
+// user size
 $headerBgImageSize: 300px;
 $headerAvatarSize: 200px;
 
+// user font size
+$preferenceTextContentFontSize: 0.9em;
+$preferenceLabelFontSize: 0.7em;
+
+// user color
+$preferenceBgColor: #dfe6ed;
+
+$preferenceTextColorDark: #333;
+$preferenceTextColorGrey: #666;
+
+$preferenceCheckedColor: #080;
+$preferenceUncheckedColor: #bbb;
+$preferenceEditLinkColor: #005c80;
+$preferenceValidateLinkColor: #080;
+$preferenceDeleteLinkColor: #800;
