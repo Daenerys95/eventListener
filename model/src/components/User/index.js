@@ -8,12 +8,12 @@ import Preferences from 'src/components/User/Preferences';
 
 const state = {
   pseudo: 'Teriyaki',
-  urlAvatar: 'https://image-placeholder.com/images/actual-size/200x200.png',
+  urlAvatar: 'https://pixabay.com/get/5fe7d6474c52b10ff3d89938b977692b083edbe25253734073277d/blank-profile-picture-973460_640.png',
   firstname: 'Guillaume',
   lastname: 'Terrien',
   email: 'guillaume.terrien.gt@gmail.com',
-  notifNewEvent: true,
-  notifNewUpdate: false,
+  notifNewEvent: false,
+  notifNewUpdate: true,
   editorModeDisabled: true,
 };
 
