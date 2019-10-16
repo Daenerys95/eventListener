@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Datetime from './Datetime';
+import Address from './Address';
 
 const Description = () => (
   <div className="description">
@@ -20,8 +21,8 @@ const Description = () => (
     </div>
     <div className="description-time">
       <Datetime /> 
+      <Address />
     </div>
-    
   </div>
 );
 
