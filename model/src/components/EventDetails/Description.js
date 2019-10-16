@@ -2,6 +2,7 @@ import React from 'react';
 
 import Datetime from './Datetime';
 import Address from './Address';
+import Speakers from './Speakers';
 
 const Description = () => (
   <div className="description">
@@ -22,6 +23,9 @@ const Description = () => (
     <div className="description-time">
       <Datetime /> 
       <Address />
+    </div>
+    <div>
+      {/* <Speakers /> */}
     </div>
   </div>
 );
