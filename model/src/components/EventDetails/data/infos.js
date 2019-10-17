@@ -15,7 +15,7 @@ export default [
       id: 5, name: "Mélanie Vacher", role: "Manager Data Science", company: "LineUP 7", avatar: ""
     },
     {
-      id: 6, name: "Marylin Courtois", role: "CEO", company: "Inbox", avatar: ""
+      id: 6, name: "Marylin Courtois", role: "CEO", company: "Inbox", avatar: "src/components/EventDetails/images/user.png"
     },
   ];
 

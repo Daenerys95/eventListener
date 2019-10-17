@@ -5,7 +5,7 @@ import React from 'react';
 import Nav from './Nav';
 import Header from './Header';
 import Description from './Description';
-import Datetime from './Datetime';
+import Speakers from './Speakers';
 
 // import local
 import './eventdetails.scss';
@@ -18,6 +18,7 @@ const EventDetails = () => (
       <Header />
       <div className="">
         <Description />
+        {/* <Speakers /> */}
       </div>
       
     </div>

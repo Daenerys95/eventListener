@@ -3,10 +3,12 @@ import React from 'react';
 import Datetime from './Datetime';
 import Address from './Address';
 import Speakers from './Speakers';
+import Tags from './Tags';
 
 const Description = () => (
   <div className="description">
-    <div className="description-content">
+    <div className="test">
+      <div className="description-content">
       <h1>Description</h1>
       <p>✨ DataJob, le salon de référence pour trouver le job de vos rêves ✨</p>
       <p>Retrouvez-nous le mardi 12 novembre 2019 à la Cité des Sciences et de l'Industrie de 9h à 19h.</p>
@@ -24,8 +26,13 @@ const Description = () => (
       <Datetime /> 
       <Address />
     </div>
-    <div>
-      {/* <Speakers /> */}
+    </div>
+    
+    <div className="speakers">
+      <Speakers />
+    </div>
+    <div className="tags">
+      <Tags />
     </div>
   </div>
 );
