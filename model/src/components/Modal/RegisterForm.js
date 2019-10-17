@@ -5,19 +5,24 @@ const RegisterForm = ({ handleClose, show }) => {
 
   return (
     <div className={showHideClassName}>
-      <section className='modal-main'>
-        <h1 className="">Inscription</h1>
+      <section className="modal-main">
+        <h1 className="modal-h1">Inscription</h1>
         <form className="modal-form">
-          <input className="" required placeholder="Pseudo *" type="" />
-          <input className="" required placeholder="Adresse email *" type="email" />
-          <input className="" required placeholder="Mot de passe *" type="password" />
-          <input className="" required placeholder="Confirmer mot de passe *" type="password" />
-          <p>Recevoir des newsletters provenant d'Event Listener</p>
-          <button className="" type="submit">S'inscrire</button>
+          <input className="modal-form--input" required placeholder="Pseudo *" type="" />
+          <input className="modal-form--input" required placeholder="Adresse email *" type="email" />
+          <input className="modal-form--input" required placeholder="Mot de passe *" type="password" />
+          <input className="modal-form--input" required placeholder="Confirmer mot de passe *" type="password" />
         </form>
-        <button onClick={handleClose}>
+        <div className="modal-checkbox">
+          <input type="checkbox"></input>
+          <p>Recevoir des newsletters</p>
+        </div>
+        <div className="modal-button">
+          <button className="modal-submit" type="submit">S'inscrire</button>      
+          <button className="modal-cancel" onClick={handleClose}>
             Annuler
-        </button>
+          </button>
+        </div>
       </section>
     </div>
   );
