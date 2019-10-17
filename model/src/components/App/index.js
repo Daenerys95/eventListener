@@ -3,7 +3,7 @@ import React from 'react';
 
 // == Import : local
 import './app.scss';
-import Home from 'src/components/Home';
+import Events from 'src/components/Events';
 
 
 
@@ -11,7 +11,7 @@ import Home from 'src/components/Home';
 const App = () => (
   <div id="app">
     App React
-    <Home />
+    <Events />
   </div>
 );
 
