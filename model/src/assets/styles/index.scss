@@ -3,15 +3,33 @@
 // @import './fonts/HERO.OTF';
 
 /* IMPORT DES FONTS */
-// @include font-face ('NHU', './fonts/NeueHaasUnica', null, null, otf ttf);
-// @include font-face ('Hero', './fonts/hero', null, null, otf);
-
-body {
-  font-family: sans-serif;
+@font-face {
+  font-family: 'hero';
+  src: url("../fonts/Hero/hero-regular-webfont.woff2") format('woff2'),
+       url("../fonts/Hero/hero-regular-webfont.woff") format('woff'),
+       url("../fonts/Hero/Hero-Regular.otf") format('opentype'),
+       url("../fonts/Hero/Hero-Regular.ttf") format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-// #root {
-//   background-image: url("https://images.unsplash.com/photo-1501420264597-23296a7e6a46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80");
-//   background-repeat: no-repeat;
-//   background-size: 100% 100%;
-// }
+@font-face {
+  font-family: 'univers';
+  src: url('../fonts/Univers/UniversLTStd.otf') format('opentype'),
+       url('../fonts/Univers/Univers-light-normal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  font-family: 'univers', sans-serif;
+}
+
+a:hover {
+  color: $turquoise;
+}
+
+a:active {
+  color: $blue;
+}
