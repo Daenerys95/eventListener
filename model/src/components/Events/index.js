@@ -4,10 +4,14 @@ import React from 'react';
 // == Import : local
 import './events.scss';
 import Form from './Form';
+import Event from './Event';
 
 // == Composant
 const Events = () => (
-    <Form />
+    <div>
+        <Form />
+        <Event />
+    </div>
 );
 
 // == Export

@@ -26,3 +26,37 @@
 .searchBarAdvanced label {
     margin: 1rem;
 }
+
+.evt {
+    border: solid red 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75rem;
+    margin: auto;
+}
+
+.evt img {
+    width: 15rem;
+}
+
+.evt span {
+    border: solid gray 1px;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+}
+
+.evt-infos {
+    text-align: start;
+}
+
+.evt-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.evt-button-share {
+    //width: 10rem;
+}
