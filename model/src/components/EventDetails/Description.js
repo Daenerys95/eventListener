@@ -4,6 +4,7 @@ import Datetime from './Datetime';
 import Address from './Address';
 import Speakers from './Speakers';
 import Tags from './Tags';
+import CheckButtons from './CheckButtons';
 
 const Description = () => (
   <div className="description">
@@ -33,6 +34,9 @@ const Description = () => (
     </div>
     <div className="tags">
       <Tags />
+    </div>
+    <div className="check-buttons">
+      <CheckButtons />
     </div>
   </div>
 );

@@ -10,16 +10,17 @@ return(
     { infos.map((speaker) => {
     const unknownUser = speaker.avatar === "" ? "src/components/EventDetails/images/user.png"  : speaker.avatar;
       return (
-        <ul key={speaker.id}>
-          <li><img className="speakers-img" src={unknownUser} alt="avatar"/></li>
-          <div className="speakers-overlay">
-            <li className="speakers-text">{speaker.name}</li>
-            <li className="speakers-text">{speaker.role}</li>
-            <li className="speakers-text">{speaker.company}</li>
+        <div className="speakers-card" key={speaker.id}>
+          <img className="speakers-img" src={unknownUser} alt="avatar"/>
+          <div className="speakers-content">
+            <h4>{speaker.name}</h4>
+            <p>{speaker.role}</p>
+            <p>{speaker.company}</p>
           </div>
-        </ul>
+        </div>
       )
     })}
+    {/* <a href="#">Afficher plus</a> */}
   </div>
 );  
 }
