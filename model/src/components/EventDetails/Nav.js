@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Nav = () => (
-  <div className="nav">
+  <nav className="nav">
     <div className="nav-left">
       <p className="nav-logo">eventListener</p>
       <form className="nav-form" method="POST">
@@ -13,8 +13,7 @@ const Nav = () => (
       <button className="nav-btn" type="button">Inscription</button>
       <button className="nav-btn" type="button">Connexion</button>
     </div>
-   
-  </div>
+  </nav>
 );
 
 export default Nav;

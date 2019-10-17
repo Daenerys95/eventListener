@@ -6,3 +6,39 @@
 .full-page {
   @include full-page;
 }
+
+.nav {
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+
+  &-left {
+    display: flex;
+    padding: 2rem;
+  }
+
+  &-logo {
+    @include page-logo;
+  }
+
+  &-form {
+    display: flex;
+
+    &-input {
+      align-self: center;
+      padding: 0.5em;
+      border-radius: $lightBorderRadius;
+      border: none;
+      margin-left: 0.2rem;
+
+      &:focus {
+        border: 1px solid $blue;
+        padding: 1em
+      }
+    }
+  }
+
+  &-btn {
+    @include nav-btn;
+  }
+}

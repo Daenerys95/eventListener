@@ -17,8 +17,8 @@ background-size: 100% 50%;
 
 .nav {
   height: 5rem;
-  background-color: #fff;
-  margin-bottom: 5rem;
+  //background-color: #fff;
+  //margin-bottom: 5rem;
   display: flex;
   justify-content: space-between;
 
@@ -58,11 +58,11 @@ background-size: 100% 50%;
 
   }
 
-  &-icon {
-    align-self: center;
-    font-size: 1rem;
-    color: #4559FF;  
-  }
+  // &-icon {
+  //   align-self: center;
+  //   font-size: 1rem;
+  //   color: #4559FF;  
+  // }
 
   &-btn {
     margin-top: 1.5rem;
