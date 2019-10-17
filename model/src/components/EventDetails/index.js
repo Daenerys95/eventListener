@@ -12,18 +12,9 @@ import './eventdetails.scss';
 
 // Composant EventDetails
 const EventDetails = () => (
-  <div>
-    <Nav />
-    <div className="full-page">
-      <Header />
-      <div className="">
-        <Description />
-        {/* <Speakers /> */}
-      </div>
-      
-    </div>
-  </div>
+  <div className="full-page">
   
+  </div>
 );
 
 export default EventDetails;
