@@ -5,7 +5,7 @@ import React from 'react';
 import './events.scss';
 import image from '../../assets/images/test_evt.png';
 import icon_share from '../../assets/icons/share.png';
-
+import icon_like from '../../assets/icons/like.png';
 
 // == Composant
 const Event = () => (
@@ -22,7 +22,7 @@ const Event = () => (
         </div>
         <div className="evt-button">
             <button className="evt-button-share"><img src={icon_share} alt="Partage social" /></button>
-            <button className="">Aimer</button>
+            <button className="evt-button-like"><img src={icon_like} alt="Aimer" /></button>
         </div>
     </div>
 );
