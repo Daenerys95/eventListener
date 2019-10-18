@@ -5,7 +5,10 @@ import React from 'react';
 import './events.scss';
 
 // == Composant
-const Form = () => (
+const Form = ({
+    name,
+    adress,
+}) => (
     <div className="search">
         <form>
             <div className="searchBar">
@@ -18,9 +21,9 @@ const Form = () => (
                 <input type="search" className="searchBar-input" placeholder="Tapez un mot-clef" />
                 <label className="searchBarAdvanced-label_tag">Tag
                     <select name="tag">
-                        <option value="">Tag 1</option>
-                        <option value="">Tag 2</option>
-                        <option value="">Tag 3</option>
+                        <option value="{name}">{name}</option>
+                        <option value="{name}">{name}</option>
+                        <option value="{name}">{name}</option>
                     </select>
                 </label>
                 <label clasName="searchBarAdvanced-label_price">Prix
@@ -41,9 +44,9 @@ const Form = () => (
                 <label className="searchBarAdvanced-label_adress">Ville
                     <input list="villes" id="searchBarAdvanced-label_adress-cities" name="ville" />
                     <datalist id="villes">
-                        <option value="Ville 1" />
-                        <option value="Ville 2" />
-                        <option value="Ville 3" />
+                        <option value={adress} />
+                        <option value={adress} />
+                        <option value={adress} />
                     </datalist>
                 </label>
                 <button type="submit" className="searchBar-button">Rechercher</button>
