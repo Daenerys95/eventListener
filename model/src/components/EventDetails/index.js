@@ -4,7 +4,10 @@ import React from 'react';
 // import sous-composants
 import Nav from './Nav'
 import Header from './Header';
+import Datetime from './Datetime';
+import Address from './Address';
 import Description from './Description';
+import Tags from './Tags';
 import Speakers from './Speakers';
 
 // import local
@@ -15,7 +18,15 @@ const EventDetails = () => (
   <>
   <Nav />
   <div className="full-page">
-    
+    <div className="flyer-container">
+      <Header />
+      <div className="date-loc-display">
+        <Datetime />
+        <Address /> 
+      </div>      
+      <Description />
+      <Tags /> 
+    </div>
   </div>
   </>
 );

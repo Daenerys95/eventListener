@@ -5,7 +5,7 @@ const Header = () => {
     <div className="header-event">
       <div className="header-event-bg"></div>
         <div className="header-event-infos">
-          <p className="header-event-infos-date">NOV.<br />12</p>
+          <time className="header-event-infos-date">NOV.<br />12</time>
           <br />
           <p className="header-event-infos-name">DataJob Paris 2019
           <br />

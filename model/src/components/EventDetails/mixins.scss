@@ -30,3 +30,63 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+
+@mixin smallScreenCommon {
+  font-size: $textFontSize;
+  text-align: justify;
+  margin: $marginBottom;
+  padding: 1rem;
+}
+
+@mixin smallScreenDateAndLocCommon($side) {
+  width: 50%;
+  margin-#{$side}: $marginBottom;
+  font-size: $textFontSize;
+  margin-bottom: $marginBottom;
+  text-align: justify;
+  padding-top: 1rem;
+}
+
+/* Responsive */
+
+// Extra Small devices
+@mixin xs {
+  @media (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra Large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+// Custom devices
+@mixin rwd($screen) {
+  @media (min-width: $screen+'px' ) {
+     @content;
+  }
+}
