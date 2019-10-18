@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 
 // import local
 import './user.scss';
+import avatarImg from 'src/assets/images/defaultAvatar.png';
 
 // composant
-const User = ({ pseudo, urlAvatar }) => (
+const Header = ({ pseudo, urlAvatar }) => (
   <header className="header">
     <p className="header-pseudo">
       {pseudo}
@@ -15,10 +16,14 @@ const User = ({ pseudo, urlAvatar }) => (
   </header>
 );
 
-User.propTypes = {
+Header.propTypes = {
   pseudo: PropTypes.string.isRequired,
-  urlAvatar: PropTypes.string.isRequired, // Ajouter, par la suite, un avatar par défaut
+  urlAvatar: PropTypes.string,
+};
+
+Header.defaultProps = {
+  urlAvatar: avatarImg,
 };
 
 // export
-export default User;
+export default Header;

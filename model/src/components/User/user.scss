@@ -2,19 +2,20 @@
 @import 'src/assets/styles/mixins';
 
 .user {
-  min-width: 350px;
-  font-family: 'Ubuntu', sans-serif;
+  min-width: 320px;
+  font-family: 'Univers', sans-serif;
   
   .header {
     position: relative;
     background-color: #b8c4c4;
-    background-image: url('https://pixabay.com/get/55e9d54a4f51a914f6d1867dda6d49214b6ac3e45656704b772678dd92/background-3909535_1920.jpg');
+    background-image: url('./../../assets/images/bgUser.jpg');
     background-position: center bottom;
     background-size: cover;
     background-repeat: no-repeat;
     height: $headerBgImageSize;
 
     &-pseudo {
+      font-family: 'Hero', sans-serif;
       text-align: center;
       padding-top: calc(#{$headerBgImageSize} / 2);
       font-size: 1.5em;
@@ -68,6 +69,7 @@
             font-size: $preferenceTextContentFontSize;
             margin-bottom: 0.2rem;
             width: max-content;
+            @include form-element;
           }
   
           /* disabled input */
@@ -148,6 +150,70 @@
       }
     }
   }
+
+  .delete-account {
+    position: fixed;
+    background: rgba(34, 34, 34, 0.568);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    &-modal {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: $preferenceBgColor;
+      max-width: 450px;
+      margin: auto;
+      margin-top: 50vh;
+      transform: translateY(-50%);
+      border-radius: 3px;
+      padding: 1rem;
+
+      &-close-cross {
+        align-self: flex-end;
+        font-size: 3em;
+        padding-right: 1rem;
+        background: none;
+        border: none;
+      }
+
+      &-message {
+        text-align: center;
+        padding: 1rem;
+      }
+
+      &-buttons {
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .button {
+          margin: .5rem 1rem;
+          text-align: center;
+          font-size: $preferenceTextContentFontSize;
+          border: none;
+          width: max-content;
+          border-radius: 3px;
+
+          &--cancel {
+            background: #6942e4;
+            color: #f6fafd;
+            padding: .5rem 1rem;
+          }
+          &--delete {
+            background: #6942e4;
+            color: #f6fafd;
+            padding: .5rem 1rem;
+          }
+        }
+      }
+    }
+  }
 } 
 
 // adjust the title for other devices
@@ -185,22 +251,47 @@
             margin: 0 1rem;
             text-decoration: none;
 
-            &:hover {
+            &:hover,
+            &:focus {
               text-decoration: none;
             }
 
-            &--mode-editor:hover {
+            &--mode-editor:hover,
+            &--mode-editor:focus {
               color: $preferenceEditLinkColorHover;
             }
 
-            &--validate-preferences:hover {
+            &--validate-preferences:hover,
+            &--validate-preferences:focus {
               color: $preferenceValidateLinkColorHover;
             }
 
-            &--delete-account:hover {
+            &--delete-account:hover,
+            &--delete-account:focus {
               color: $preferenceDeleteLinkColorHover;
             }
 
+          }
+        }
+      }
+    }
+
+    .delete-account {
+      &-modal {
+        &-close-cross {
+          &:hover,
+          &:focus {
+            color: #636363;
+          }
+        }
+
+        &-buttons {
+          .button {
+            &:hover,
+            &:focus {
+              background: #4b2bb3;
+              color: #dadee0;
+            }
           }
         }
       }

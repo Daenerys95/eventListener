@@ -8,13 +8,13 @@ import Preferences from 'src/components/User/Preferences';
 
 const state = {
   pseudo: 'Teriyaki',
-  urlAvatar: 'https://pixabay.com/get/5fe7d6474c52b10ff3d89938b977692b083edbe25253734073277d/blank-profile-picture-973460_640.png',
+  urlAvatar: null,
   firstname: 'Guillaume',
   lastname: 'Terrien',
   email: 'guillaume.terrien.gt@gmail.com',
   notifNewEvent: false,
   notifNewUpdate: true,
-  editorModeDisabled: true,
+  editorModeDisabled: false,
 };
 
 // composant
@@ -22,7 +22,6 @@ const User = () => (
   <div className="user">
     <Header
       pseudo={state.pseudo}
-      urlAvatar={state.urlAvatar}
     />
     <Preferences
       firstname={state.firstname}
