@@ -17,11 +17,11 @@ const Description = () => (
       <p>En 2018, DataJob a réunit plus de 3 000 participants, 80 entreprises et plus de 30 conférences/workshops.</p>
       <span id="more">
         <p>En 2019, DataJob c'est :</p>
-          <ul>
-            <li>90 entreprises à la recherche de leurs nouveaux talents tels que Quantmetry, Criteo, Louis Vuitton, le Groupe Crédit Agricole, la Caisse des Dépôts et <a href="https://www.datajob.fr/exposants-2019">bien d'autres</a>... </li>
-            <li>30 conférences avec des speakers de Facebook (Angela FAN), INRIA (Alexandre GRAMFORT), Ubisoft (Thomas SAIAG) . Programme à découvrir dès octobre !</li>
-            <li>2 meetups le soir : Paris Data Ladies et AI Engineering</li>
-          </ul>
+          
+            <p>90 entreprises à la recherche de leurs nouveaux talents tels que Quantmetry, Criteo, Louis Vuitton, le Groupe Crédit Agricole, la Caisse des Dépôts et <a href="https://www.datajob.fr/exposants-2019">bien d'autres</a>... </p>
+            <p>30 conférences avec des speakers de Facebook (Angela FAN), INRIA (Alexandre GRAMFORT), Ubisoft (Thomas SAIAG) . Programme à découvrir dès octobre !</p>
+            <p>2 meetups le soir : Paris Data Ladies et AI Engineering</p>
+          
         <p>Plus d'info: <a href="https://www.datajob.fr/">www.datajob.fr</a> </p>
       </span>
     </div>

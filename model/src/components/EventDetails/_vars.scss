@@ -1,7 +1,9 @@
 $lightBorderRadius: 5px;
 $textFontSize: 0.8em;
-$marginBottom: 2rem;
+$marginBottom: 2em;
 $boxShadow: 0 8px 16px 0 rgba(78, 84, 140,0.2);
+$lightColorBorderBottom: 1px solid lighten(#ccc, 15%);
+$linkColor: darken($blue, 25%);
   
 
 /* Responsive */
