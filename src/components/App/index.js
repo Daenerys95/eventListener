@@ -8,6 +8,7 @@ import User from 'src/components/User';
 import Home from 'src/components/Home';
 import EventDetails from 'src/components/EventDetails';
 import LegalMentions from 'src/components/LegalMentions';
+import PrivatePolicy from 'src/components/PrivatePolicy';
 import Nav from './Nav';
 import Footer from './Footer';
 
@@ -26,6 +27,9 @@ const App = () => (
     </Route>
     <Route path="/legal-mentions">
       <LegalMentions />
+    </Route>
+    <Route path="/private-policy">
+      <PrivatePolicy />
     </Route>
     <footer>
       <Footer />

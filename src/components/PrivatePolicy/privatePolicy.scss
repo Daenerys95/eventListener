@@ -1,0 +1,49 @@
+@import 'src/assets/styles/vars';
+@import 'src/assets/styles/mixins';
+
+.private-policy {
+  text-align: left;
+  color: #e7e7e7;
+  padding: 2rem;
+  padding-top: 112px;
+
+  a {
+    color: $blue;
+    
+    &:hover {
+      color: $purple;
+    }
+  }
+
+  &-title {
+    font-size: 2.2em;
+    font-weight: bold;
+    padding: 1rem 0;
+  }
+
+  &-paragraph {
+    padding: 1rem;
+  }
+
+  &-subtitle {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 1rem;
+    text-decoration: underline;
+  }
+
+  &-list {
+    padding: 1rem;
+  }
+
+  &-list {
+    font-size: 0.9em;
+    color: #e7e7e7;
+    &-item {
+      padding: 0.5rem 0;
+      strong {
+        color: #b6c3d8;
+      }
+    }
+  }
+}
