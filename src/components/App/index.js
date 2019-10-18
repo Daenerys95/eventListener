@@ -7,6 +7,7 @@ import './app.scss';
 import User from 'src/components/User';
 import Home from 'src/components/Home';
 import EventDetails from 'src/components/EventDetails';
+import LegalMentions from 'src/components/LegalMentions';
 import Nav from './Nav';
 import Footer from './Footer';
 
@@ -22,6 +23,9 @@ const App = () => (
     </Route>
     <Route path="/profile">
       <User />
+    </Route>
+    <Route path="/legal-mentions">
+      <LegalMentions />
     </Route>
     <footer>
       <Footer />
