@@ -10,7 +10,6 @@ import Events from 'src/components/Events';
 // == Composant
 const App = () => (
   <div id="app">
-    App React
     <Events />
   </div>
 );
