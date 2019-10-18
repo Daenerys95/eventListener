@@ -15,8 +15,8 @@ const Header = () => {
         </div>
         <div className="header-event-bottom">
           <div className="header-event-bottom-icons">
-            <img src="https://img.icons8.com/ios-glyphs/24/000000/share.png" />
-            <img src="https://img.icons8.com/ios/24/000000/like.png" />
+            <img src="https://img.icons8.com/nolan/24/000000/share.png" />
+            <img src="https://img.icons8.com/nolan/24/000000/like.png" />
           </div>
           <div className="header-event-bottom-status">
             <p>A venir</p>

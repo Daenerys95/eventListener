@@ -9,6 +9,7 @@ import Address from './Address';
 import Description from './Description';
 import Tags from './Tags';
 import Speakers from './Speakers';
+import CheckButtons from './CheckButtons';
 
 // import local
 import './eventdetails.scss';
@@ -20,12 +21,15 @@ const EventDetails = () => (
   <div className="full-page">
     <div className="flyer-container">
       <Header />
-      <div className="date-loc-display">
-        <Datetime />
-        <Address /> 
-      </div>      
-      <Description />
+      <div className="description-zone">
+        <div className="date-loc-display">
+          <Datetime />
+          <Address /> 
+        </div>      
+        <Description />  
+      </div>
       <Tags /> 
+      <CheckButtons />  
     </div>
   </div>
   </>
