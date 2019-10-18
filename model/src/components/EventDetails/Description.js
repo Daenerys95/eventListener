@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Datetime from './Datetime';
-import Address from './Address';
-import Speakers from './Speakers';
-import Tags from './Tags';
-import CheckButtons from './CheckButtons';
+// import Datetime from './Datetime';
+// import Address from './Address';
+// import Speakers from './Speakers';
+// import Tags from './Tags';
+// import CheckButtons from './CheckButtons';
 
 const Description = () => (
   <div className="description">
-    <div className="test">
+    {/* <div className="test"> */}
       <div className="description-content">
       <h1>Description</h1>
       <h3>✨ DataJob, le salon de référence pour trouver le job de vos rêves ✨</h3>
@@ -24,7 +24,7 @@ const Description = () => (
           
         <p>Plus d'info: <a href="https://www.datajob.fr/">www.datajob.fr</a> </p>
       </span>
-    </div>
+    {/* </div> */}
     {/* <div className="description-time">
       <Datetime /> 
       <Address />

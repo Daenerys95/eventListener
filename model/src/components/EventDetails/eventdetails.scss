@@ -141,6 +141,7 @@
 
 // header affiche
 .header-event {
+  
   @include xs {
     &-bg {
       background: url("images/event.png");
@@ -169,6 +170,7 @@
       &-icons, &-status {display: none}
     }
   }
+
   @include sm {
     display: flex;
     flex-wrap: wrap;
@@ -341,6 +343,11 @@
     border-bottom: $lightColorBorderBottom;
     padding-bottom: 1.5em;
 
+    h1 {
+      margin-bottom: 2rem;
+    }
+
+
     time, a {
       font-size: 0.8rem;
     }
@@ -426,7 +433,7 @@
       font-size: $textFontSize;
       margin-bottom: $marginBottom;
       border-bottom: $lightColorBorderBottom;
-      padding-bottom: 2em;
+      padding: 0 1rem 2rem;
       h1 {
         margin-bottom: $marginBottom;
         font-size: 1.2rem;
