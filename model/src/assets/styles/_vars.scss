@@ -29,6 +29,7 @@ $fontFamilyTitle : 'hero';
 /* Sizes */
 $headerBgImageSize: 300px;
 $headerAvatarSize: 200px;
+$deleteModalSize: 450px;
 
 /* Fonts sizes */
 $preferenceTextContentFontSize: 0.9em;
@@ -38,47 +39,25 @@ $preferenceLabelFontSize: 0.7em;
 $preferenceTextTitleColor: #333;
 
 /* Colors | Light mode */
-  // Backgrounds
-  $preferenceBgColor: #f6fafd;
+// Backgrounds
+$preferenceBgColor: #f6fafd;
 
-  // Texts
-  $preferenceTextContentColor: #333;
-  $preferenceTextLabelColor: #858585;
+// Texts
+$preferenceTextContentColor: #333;
+$preferenceTextLabelColor: #858585;
 
-  // Inputs
-  $preferenceCheckedColor: #080;
-  $preferenceUncheckedColor: #bbb;
+// Inputs
+$preferenceCheckedColor: #080;
+$preferenceUncheckedColor: #bbb;
 
-  // Buttons
-  $preferenceEditLinkColor: #0eb3cf;
-  $preferenceValidateLinkColor: #3fb63b;
-  $preferenceDeleteLinkColor: #da3a3a;
+// Buttons
+$preferenceEditLinkColor: #0eb3cf;
+$preferenceValidateLinkColor: #3fb63b;
+$preferenceDeleteLinkColor: #da3a3a;
 
-  // Buttons hover
-  $preferenceEditLinkColorHover: #6942e4;
-  $preferenceValidateLinkColorHover: #227c22;
-  $preferenceDeleteLinkColorHover: #9c2929;
-
-/* Colors | Dark mode (Not finished yet) 
-  // Backgrounds
-  $preferenceBgColor: #38414a;
-
-  // Texts
-  $preferenceTextContentColor: #bbbec2;
-  $preferenceTextLabelColor: #666;
-
-  // Inputs
-  $preferenceCheckedColor: #080;
-  $preferenceUncheckedColor: #bbb;
-
-  // Buttons
-  $preferenceEditLinkColor: #3a7bda;
-  $preferenceValidateLinkColor: #3fb63b;
-  $preferenceDeleteLinkColor: #da3a3a;
-
-  // Buttons hover
-  $preferenceEditLinkColorHover: #6942e4;
-  $preferenceValidateLinkColorHover: #6fb46d;
-  $preferenceDeleteLinkColorHover: #ce6d6d;
+// Buttons hover
+$preferenceEditLinkColorHover: #6942e4;
+$preferenceValidateLinkColorHover: #227c22;
+$preferenceDeleteLinkColorHover: #9c2929;
 
 /** User | END **/ 

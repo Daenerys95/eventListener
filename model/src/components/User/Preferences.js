@@ -11,25 +11,17 @@ const Preferences = ({
   firstname,
   lastname,
   email,
+  password,
+  confirmePassword,
   notifNewEvent,
   notifNewUpdate,
+  changeValue,
+  changeCheckValue,
 }) => {
   // Hook for display/hidden the modal
   const [modalStatus, changeModalStatus] = useState(false);
   // Hook for display/hidden editor mode
   const [editorModeDisabled, changEditorModeDisabled] = useState(true);
-
-  // if checked or not, the message change
-  let nameForNotifNewEvent = 'Ne pas recevoir d\'email pour chaque nouvel événement';
-  if (notifNewEvent) {
-    nameForNotifNewEvent = 'Recevoir un email pour chaque nouvel événement';
-  }
-
-  // if checked or not, the message change
-  let nameFornotifNewUpdate = 'Ne pas recevoir d\'email à la modification d\'un événement';
-  if (notifNewUpdate) {
-    nameFornotifNewUpdate = 'Recevoir un email à la modification d\'un événement';
-  }
 
   const handleChangeModalStatus = () => {
     changeModalStatus(!modalStatus);
@@ -37,6 +29,15 @@ const Preferences = ({
 
   const handleChangEditorModeDisabled = () => {
     changEditorModeDisabled(!editorModeDisabled);
+  };
+
+  const handleChangeValue = (event) => {
+    const { value, name } = event.target;
+    changeValue(value, name);
+  };
+  const handleChangeCheckValue = (event) => {
+    const { name } = event.target;
+    changeCheckValue(name);
   };
 
   return (
@@ -52,32 +53,34 @@ const Preferences = ({
 
             <label
               className="content-input-label-field"
-              htmlFor="firstnameInput"
-            >
-              Nom :
-            </label>
-            <input
-              className="content-input-field"
-              id="firstnameInput"
-              name="firstname"
-              type="text"
-              value={lastname}
-              disabled={editorModeDisabled}
-            />
-
-            <label
-              className="content-input-label-field"
               htmlFor="lastnameInput"
             >
-              Prenom :
+              Nom :
             </label>
             <input
               className="content-input-field"
               id="lastnameInput"
               name="lastname"
               type="text"
+              value={lastname}
+              disabled={editorModeDisabled}
+              onChange={handleChangeValue}
+            />
+
+            <label
+              className="content-input-label-field"
+              htmlFor="firstnameInput"
+            >
+              Prenom :
+            </label>
+            <input
+              className="content-input-field"
+              id="firstnameInput"
+              name="firstname"
+              type="text"
               value={firstname}
               disabled={editorModeDisabled}
+              onChange={handleChangeValue}
             />
 
             <label
@@ -93,6 +96,7 @@ const Preferences = ({
               type="email"
               value={email}
               disabled={editorModeDisabled}
+              onChange={handleChangeValue}
             />
             { !editorModeDisabled && (
               <>
@@ -107,7 +111,8 @@ const Preferences = ({
                   id="passwordInput"
                   name="password"
                   type="password"
-                  value=""
+                  value={password}
+                  onChange={handleChangeValue}
                 />
                 <label
                   className="content-input-label-field"
@@ -120,7 +125,8 @@ const Preferences = ({
                   id="confirmePasswordInput"
                   name="confirmePassword"
                   type="password"
-                  value=""
+                  value={confirmePassword}
+                  onChange={handleChangeValue}
                 />
               </>
             ) }
@@ -136,12 +142,13 @@ const Preferences = ({
                 type="checkbox"
                 disabled={editorModeDisabled}
                 checked={notifNewEvent}
+                onChange={handleChangeCheckValue}
               />
               <label
                 className="label"
                 htmlFor="notifNewEvent"
               >
-                {nameForNotifNewEvent}
+                Recevoir un email pour chaque nouvel événement
               </label>
             </div>
 
@@ -153,12 +160,13 @@ const Preferences = ({
                 type="checkbox"
                 disabled={editorModeDisabled}
                 checked={notifNewUpdate}
+                onChange={handleChangeCheckValue}
               />
               <label
                 className="label"
                 htmlFor="notifNewUpdate"
               >
-                {nameFornotifNewUpdate}
+                Recevoir un email à la modification d'un événement
               </label>
             </div>
 
@@ -206,8 +214,12 @@ Preferences.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  confirmePassword: PropTypes.string.isRequired,
   notifNewEvent: PropTypes.bool.isRequired,
   notifNewUpdate: PropTypes.bool.isRequired,
+  changeValue: PropTypes.func.isRequired,
+  changeCheckValue: PropTypes.func.isRequired,
 };
 
 // export

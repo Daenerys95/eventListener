@@ -164,7 +164,7 @@
       flex-direction: column;
       justify-content: space-between;
       background: $preferenceBgColor;
-      max-width: 450px;
+      max-width: $deleteModalSize;
       margin: auto;
       margin-top: 50vh;
       transform: translateY(-50%);
@@ -199,19 +199,38 @@
           border: none;
           width: max-content;
           border-radius: 3px;
-
-          &--cancel {
-            background: #6942e4;
-            color: #f6fafd;
-            padding: .5rem 1rem;
-          }
-          &--delete {
-            background: #6942e4;
-            color: #f6fafd;
-            padding: .5rem 1rem;
-          }
+          background: #6942e4;
+          color: #f6fafd;
+          padding: .5rem 1rem;
+          
         }
       }
+    }
+  }
+
+  .preferences-events {
+    background-color: #fff;
+    text-align: left;
+    padding: 2rem 3rem;
+
+    &-title {
+      color: $preferenceTextContentColor;
+      width: 250px;
+      font-size: 1.3em;
+      padding-bottom: 0.5rem;
+      margin: 1rem 0;
+      border-bottom: 2px solid $preferenceTextContentColor;
+    }
+
+    &-content {
+      color: $preferenceTextContentColor;
+      padding: 1rem 0;
+
+      &-subtitle {
+        font-size: 1.05em;
+        padding: 2rem;
+      }
+      
     }
   }
 } 
