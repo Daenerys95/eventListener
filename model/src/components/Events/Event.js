@@ -3,9 +3,9 @@ import React from 'react';
 
 // == Import : local
 import './events.scss';
-import image from '../../assets/images/test_evt.png';
-import icon_share from '../../assets/icons/share.png';
-import icon_like from '../../assets/icons/like.png';
+import image from 'src/assets/images/test_evt.png';
+import icon_share from 'src/assets/icons/share.png';
+import icon_like from 'src/assets/icons/like.png';
 
 // == Composant
 const Event = () => (
