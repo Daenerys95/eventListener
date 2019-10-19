@@ -2,10 +2,16 @@
 @import 'src/assets/styles/mixins';
 
 .events {
-  background: rgba(black, .3);
-    padding: $sectionPaddingMobile;
+  background: rgba(black, .9);
+  padding: $sectionPaddingMobile;
+  color: #fff;
 
-      &-title {
-        @include title($turquoise);
-      }
+
+  a:hover {
+    border-bottom: 1.5px solid;
+  }
+
+    &-title {
+      @include title($turquoise);
+    }
 }

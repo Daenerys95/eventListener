@@ -1,11 +1,10 @@
 @mixin title($borderColor) {
   font-family: $fontFamilyTitle;
-  font-size: 2.5rem;
-  width: 100%;
-  text-align: center;
+  font-size: 1.5rem;
+  text-align: justify;
   margin: 1rem 0 3rem;
   padding-bottom: .7rem;
-  width: 100%;
+  width: 20%;
   border-bottom: 2px solid $borderColor;
 }
 
@@ -40,7 +39,7 @@
   padding: $paddingButton;
   margin: 1rem 0;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 2px;
   border: none;
   background-color: #FFFFFF;
 
@@ -54,7 +53,7 @@
   background-color: $turquoise;
   background: $turquoiseGradient;
   text-transform: uppercase;
-  box-shadow: 2px 1px 5px rgba(0,0,0,.5);
+  //box-shadow: 2px 1px 5px rgba(0,0,0,.5);
   font-weight: 900;
   color: darken($colorLightTheme, 5% );
 
