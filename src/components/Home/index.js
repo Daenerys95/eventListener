@@ -8,7 +8,7 @@ import './home.scss';
 // == Composant
 const Home = () => (
   <>
-    <header>
+    <header className="header">
       <canvas className="header_background" />
       <div className="header-content">
         <p className="header-content-text">
