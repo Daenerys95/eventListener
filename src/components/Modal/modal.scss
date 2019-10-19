@@ -95,3 +95,39 @@
     cursor: pointer;
   }
 }
+
+/* MODAL DES LIENS SOCIAUX SUR LA PAGE D'UN EVENT */
+
+.share-links-modal {
+  position: fixed;
+  z-index: 5;
+  transition: all 0.3s;
+  width: 520px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  &>div {
+    background: lighten(rgb(243, 219, 243), 10%);
+    box-shadow: 0 8px 16px 0 rgba(78, 84, 140,0.2);
+    position: relative;  
+  }
+
+  h3 {
+    border-bottom: 1px solid rgb(241, 232, 232);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  img {
+    padding: 2rem;
+    margin: auto;
+    cursor: pointer;
+  }
+
+  &-close {
+     position: absolute;
+    top: -1.6rem;
+    right: 0.5rem; 
+  }
+}
