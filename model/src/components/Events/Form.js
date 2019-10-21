@@ -3,6 +3,7 @@ import React from 'react';
 
 // == Import : local
 import './events.scss';
+import test from './test.js';
 
 // == Composant
 const Form = ({
@@ -14,7 +15,7 @@ const Form = ({
             <div className="searchBar">
                 <p>Recherche simple</p>
                 <input type="search" className="searchBar-input" placeholder="Que recherchez-vous ?" />
-                <button type="submit" className="searchBar-button">Rechercher</button>
+                <button type="submit" className="searchBar-button" onClick={ButtonClick}>Rechercher</button>
             </div>
             <div className="searchBarAdvanced">
                 <p>Recherche avancée</p>
@@ -49,12 +50,27 @@ const Form = ({
                         <option value={adress} />
                     </datalist>
                 </label>
-                <button type="submit" className="searchBar-button">Rechercher</button>
+                <button type="submit" className="searchBar-button" onClick={ButtonClickAdvanced}>Rechercher</button>
             </div>
             
         </form>
     </div>
 );
+
+function ButtonClick(e) {
+    e.preventDefault();
+    console.log('bouton cliqué');
+    // effectuer ici une recherche par mot-clef
+}
+
+function ButtonClickAdvanced(e) {
+    e.preventDefault();
+    console.log('bouton cliqué');
+    // effectuer ici la recherche avancée
+}
+
+// https://fr.reactjs.org/docs/forms.html
+// https://www.apprendre-react.fr/tutorial/debutant/les-composants/
 
 // == Export
 export default Form;
