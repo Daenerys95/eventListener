@@ -15,16 +15,16 @@ const Preferences = ({
   confirmePassword,
   notifNewEvent,
   notifNewUpdate,
-  changeValue,
   changeCheckValue,
+  changeValue,
+  modalStatus,
+  changeModalStatus,
 }) => {
-  // Hook for display/hidden the modal
-  const [modalStatus, changeModalStatus] = useState(false);
   // Hook for display/hidden editor mode
   const [editorModeDisabled, changEditorModeDisabled] = useState(true);
 
   const handleChangeModalStatus = () => {
-    changeModalStatus(!modalStatus);
+    changeModalStatus();
   };
 
   const handleChangEditorModeDisabled = () => {
@@ -33,11 +33,13 @@ const Preferences = ({
 
   const handleChangeValue = (event) => {
     const { value, name } = event.target;
-    changeValue(value, name);
+    changeValue(name, value);
   };
+
   const handleChangeCheckValue = (event) => {
-    const { name } = event.target;
-    changeCheckValue(name);
+    console.log('click ok');
+    // const { name } = event.target;
+    // changeCheckValue(name);
   };
 
   return (
@@ -45,11 +47,8 @@ const Preferences = ({
       <h2 className="preferences-title">
         Mes informations
       </h2>
-
       <form className="preferences-infos">
-
         <div className="preferences-infos-container">
-
           <div className="content content--left">
 
             <label
@@ -143,7 +142,7 @@ const Preferences = ({
                 type="checkbox"
                 disabled={editorModeDisabled}
                 checked={notifNewEvent}
-                onChange={handleChangeCheckValue}
+                onClick={handleChangeCheckValue}
               />
               <label
                 className="label"
@@ -206,6 +205,7 @@ const Preferences = ({
     </section>
   );
 };
+
 Preferences.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
@@ -216,6 +216,9 @@ Preferences.propTypes = {
   notifNewUpdate: PropTypes.bool.isRequired,
   changeValue: PropTypes.func.isRequired,
   changeCheckValue: PropTypes.func.isRequired,
+  modalStatus: PropTypes.bool.isRequired,
+  changeModalStatus: PropTypes.func.isRequired,
 };
+
 // export
 export default Preferences;

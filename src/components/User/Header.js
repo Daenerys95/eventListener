@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import './user.scss';
 import avatarImg from 'src/assets/images/defaultAvatar.png';
 
+
 // composant
 const Header = ({ pseudo, urlAvatar }) => (
   <header className="header">

@@ -14,7 +14,7 @@ const initialState = {
   likeIcon: heartIcon,
 };
 
-export const eventIcons = (state = initialState, action) => {
+export const eventIcons = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_HEART_ICON: {
       let currentIcon = action.src;

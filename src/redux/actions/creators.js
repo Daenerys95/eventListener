@@ -3,6 +3,9 @@ import {
   CHANGE_HEART_ICON,
   OPEN_SHARE_LINKS_MODAL,
   CLOSE_SHARE_LINKS_MODAL,
+  CHANGE_INPUT_VALUE,
+  CHANGE_MODAL_STATUS,
+  CHANGE_CHECK_VALUE,
 } from './types';
 
 // == Action Creators
@@ -17,4 +20,18 @@ export const openShareLinksModal = () => ({
 });
 export const closeShareLinksModal = () => ({
   type: CLOSE_SHARE_LINKS_MODAL,
+});
+
+// User : Preferences.js
+export const changeInputValue = (name, value) => ({
+  type: CHANGE_INPUT_VALUE,
+  name,
+  value,
+});
+export const changeModalStatus = () => ({
+  type: CHANGE_MODAL_STATUS,
+});
+export const changeCheckValue = (name) => ({
+  type: CHANGE_CHECK_VALUE,
+  name,
 });
