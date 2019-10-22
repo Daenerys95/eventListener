@@ -5,6 +5,7 @@ import React from 'react';
 import './events.scss';
 import Form from './Form';
 import Event from './Event';
+import test from './test.js';
 
 // == Composant
 const Events = () => (

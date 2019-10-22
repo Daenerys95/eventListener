@@ -3,13 +3,12 @@ import React from 'react';
 
 // == Import : local
 import './events.scss';
-import test from './test.js';
 
 // == Composant
 const Form = ({
-    name,
-    adress,
+    address
 }) => (
+    console.log(address),
     <div className="search">
         <form>
             <div className="searchBar">
@@ -21,10 +20,10 @@ const Form = ({
                 <p>Recherche avancée</p>
                 <input type="search" className="searchBar-input" placeholder="Tapez un mot-clef" />
                 <label className="searchBarAdvanced-label_tag">Tag
-                    <select name="tag">
-                        <option value="{name}">{name}</option>
-                        <option value="{name}">{name}</option>
-                        <option value="{name}">{name}</option>
+                    <select name="tag" value={this.state.value}>
+                        <option value="{name.tag}">{name}</option>
+                        <option value="{name.tag}">{name}</option>
+                        <option value="{name.tag}">{name}</option>
                     </select>
                 </label>
                 <label clasName="searchBarAdvanced-label_price">Prix
@@ -33,21 +32,21 @@ const Form = ({
                     <input type="radio" className="searchBarAdvanced-price" name="prix" value="payant" />
                     <label for="payant">Payant</label>
                 </label>
-                <label className="searchBarAdvanced-label_broadcast">Diffusion internet
+                <fieldset className="searchBarAdvanced-label_broadcast">Diffusion internet
                     <input type="radio" className="searchBarAdvanced-broadcast" name="diffusion" value="oui" />
                     <label for="oui">Oui</label>
                     <input type="radio" className="searchBarAdvanced-broadcast" name="diffusion" value="non" />
                     <label for="non">Non</label>
-                </label>
+                </fieldset>
                 <label className="searchBarAdvanced-label_date">Date de début
                     <input type="date" name="date" min="2019-10-01" max="2020-02-29" />
                 </label>
                 <label className="searchBarAdvanced-label_adress">Ville
                     <input list="villes" id="searchBarAdvanced-label_adress-cities" name="ville" />
                     <datalist id="villes">
-                        <option value={adress} />
-                        <option value={adress} />
-                        <option value={adress} />
+                        <option value={address} />
+                        <option value={address} />
+                        <option value={address} />
                     </datalist>
                 </label>
                 <button type="submit" className="searchBar-button" onClick={ButtonClickAdvanced}>Rechercher</button>
@@ -67,6 +66,15 @@ function ButtonClickAdvanced(e) {
     e.preventDefault();
     console.log('bouton cliqué');
     // effectuer ici la recherche avancée
+}
+
+function handleChange(event) {
+    this.setState({value: event.target.value});
+}
+
+function handleSubmit(event) {
+    console.log('this.state.value');
+    event.preventDefault();
 }
 
 // https://fr.reactjs.org/docs/forms.html
