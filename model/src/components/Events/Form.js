@@ -5,14 +5,6 @@ import React from 'react';
 import './events.scss';
 
 // == Composant
-buttonClick() {
-    console.log('bouton cliqué');
-    this.setState({
-        clicked : !this.state.clicked
-    });
-    // effectuer ici une recherche par mot-clef
-}
-
 //function ButtonClickAdvanced(e) {
 //    e.preventDefault();
 //    console.log('bouton 2 cliqué ');
@@ -35,28 +27,31 @@ buttonClick() {
 class Form extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            clicked : false
-        }
+        this.state = { search : '' };
+
+        this.buttonClick = this.buttonClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     render() {
         let Form = this.props.Form;
         return (
             <div className="search">
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <div className="searchBar">
-                        <p>Recherche simple</p>
-                        <input type="search" className="searchBar-input" placeholder="Que recherchez-vous ?" />
-                        <button type="submit" className="searchBar-button" onClick={this.buttonClick}>Rechercher</button>
+                        <label> Recherche simple
+                            <input type="text" className="searchBar-input" placeholder="Que recherchez-vous ?" value={this.state.search} onChange={this.handleCHange} />
+                        </label>
+                        <input type="submit" className="searchBar-button" onClick={this.buttonClick} value='Rechercher' />
                     </div>
                     <div className="searchBarAdvanced">
                         <p>Recherche avancée</p>
                         <input type="search" className="searchBar-input" placeholder="Tapez un mot-clef" />
                         <label className="searchBarAdvanced-label_tag">Tag
                             <select name="tag" value={this.state.value}>
-                                <option value="{name.tag}">{name}</option>
-                                <option value="{name.tag}">{name}</option>
-                                <option value="{name.tag}">{name}</option>
+                                <option value="{this.state.value}">{name}</option>
+                                <option value="{this.state.value}">{name}</option>
+                                <option value="{this.state.value}">{name}</option>
                             </select>
                         </label>
                         <label clasName="searchBarAdvanced-label_price">Prix
@@ -82,13 +77,34 @@ class Form extends React.Component {
                                 <option value="{address.event}" />
                             </datalist>
                         </label>
-                        <button type="submit" className="searchBar-button" onClick={ButtonClickAdvanced}>Rechercher</button>
+                        <button type="submit" className="searchBar-button" onClick>Rechercher</button>
                     </div>
                 </form>
             </div>
         );
     }
+
+    buttonClick = () => {
+        event.preventDefault();
+        console.log('bouton cliqué');
+        this.setState({
+            clicked : !this.state.clicked
+        });
+        console.log(this);
+        // effectuer ici une recherche par mot-clef
+    }
+
+    handleChange(event) {
+        this.setState({search: event.target.search});
+    }
+
+    handleSubmit(event) {
+        console.log('test : ' + this.state.search);
+    }
+
 }
+
+
 
 // == Export
 export default Form;
