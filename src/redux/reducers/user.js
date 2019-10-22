@@ -1,7 +1,8 @@
 import {
   CHANGE_INPUT_VALUE,
   CHANGE_MODAL_STATUS,
-  CHANGE_CHECK_VALUE,
+  CHANGE_CHECK_INPUT_VALUE,
+  CHANGE_EDITOR_MODE,
 } from '../actions/types';
 
 const initialState = {
@@ -14,7 +15,7 @@ const initialState = {
   confirmePassword: '',
   notifNewEvent: false,
   notifNewUpdate: true,
-  editorModeDisabled: false,
+  editorModeDisabled: true,
   modalStatus: false,
 };
 
@@ -30,10 +31,15 @@ export const user = (state = initialState, action = {}) => {
         ...state,
         modalStatus: !state.modalStatus,
       };
-    case CHANGE_CHECK_VALUE:
+    case CHANGE_CHECK_INPUT_VALUE:
       return {
         ...state,
-        [action.name]: true,
+        [action.name]: !state[action.name],
+      };
+    case CHANGE_EDITOR_MODE:
+      return {
+        ...state,
+        editorModeDisabled: !state.editorModeDisabled,
       };
     default:
       return state;

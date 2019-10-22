@@ -1,5 +1,5 @@
 // import npm
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 // import local
@@ -15,20 +15,20 @@ const Preferences = ({
   confirmePassword,
   notifNewEvent,
   notifNewUpdate,
-  changeCheckValue,
+  changeCheckInputValue,
   changeValue,
   modalStatus,
   changeModalStatus,
+  editorModeDisabled,
+  handleChangEditorMode,
 }) => {
-  // Hook for display/hidden editor mode
-  const [editorModeDisabled, changEditorModeDisabled] = useState(true);
-
   const handleChangeModalStatus = () => {
     changeModalStatus();
   };
 
-  const handleChangEditorModeDisabled = () => {
-    changEditorModeDisabled(!editorModeDisabled);
+  const handleChangEditorModeDisabled = (event) => {
+    event.preventDefault();
+    handleChangEditorMode();
   };
 
   const handleChangeValue = (event) => {
@@ -37,9 +37,8 @@ const Preferences = ({
   };
 
   const handleChangeCheckValue = (event) => {
-    console.log('click ok');
-    // const { name } = event.target;
-    // changeCheckValue(name);
+    const { name } = event.target;
+    changeCheckInputValue(name);
   };
 
   return (
@@ -133,7 +132,6 @@ const Preferences = ({
           </div>
 
           <div className="content content--right">
-
             <div className="content-input-checkbox">
               <input
                 className="checkbox"
@@ -215,9 +213,11 @@ Preferences.propTypes = {
   notifNewEvent: PropTypes.bool.isRequired,
   notifNewUpdate: PropTypes.bool.isRequired,
   changeValue: PropTypes.func.isRequired,
-  changeCheckValue: PropTypes.func.isRequired,
+  changeCheckInputValue: PropTypes.func.isRequired,
   modalStatus: PropTypes.bool.isRequired,
   changeModalStatus: PropTypes.func.isRequired,
+  editorModeDisabled: PropTypes.bool.isRequired,
+  handleChangEditorMode: PropTypes.func.isRequired,
 };
 
 // export

@@ -5,7 +5,8 @@ import {
   CLOSE_SHARE_LINKS_MODAL,
   CHANGE_INPUT_VALUE,
   CHANGE_MODAL_STATUS,
-  CHANGE_CHECK_VALUE,
+  CHANGE_CHECK_INPUT_VALUE,
+  CHANGE_EDITOR_MODE,
 } from './types';
 
 // == Action Creators
@@ -31,7 +32,10 @@ export const changeInputValue = (name, value) => ({
 export const changeModalStatus = () => ({
   type: CHANGE_MODAL_STATUS,
 });
-export const changeCheckValue = (name) => ({
-  type: CHANGE_CHECK_VALUE,
+export const changeCheckInputValue = (name) => ({
+  type: CHANGE_CHECK_INPUT_VALUE,
   name,
+});
+export const handleChangEditorModeDisabled = () => ({
+  type: CHANGE_EDITOR_MODE,
 });

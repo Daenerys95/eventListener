@@ -9,19 +9,15 @@ import UserEvents from 'src/components/User/UserEvents';
 
 
 // composant
-class User extends React.Component {
-  render() {
-    return (
-      <>
-        <Header />
-        <section className="user">
-          <Preferences />
-          <UserEvents />
-        </section>
-      </>
-    );
-  }
-}
+const User = () => (
+  <>
+    <Header />
+    <section className="user">
+      <Preferences />
+      <UserEvents />
+    </section>
+  </>
+);
 
 // export
 export default User;

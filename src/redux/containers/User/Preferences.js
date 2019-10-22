@@ -6,7 +6,8 @@ import Preferences from 'src/components/User/Preferences';
 import {
   changeInputValue,
   changeModalStatus,
-  changeCheckValue,
+  changeCheckInputValue,
+  handleChangEditorModeDisabled,
 } from '../../actions/creators';
 
 const mapStateToProps = (state) => ({
@@ -26,7 +27,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   changeValue: (name, value) => dispatch(changeInputValue(name, value)),
   changeModalStatus: () => dispatch(changeModalStatus()),
-  changeCheckValue: (name) => dispatch(changeCheckValue(name)),
+  changeCheckInputValue: (name) => dispatch(changeCheckInputValue(name)),
+  handleChangEditorMode: () => dispatch(handleChangEditorModeDisabled()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Preferences);
