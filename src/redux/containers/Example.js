@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Example from 'src/components/Example';
 
 // Action Creators
-import { doSomething } from 'src/store/reducer';
+import { doSomething } from 'src/redux/store/reducer';
 
 /* === State (données) ===
  * - mapStateToProps retroune un objet de props pour le composant de présentation
