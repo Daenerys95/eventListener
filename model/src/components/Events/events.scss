@@ -1,0 +1,105 @@
+#app {
+    display: flex;
+    flex-direction: row;
+}
+
+.search {
+    
+}
+
+.search input {
+    height: 1.5rem;
+    margin: 0.4rem 0.3rem 0 0;
+}
+
+.searchBar {
+    margin-bottom: .8rem;
+}
+
+.searchBar-button {
+    height: 1.5rem;
+}
+
+.searchBarAdvanced-label_tag :nth-child(4n) {
+    margin: .3rem;
+}
+
+.evt {
+    
+}
+
+.evt img {
+    width: 15rem;
+}
+
+
+
+
+@media all and (min-width: 980px) {
+    .searchBar {
+        border: solid black 1px;
+        margin: 1rem;
+        padding: 0.5rem 0 0 0;
+    }
+    
+    .searchBar-input {
+        width: 15em;
+        height: 2em;
+        font-size: 1em;
+    }
+    
+    .searchBar-button {
+        background: no-repeat url(../../assets/icons/search.png);
+        background-size: auto;
+        height: 2.5rem;
+        margin: 1em;
+    }
+    
+    .searchBarAdvanced {
+        border: solid black 1px;
+        margin: 1rem;
+        padding: 0.5rem 0 0 0;
+    }
+    
+    .searchBarAdvanced label {
+        margin: 1rem;
+    }
+    
+    .evt {
+        border: solid red 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 75rem;
+        height: 15rem;
+        margin: auto;
+    }
+    
+    .evt img {
+        width: 15rem;
+    }
+    
+    .evt span {
+        border: solid gray 1px;
+        position: relative;
+        z-index: 1000;
+        right: 10%;
+        //top: 20%;
+        background-color: white;
+    }
+    
+    .evt-infos {
+        text-align: start;
+        min-height: 100%;
+    }
+    
+    .evt-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    
+    .evt-button-share {
+        //width: 10rem;
+    }
+}
