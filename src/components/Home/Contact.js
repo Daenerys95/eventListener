@@ -39,7 +39,6 @@ const Contact = () => (
       <p className="contact-form--note">
         Les champs marqués par un astérix sont obligatoires.
       </p>
-      
     </form>
   </section>
 );

@@ -1,33 +1,35 @@
 import React from 'react';
 
-class QuickSearchBar extends React.Component {
-  state = {
-    searchBar: false,
-    value: '',
-  }
+import PropTypes from 'prop-types';
 
-  handleChange = (e) => {
-    this.setState({
-      value: e.target.value,
-    });
-  }
+const QuickSearchBar = ({
+  searchBar,
+  value,
+  handleChange,
+}) => {
+  const searchBarClass = searchBar ? 'searchbar-visible' : 'searchbar';
 
-  render() {
-    const { searchBar, value } = this.state;
-    const searchBarClass = searchBar ? 'searchbar-visible' : 'searchbar';
+  return (
+    <form className={searchBarClass}>
+      <input
+        type="search"
+        className="searchbar-input"
+        placeholder="Rechercher..."
+        value={value}
+        onChange={(event) => handleChange(event.target.value)}
+      />
+    </form>
+  );
+};
 
-    return (
-      <form className={searchBarClass}>
-        <input
-          type="search"
-          className="searchbar-input"
-          placeholder="Rechercher..."
-          value={value}
-          onChange={this.handleChange}
-        />
-      </form>
-    );
-  }
-}
+QuickSearchBar.propTypes = {
+  searchBar: PropTypes.bool.isRequired,
+  value: PropTypes.string,
+  handleChange: PropTypes.func.isRequired,
+};
+
+QuickSearchBar.defaultProps = {
+  value: '',
+};
 
 export default QuickSearchBar;

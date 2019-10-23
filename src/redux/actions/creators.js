@@ -9,6 +9,7 @@ import {
   CHANGE_EDITOR_MODE,
   OPEN_NAV_MODAL,
   ACTIVE_NAV_MENU,
+  HANDLE_CHANGE,
 } from './types';
 
 // == Action Creators
@@ -49,4 +50,10 @@ export const openNavModal = (name) => ({
 });
 export const activeNavMenu = () => ({
   type: ACTIVE_NAV_MENU,
+});
+
+// Home : QuickSearchBar.js
+export const handleChange = (value) => ({
+  type: HANDLE_CHANGE,
+  value,
 });

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 /* imports locaux */
 import '../Modal/modal.scss';
-import QuickSearchBar from '../Home/QuickSearchBar';
+import QuickSearchBar from 'src/redux/containers/Home/QuickSearchBar';
 import LoginForm from '../Modal/LoginForm';
 import RegisterForm from '../Modal/RegisterForm';
 

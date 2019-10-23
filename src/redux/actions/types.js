@@ -14,3 +14,6 @@ export const CHANGE_EDITOR_MODE = 'CHANGE_EDITOR_MODE';
 // App : Nav.js
 export const OPEN_NAV_MODAL = 'OPEN_NAV_MODAL';
 export const ACTIVE_NAV_MENU = 'ACTIVE_NAV_MENU';
+
+// Home : QuickSearchBar.js
+export const HANDLE_CHANGE = 'HANDLE_CHANGE';
