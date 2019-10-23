@@ -39,7 +39,7 @@ module.exports = (server, router) => {
    * Create an account
    */
   router.post('/users/add', (request, response) => {
-    response.type('application/json');
+    response.json;
     UserController.add(request, response);
   });
 
@@ -49,6 +49,14 @@ module.exports = (server, router) => {
    router.get('/users/:userId', (request, response) => {
     response.json;
     UserController.getUser(request, response);
+  });
+
+  /**
+   * Delete an account
+   */
+   router.post('/users/:userId/delete', (request, response) => {
+    response.json;
+    UserController.deleteAccount(request, response);
   });
 
 };

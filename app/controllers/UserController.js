@@ -108,4 +108,37 @@ module.exports = {
     }
   },
 
+  /**
+  * Delete specific user
+  * @param {object} request
+  * @param {objet} response
+  * */
+  deleteAccount(request, response) {
+    const { userId } = request.params;
+
+    if (isNaN(userId)) {
+
+      response.status(200);
+      response.json({
+        status: "Error"
+      });
+      
+    } else {
+      
+      User.delete(
+        userId,
+        (result) => {
+          response.json;
+  
+          if (result.status === "Error") {
+            response.status(404);
+          } else {
+            response.status(200);
+          }
+          console.log('compte supprimé');
+          response.json(result);
+        });
+    }
+  },
+
 };

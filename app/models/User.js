@@ -114,6 +114,32 @@ class User {
     );
   }
 
+  /**
+   * Delete specific User
+   * @param {number} number
+   * @param {callback} callback
+   */
+   static delete(id, callbackDeleteAccount) {
+
+    DBConnect.query(
+      'DELETE FROM user WHERE id = ?',
+      [id],
+      (error, result) => {
+        if (error) {
+          return callbackDeleteAccount({
+            status: 'Error',
+            data: result,
+          });
+        };
+
+        return callbackDeleteAccount({
+          status: 'OK',
+          data: result,
+        });
+      }
+    );
+  }
+
 };
 
 module.exports = User;
