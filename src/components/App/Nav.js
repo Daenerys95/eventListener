@@ -40,7 +40,7 @@ const Nav = ({
         </NavLink>
         <Route path="/(evenement|profil)">
           <QuickSearchBar />
-        </Route>    
+        </Route>
       </div>
 
       {/* Au click sur l'icon du menu burger, la props "menuBurger" passe à "true" et donc la propriété CSS change ET l'icone change également */}
@@ -63,7 +63,7 @@ const Nav = ({
           </NavLink>
 
           <div
-            activeClassName="navigation-item--active"
+            className="navigation-item--active"
           >
             <RegisterForm
               show={showRegister}
@@ -80,7 +80,7 @@ const Nav = ({
           </div>
 
           <div
-            activeClassName="navigation-item--active"
+            className="navigation-item--active"
           >
             <LoginForm
               show={showLogin}
