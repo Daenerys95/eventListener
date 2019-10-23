@@ -8,8 +8,8 @@ const server = require('express')();
 const App = require('./App');
 
 // Middlewares
-server.use(bodyParser.json())
-server.use(router)
+server.use(bodyParser.json());
+server.use(router);
 
 // Start application
 App(server, router);

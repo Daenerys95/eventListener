@@ -34,4 +34,11 @@ module.exports = (server, router) => {
     response.type('application/json');
     UserController.add(request, response);
   });
+
+  /**
+   * Connection
+   */
+  router.post('/connect', (request, response) => {
+    UserController.connect(request, response);
+  });
 };
