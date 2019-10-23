@@ -87,6 +87,33 @@ class User {
       });
     });
   }
+
+  /**
+   * Find specific User
+   * @param {number} number
+   * @param {callback} callback
+   */
+   static find(id, callbackGetUser) {
+
+    DBConnect.query(
+      'SELECT * FROM user where id = ?',
+      [id],
+      (error, result) => {
+        if (error) {
+          return callbackGetUser({
+            status: 'Error',
+            data: result,
+          });
+        };
+
+        return callbackGetUser({
+          status: 'OK',
+          data: result,
+        });
+      }
+    );
+  }
+
 };
 
 module.exports = User;

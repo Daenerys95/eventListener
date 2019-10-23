@@ -25,7 +25,7 @@ module.exports = (server, router) => {
   });
 
     /**
-   * Get all events
+   * Get specific event
    */
   router.get('/events/:eventId', (request, response) => {
     response.json;
@@ -42,4 +42,13 @@ module.exports = (server, router) => {
     response.type('application/json');
     UserController.add(request, response);
   });
+
+   /**
+   * Get specific user
+   */
+   router.get('/users/:userId', (request, response) => {
+    response.json;
+    UserController.getUser(request, response);
+  });
+
 };

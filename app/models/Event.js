@@ -35,9 +35,9 @@ class Event {
   static find(id, callbackGetEvent) {
 
     DBConnect.query(
-      `SELECT * FROM event where id = ${id}`,
+      'SELECT * FROM event where id = ?',
+      [id],
       (error, result) => {
-        // Return result with status
         if (error) {
           return callbackGetEvent({
             status: 'Error',

@@ -73,5 +73,39 @@ module.exports = {
         status: "Error"
       });
     }
-  }
+  },
+
+  /**
+  * Find and get specific user
+  * @param {object} request
+  * @param {objet} response
+  * */
+  getUser(request, response) {
+    const { userId } = request.params;
+
+    if (isNaN(userId)) {
+
+      response.status(200);
+      response.json({
+        status: "Error"
+      });
+      
+    } else {
+      
+      User.find(
+        userId,
+        (result) => {
+          response.json;
+  
+          if (result.status === "Error") {
+            response.status(404);
+          } else {
+            response.status(200);
+          }
+  
+          response.json(result);
+        });
+    }
+  },
+
 };
