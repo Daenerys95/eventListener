@@ -52,13 +52,13 @@ class User {
       (error, result) => {
         if (error) {
           return callbackToAdd({
-            status: 'Error',
+            creation: 'fail',
             data: error,
           });
         };
 
         return callbackToAdd({
-          status: 'OK',
+          creation: 'success',
           data: result,
         });
       }
@@ -73,14 +73,43 @@ class User {
   static checkUserByEmail(email, callback) {
     const sqlQuery = 'SELECT * FROM user WHERE email = ?';
 
-    DBConnect.query(sqlQuery, [email], (error, result) => {
+    DBConnect.query(
+      sqlQuery,
+      email,
+      (error, result) => {
       if (error) {
-        return callback({
+        callback({
           status: 'Error',
           error: error,
         });
       };
-      return callback({
+      callback({
+        status: 'OK',
+        rowMatch: result.length,
+        data: result,
+      });
+    });
+  }
+
+   /**
+   * Connect
+   * @param {string} email 
+   * @param {callback} callback 
+   */
+  static connect(email, callback) {
+    const sqlQuery = 'SELECT * FROM user WHERE email = ?';
+
+    DBConnect.query(
+      sqlQuery,
+      email,
+      (error, result) => {
+      if (error) {
+        callback({
+          status: 'Error',
+          error: error,
+        });
+      };
+      callback({
         status: 'OK',
         rowMatch: result.length,
         data: result,
@@ -97,7 +126,7 @@ class User {
 
     DBConnect.query(
       'SELECT * FROM user where id = ?',
-      [id],
+      id,
       (error, result) => {
         if (error) {
           return callbackGetUser({
@@ -123,7 +152,7 @@ class User {
 
     DBConnect.query(
       'DELETE FROM user WHERE id = ?',
-      [id],
+      id,
       (error, result) => {
         if (error) {
           return callbackDeleteAccount({

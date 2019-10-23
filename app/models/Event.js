@@ -36,7 +36,7 @@ class Event {
 
     DBConnect.query(
       'SELECT * FROM event where id = ?',
-      [id],
+      id,
       (error, result) => {
         if (error) {
           return callbackGetEvent({

@@ -1,5 +1,6 @@
 // Dependances
 const bcrypt = require('bcrypt');
+// const session = require('express-session');
 
 // Models
 const User = require('../models/User');
@@ -17,13 +18,7 @@ module.exports = {
   getAll(request, response) {
     User.getAll((result) => {
       response.type('application/json');
-
-      if (result.status === "Error") {
-        response.status(404);
-      } else {
-        response.status(200);
-      }
-
+      response.status(200);
       response.json(result);
     });
   },
@@ -51,26 +46,79 @@ module.exports = {
         // Check if user exist
         if (result.rowMatch < 1) {
           // Hash the password (use dep bcrypt)
-          bcrypt.hash(data.password, 10, (error, hash) => {
-            if (error) throw error;
-    
-            data.password = hash;
-            
-            User.create(data, (result) => {
-              response.status(200);
-              response.json(result);
+          data.password = bcrypt.hashSync(data.password, 10);
+
+          User.create(data, (result) => {
+            response.status(200);
+            response.json({
+              status: "Success",
+              result,
             });
           });
         } else {
           response.status(200);
-          response.json(result);
+          response.json({
+            status: "Email already exists"
+          });
         }
       });
 
     } else {
       response.status(200);
       response.json({
-        status: "Error"
+        status: "Bad data received"
+      });
+    }
+  },
+
+  /**
+   * Connection
+   * @param {object} request
+   * @param {object} response
+   */
+  connect(request, response) {
+    const data = request.body;
+
+    if ((data.email && data.email.trim().length > 8) &&
+      checkEmail(data.email) &&
+      data.password) {
+
+      User.checkUserByEmail(
+        data.email, 
+        (result) => {
+
+        if (result.rowMatch == 1) {
+          const { password: hashedPassword } = result.data[0];
+          const checkPassword = bcrypt.compareSync(data.password, hashedPassword);
+  
+          if (result.rowMatch === 1 && checkPassword) {
+            app.use(session({
+              secret: 's3Cur3',
+              name: 'sessionId'
+            }));
+              response.json({
+                status: "Connected",
+                result,
+              });
+          } else {
+            response.status(200);
+            response.json({
+              status: "Auth error"
+            });
+          }
+        } else {
+          response.status(200);
+          response.json({
+            status: "Auth error"
+          });
+        }
+
+      });
+
+    } else {
+      response.status(200);
+      response.json({
+        status: "Bad data received"
       });
     }
   },
@@ -138,6 +186,23 @@ module.exports = {
           console.log('compte supprimé');
           response.json(result);
         });
+    }
+  },
+
+   /**
+   * Disconnect
+   * @param {object} request
+   * @param {object} response
+   */
+   disconnect(request, response) {
+    const session = true; // request.session
+
+    if (session) {
+      response.status(200);
+      response.json('stop session')
+    } else {
+      response.status(404);
+      response.json('error 404 / no session')
     }
   },
 

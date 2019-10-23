@@ -43,6 +43,21 @@ module.exports = (server, router) => {
     UserController.add(request, response);
   });
 
+  /**
+   * Connection
+   */
+   router.post('/connect', (request, response) => {
+    UserController.connect(request, response);
+  });
+
+   /**
+   * Disconnect
+   */
+   router.post('/disconnect', (request, response) => {
+    response.json;
+    UserController.disconnect(request, response);
+  });
+
    /**
    * Get specific user
    */
