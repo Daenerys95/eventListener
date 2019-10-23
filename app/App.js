@@ -20,8 +20,16 @@ module.exports = (server, router) => {
    * Get all events
    */
   router.get('/events', (request, response) => {
-    response.type('application/json');
+    response.json;
     EventController.getAll(request, response);
+  });
+
+    /**
+   * Get all events
+   */
+  router.get('/events/:eventId', (request, response) => {
+    response.json;
+    EventController.getEvent(request, response);
   });
 
 

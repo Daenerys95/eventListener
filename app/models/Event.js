@@ -8,8 +8,8 @@ class Event {
    */
   static getAll(callback) {
     
-    DBConnect.query('SELECT * FROM event',
-
+    DBConnect.query(
+      'SELECT * FROM event',
       (error, result) => {
         // Return result with status
         if (error) {
@@ -20,6 +20,32 @@ class Event {
         };
 
         return callback({
+          status: 'OK',
+          data: result,
+        });
+      }
+    );
+  }
+
+  /**
+   * Find specific Event
+   * @param {number} number
+   * @param {callback} callback
+   */
+  static find(id, callbackGetEvent) {
+
+    DBConnect.query(
+      `SELECT * FROM event where id = ${id}`,
+      (error, result) => {
+        // Return result with status
+        if (error) {
+          return callbackGetEvent({
+            status: 'Error',
+            data: result,
+          });
+        };
+
+        return callbackGetEvent({
           status: 'OK',
           data: result,
         });
