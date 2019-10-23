@@ -7,6 +7,8 @@ import {
   CHANGE_MODAL_STATUS,
   CHANGE_CHECK_INPUT_VALUE,
   CHANGE_EDITOR_MODE,
+  OPEN_NAV_MODAL,
+  ACTIVE_NAV_MENU,
 } from './types';
 
 // == Action Creators
@@ -38,4 +40,13 @@ export const changeCheckInputValue = (name) => ({
 });
 export const handleChangEditorModeDisabled = () => ({
   type: CHANGE_EDITOR_MODE,
+});
+
+// App : Nav.js
+export const openNavModal = (name) => ({
+  type: OPEN_NAV_MODAL,
+  name,
+});
+export const activeNavMenu = () => ({
+  type: ACTIVE_NAV_MENU,
 });

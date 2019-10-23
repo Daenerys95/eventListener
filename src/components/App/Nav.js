@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 /* imports locaux */
@@ -8,110 +9,97 @@ import LoginForm from '../Modal/LoginForm';
 import RegisterForm from '../Modal/RegisterForm';
 
 
-class Nav extends React.Component {
-  state = {
-    menuBurger: false,
-    menuIcon: 'https://img.icons8.com/nolan/50/000000/xbox-menu.png',
-    showLogin: false,
-    showRegister: false,
-  }
-
-  modalLogin = () => {
-    const modalState = !this.state.showLogin;
-    this.setState({ showLogin: modalState });
+const Nav = ({
+  menuBurger,
+  openNavModal,
+  menuIcon,
+  activeNavMenu,
+  showLogin,
+  showRegister,
+}) => {
+  const handleNavModals = (event) => {
+    openNavModal(event.target.name);
   };
 
-  modalRegister = () => {
-    const modalState = !this.state.showRegister;
-    this.setState({ showRegister: modalState });
-  };
+  const menuBurgerClass = menuBurger ? 'menu-visible' : 'menu';
 
-  activeMenu = () => {
-    const bool = !this.state.menuBurger;
-    const icon = bool ? 'https://img.icons8.com/nolan/50/000000/cancel.png' : 'https://img.icons8.com/nolan/50/000000/xbox-menu.png';
-    this.setState({
-      menuBurger: bool,
-      menuIcon: icon,
-      showLogin: false,
-      showRegister: false,
-    });
-  }
+  return (
+    <nav className="navigation-item">
+      <div className="navigation-item--left">
+        <NavLink
+          to="/"
+          exact
+        >
+        eventListener
+        </NavLink>
+        <QuickSearchBar />
+      </div>
 
-  render() {
-    const {
-      menuBurger,
-      menuIcon,
-      showLogin,
-      showRegister,
-    } = this.state;
-    const menuBurgerClass = menuBurger ? 'menu-visible' : 'menu';
-    return (
-      <nav className="navigation-item">
-        <div className="navigation-item--left">
+      <img
+        src={menuIcon}
+        alt="Menu"
+        className="menu-burger"
+        onClick={activeNavMenu}
+      />
+
+      <div className={menuBurgerClass}>
+        <div className="menu-main">
           <NavLink
-            to="/"
+            to="/profil"
             exact
+            activeClassName="navigation-item--active"
+            className="navigation-item--right"
           >
-          eventListener
+            Tous les événements
           </NavLink>
-          <QuickSearchBar />
-        </div>
 
-        <img
-          src={menuIcon}
-          alt="Menu"
-          className="menu-burger"
-          onClick={this.activeMenu}
-        />
-
-        <div className={menuBurgerClass}>
-          <div className="menu-main">
-            <NavLink
-              to="/profil"
-              exact
-              activeClassName="navigation-item--active"
-              className="navigation-item--right"
+          <div
+            activeClassName="navigation-item--active"
+          >
+            <RegisterForm
+              show={showRegister}
+              handleclose={handleNavModals}
+            />
+            <button
+              type="button"
+              className="navigation-item--right button"
+              name="register"
+              onClick={handleNavModals}
             >
-              Tous les événements
-            </NavLink>
+              Inscription
+            </button>
+          </div>
 
-            <div
-              activeClassName="navigation-item--active"
+          <div
+            activeClassName="navigation-item--active"
+          >
+            <LoginForm
+              show={showLogin}
+              handleclose={handleNavModals}
+            />
+            <button
+              type="button"
+              className="navigation-item--right button"
+              name="login"
+              onClick={handleNavModals}
             >
-              <RegisterForm
-                show={showRegister}
-                handleclose={this.modalRegister}
-              />
-              <button
-                type="button"
-                className="navigation-item--right button"
-                onClick={this.modalRegister}
-              >
-                Inscription
-              </button>
-            </div>
-
-            <div
-              activeClassName="navigation-item--active"
-            >
-              <LoginForm
-                show={showLogin}
-                handleclose={this.modalLogin}
-              />
-              <button
-                type="button"
-                className="navigation-item--right button"
-                onClick={this.modalLogin}
-              >
-                Connexion
-              </button>
-            </div>
+              Connexion
+            </button>
           </div>
         </div>
-      </nav>
-    );
-  }
-}
+      </div>
+    </nav>
+  );
+};
+
+Nav.propTypes = {
+  menuBurger: PropTypes.bool.isRequired,
+  menuIcon: PropTypes.string.isRequired,
+  showLogin: PropTypes.bool.isRequired,
+  showRegister: PropTypes.bool.isRequired,
+  openNavModal: PropTypes.func.isRequired,
+  activeNavMenu: PropTypes.func.isRequired,
+};
 
 // == Export
 export default Nav;

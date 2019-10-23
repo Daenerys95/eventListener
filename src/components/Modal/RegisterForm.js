@@ -37,7 +37,7 @@ const RegisterForm = ({ handleclose, show }) => {
             <input type="checkbox" className="modal-checkbox" />
             Recevoir un email pour chaque nouvel événement
           </label>
-  
+
           <label className="modal-form-label">
             <input type="checkbox" className="modal-checkbox" />
             Recevoir un email à la modification d'un événement
@@ -52,6 +52,7 @@ const RegisterForm = ({ handleclose, show }) => {
         </form>
         <a
           className="modal--back"
+          name="register"
           onClick={handleclose}
         >
           Retour
