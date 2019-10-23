@@ -5,6 +5,7 @@ import Proptypes from 'prop-types';
 
 // == Composant RegisterForm
 const RegisterForm = ({ handleclose, show }) => {
+  /* Affichage conditionnel de la modal */
   const showHideClassName = show ? 'modal display-block' : 'modal display-none';
 
   return (
@@ -53,6 +54,7 @@ const RegisterForm = ({ handleclose, show }) => {
             Créer le compte
           </button>
         </form>
+        {/* Fermeture de la modal au click */}
         <a
           className="modal--back"
           name="register"

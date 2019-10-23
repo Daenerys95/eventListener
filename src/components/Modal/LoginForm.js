@@ -5,6 +5,7 @@ import Proptypes from 'prop-types';
 
 // == Composant LoginForm
 const LoginForm = ({ handleclose, show }) => {
+  /* Affichade conditionnel de la modal */
   const showHideClassName = show ? 'modal display-block' : 'modal display-none';
   return (
     <div className={showHideClassName}>
@@ -37,6 +38,7 @@ const LoginForm = ({ handleclose, show }) => {
           <input type="checkbox" className="modal-checkbox" />
           Rester connecté
         </label>
+        {/* Fermeture de la modal au click */}
         <a
           className="modal--back"
           name="login"
