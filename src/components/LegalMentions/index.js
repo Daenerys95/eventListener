@@ -1,7 +1,12 @@
+// == Import : npm
 import React from 'react';
 
+
+// == Import : local
 import './legalmentions.scss';
 
+
+// == Composant LegalMentions
 const LegalMentions = () => (
   <section className="legal-mentions">
     <h2 className="legal-mentions-title">Mentions légales</h2>
@@ -27,4 +32,7 @@ const LegalMentions = () => (
     </p>
   </section>
 );
+
+
+// == Export
 export default LegalMentions;

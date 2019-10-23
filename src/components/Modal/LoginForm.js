@@ -1,6 +1,9 @@
+// == Import : npm
 import React from 'react';
 import Proptypes from 'prop-types';
 
+
+// == Composant LoginForm
 const LoginForm = ({ handleclose, show }) => {
   const showHideClassName = show ? 'modal display-block' : 'modal display-none';
   return (
@@ -46,9 +49,13 @@ const LoginForm = ({ handleclose, show }) => {
   );
 };
 
+
+// == PropTypes
 LoginForm.propTypes = {
   handleclose: Proptypes.func.isRequired,
   show: Proptypes.bool.isRequired,
 };
 
+
+// == Export
 export default LoginForm;

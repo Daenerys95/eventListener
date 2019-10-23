@@ -1,13 +1,14 @@
-// import npm
+// == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import local
+
+// == Import : local
 import './user.scss';
 import avatarImg from 'src/assets/images/defaultAvatar.png';
 
 
-// composant
+// == Composant Header
 const Header = ({ pseudo, urlAvatar }) => (
   <header className="header">
     <canvas className="header_background" />
@@ -18,14 +19,16 @@ const Header = ({ pseudo, urlAvatar }) => (
   </header>
 );
 
+
+// == PropTypes
 Header.propTypes = {
   pseudo: PropTypes.string.isRequired,
   urlAvatar: PropTypes.string,
 };
-
 Header.defaultProps = {
   urlAvatar: avatarImg,
 };
 
-// export
+
+// == Export
 export default Header;

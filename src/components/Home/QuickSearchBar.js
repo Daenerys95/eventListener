@@ -1,12 +1,15 @@
+// == Import : npm
 import React from 'react';
-
 import PropTypes from 'prop-types';
 
+
+// == Composant QuickSearchBar
 const QuickSearchBar = ({
   searchBar,
   value,
   handleChange,
 }) => {
+  /* Permet de conditionner l'afficher de la searchBar */
   const searchBarClass = searchBar ? 'searchbar-visible' : 'searchbar';
 
   return (
@@ -16,20 +19,24 @@ const QuickSearchBar = ({
         className="searchbar-input"
         placeholder="Rechercher..."
         value={value}
+        /* Récupération de la valeur entrée dans l'input */
         onChange={(event) => handleChange(event.target.value)}
       />
     </form>
   );
 };
 
+
+// == PropTypes
 QuickSearchBar.propTypes = {
   searchBar: PropTypes.bool.isRequired,
   value: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
 };
-
 QuickSearchBar.defaultProps = {
   value: '',
 };
 
+
+// == Export
 export default QuickSearchBar;

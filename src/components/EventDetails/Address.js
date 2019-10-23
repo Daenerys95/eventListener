@@ -1,5 +1,8 @@
+// == Import : npm
 import React from 'react';
 
+
+// == Composant Address
 const Address = () => (
   <div className="address">
     <h1>Adresse</h1>
@@ -9,4 +12,7 @@ const Address = () => (
     <a href="#">Afficher la carte</a>
   </div>
 );
+
+
+// == Export
 export default Address;

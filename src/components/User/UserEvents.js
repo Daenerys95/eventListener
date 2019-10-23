@@ -1,11 +1,12 @@
-// import npm
+// Import : npm
 import React from 'react';
-import PropTypes from 'prop-types';
 
-// import local
+
+// Import : local
 import './user.scss';
 
-// composant
+
+// == Composant UserEvents
 const UserEvents = () => (
   <section className="preferences-events">
     <h2 className="preferences-events-title">
@@ -23,13 +24,6 @@ const UserEvents = () => (
   </section>
 );
 
-UserEvents.propTypes = {
 
-};
-
-UserEvents.defaultProps = {
-
-};
-
-// export
+// == Export
 export default UserEvents;

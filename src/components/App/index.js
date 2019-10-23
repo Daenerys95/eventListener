@@ -2,6 +2,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+
 // == Import : local
 import './app.scss';
 import User from 'src/components/User';
@@ -13,7 +14,8 @@ import Errors from 'src/components/Errors';
 import Nav from 'src/redux/containers/App/Nav';
 import Footer from './Footer';
 
-// == Composant
+
+// == Composant App
 const App = () => (
   <div id="wrapper">
     <Nav />
@@ -42,6 +44,7 @@ const App = () => (
     </footer>
   </div>
 );
+
 
 // == Export
 export default App;

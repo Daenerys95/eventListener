@@ -1,8 +1,13 @@
+// == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
+// == Import : local
 import './modal.scss';
 
+
+// == Composant ShareLinks
 const ShareLinks = ({ closeModal }) => (
   <div className="share-links-modal">
     <div>
@@ -16,8 +21,12 @@ const ShareLinks = ({ closeModal }) => (
   </div>
 );
 
+
+// == PropTypes
 ShareLinks.propTypes = {
   closeModal: PropTypes.func.isRequired,
 };
 
+
+// == Export
 export default ShareLinks;

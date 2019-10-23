@@ -1,7 +1,12 @@
+// == Import : npm
 import React from 'react';
 
+
+// == Import : local
 import './privatepolicy.scss';
 
+
+// == composant PrivatePolicy
 const PrivatePolicy = () => (
   <section className="private-policy">
     <h2 className="private-policy-title">Politique de confidentialité.</h2>
@@ -101,4 +106,6 @@ const PrivatePolicy = () => (
   </section>
 );
 
+
+// == Export
 export default PrivatePolicy;

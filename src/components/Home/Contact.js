@@ -1,6 +1,8 @@
+// == Import : npm
 import React from 'react';
 
-// == Composant
+
+// == Composant Contact
 const Contact = () => (
   <section className="contact">
     <h1 className="contact-title">
@@ -42,6 +44,7 @@ const Contact = () => (
     </form>
   </section>
 );
+
 
 // == Export
 export default Contact;

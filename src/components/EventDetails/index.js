@@ -1,7 +1,9 @@
-// import npm
+// == Import : npm
 import React from 'react';
 
-// import sous-composants
+
+// Import : local
+import './eventdetails.scss';
 import Header from 'src/redux/containers/EventDetails/Header';
 import Datetime from './Datetime';
 import Address from './Address';
@@ -9,10 +11,8 @@ import Description from './Description';
 import Tags from './Tags';
 import CheckButtons from './CheckButtons';
 
-// import local
-import './eventdetails.scss';
 
-// Composant EventDetails
+// == Composant EventDetails
 const EventDetails = () => (
   <>
     <div className="event">
@@ -38,4 +38,6 @@ const EventDetails = () => (
   </>
 );
 
+
+// == Export
 export default EventDetails;

@@ -1,6 +1,8 @@
+// == Import : npm
 import React from 'react';
 
-// == Composant
+
+// == Composant SearchForm
 const SearchForm = () => (
   <div className="header-searchform">
     <h2 className="header-searchform-h2">
@@ -32,6 +34,7 @@ const SearchForm = () => (
     </form>
   </div>
 );
+
 
 // == Export
 export default SearchForm;

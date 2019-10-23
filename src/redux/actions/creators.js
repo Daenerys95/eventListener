@@ -1,4 +1,4 @@
-// import Action Types
+// == Import : Action Types
 import {
   CHANGE_HEART_ICON,
   OPEN_SHARE_LINKS_MODAL,
@@ -12,12 +12,11 @@ import {
   HANDLE_CHANGE,
 } from './types';
 
-// == Action Creators
+// == Import : Action Creators
 
 // EventDetails : Header.js
-export const changeHeartIcon = (src) => ({
+export const changeHeartIcon = () => ({
   type: CHANGE_HEART_ICON,
-  src,
 });
 export const openShareLinksModal = () => ({
   type: OPEN_SHARE_LINKS_MODAL,
@@ -25,6 +24,7 @@ export const openShareLinksModal = () => ({
 export const closeShareLinksModal = () => ({
   type: CLOSE_SHARE_LINKS_MODAL,
 });
+
 
 // User : Preferences.js
 export const changeInputValue = (name, value) => ({
@@ -43,6 +43,7 @@ export const handleChangEditorModeDisabled = () => ({
   type: CHANGE_EDITOR_MODE,
 });
 
+
 // App : Nav.js
 export const openNavModal = (name) => ({
   type: OPEN_NAV_MODAL,
@@ -51,6 +52,7 @@ export const openNavModal = (name) => ({
 export const activeNavMenu = () => ({
   type: ACTIVE_NAV_MENU,
 });
+
 
 // Home : QuickSearchBar.js
 export const handleChange = (value) => ({

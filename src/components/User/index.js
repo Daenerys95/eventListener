@@ -1,14 +1,15 @@
-// import npm
+// == Import : npm
 import React from 'react';
 
-// import local
+
+// == Import : local
 import './user.scss';
 import Header from 'src/redux/containers/User/Header';
 import Preferences from 'src/redux/containers/User/Preferences';
 import UserEvents from 'src/components/User/UserEvents';
 
 
-// composant
+// == Composant User
 const User = () => (
   <>
     <Header />
@@ -19,5 +20,6 @@ const User = () => (
   </>
 );
 
-// export
+
+// == Export
 export default User;

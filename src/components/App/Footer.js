@@ -1,7 +1,9 @@
+// == Import : npm
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// == Composant
+
+// == Composant Footer
 const Footer = () => (
   <section className="footer">
     <h1 className="footer-title">titre masqué</h1>
@@ -43,6 +45,7 @@ const Footer = () => (
     </div>
   </section>
 );
+
 
 // == Export
 export default Footer;

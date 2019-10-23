@@ -1,5 +1,8 @@
+// == Import : npm
 import React from 'react';
 
+
+// == Composant CheckButtons
 const CheckButtons = () => (
   <div className="check-buttons">
     <button type="button"> Je suis intéressé(e)</button>
@@ -7,4 +10,6 @@ const CheckButtons = () => (
   </div>
 );
 
+
+// == Export
 export default CheckButtons;

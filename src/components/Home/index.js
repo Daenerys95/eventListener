@@ -1,11 +1,15 @@
+// == Import : npm
 import React from 'react';
+
+
+// == Import : local
+import './home.scss';
 import SearchForm from './SearchForm';
 import Contact from './Contact';
 import Events from '../Events';
 
-import './home.scss';
 
-// == Composant
+// == Composant Home
 const Home = () => (
   <>
     <header>
@@ -24,6 +28,7 @@ const Home = () => (
     </main>
   </>
 );
+
 
 // == Export
 export default Home;

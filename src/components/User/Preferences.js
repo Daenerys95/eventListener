@@ -1,12 +1,13 @@
-// import npm
+// == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import local
+
+// == Import : local
 import './user.scss';
 import DeleteAccount from 'src/components/User/DeleteAccount';
 
-// composant
+// == Composant Preferences
 const Preferences = ({
   firstname,
   lastname,
@@ -204,6 +205,8 @@ const Preferences = ({
   );
 };
 
+
+// == PropTypes
 Preferences.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
@@ -220,5 +223,6 @@ Preferences.propTypes = {
   handleChangEditorMode: PropTypes.func.isRequired,
 };
 
-// export
+
+// == Export
 export default Preferences;

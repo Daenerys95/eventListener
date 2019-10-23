@@ -1,5 +1,8 @@
+// == Import : npm
 import React from 'react';
 
+
+// == Composant Datetime
 const Datetime = () => (
   <div className="datetime">
     <h1>Date et heure</h1>
@@ -8,4 +11,7 @@ const Datetime = () => (
     <a href="#">Ajouter au calendrier</a>
   </div>
 );
+
+
+// == Export
 export default Datetime;

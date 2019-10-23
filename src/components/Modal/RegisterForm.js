@@ -1,6 +1,9 @@
+// == Import : npm
 import React from 'react';
 import Proptypes from 'prop-types';
 
+
+// == Composant RegisterForm
 const RegisterForm = ({ handleclose, show }) => {
   const showHideClassName = show ? 'modal display-block' : 'modal display-none';
 
@@ -62,9 +65,13 @@ const RegisterForm = ({ handleclose, show }) => {
   );
 };
 
+
+// == PropTypes
 RegisterForm.propTypes = {
   handleclose: Proptypes.func.isRequired,
   show: Proptypes.bool.isRequired,
 };
 
+
+// == Export
 export default RegisterForm;

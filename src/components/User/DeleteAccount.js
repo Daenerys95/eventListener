@@ -1,11 +1,13 @@
-// import npm
+// == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import local
+
+// == Import : local
 import './user.scss';
 
-// composant
+
+// == Composant DeleteAccount
 const DeleteAccount = ({ changeModalStatus }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,13 +30,12 @@ const DeleteAccount = ({ changeModalStatus }) => {
   );
 };
 
+
+// == PropTypes
 DeleteAccount.propTypes = {
   changeModalStatus: PropTypes.func.isRequired,
 };
 
-DeleteAccount.defaultProps = {
 
-};
-
-// export
+// == Export
 export default DeleteAccount;
