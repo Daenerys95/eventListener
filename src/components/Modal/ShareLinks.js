@@ -17,6 +17,7 @@ const ShareLinks = ({ closeModal }) => (
   <div className="share-links-modal">
     <div>
       <h3>Partager avec les amis</h3>
+      {/* Fermeture de la modal au click */}
       <img onClick={closeModal} className="share-links-modal-close" alt="close-icon" src={cancelIcon} />
       <img alt="fb-icon" src={facebookIcon} />
       <img alt="fb-mes-icon" src={facebookMessenger} />

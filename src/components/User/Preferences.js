@@ -23,6 +23,7 @@ const Preferences = ({
   editorModeDisabled,
   handleChangEditorMode,
 }) => {
+  /* Passade de true/false pour affichage des modals */
   const handleChangeModalStatus = () => {
     changeModalStatus();
   };
@@ -32,11 +33,13 @@ const Preferences = ({
     handleChangEditorMode();
   };
 
+  /* Permet de récupérer la valeur entrée dans l'input */
   const handleChangeValue = (event) => {
     const { value, name } = event.target;
     changeValue(name, value);
   };
 
+  /* Passage de true/false sur les checkbox */
   const handleChangeCheckValue = (event) => {
     const { name } = event.target;
     changeCheckInputValue(name);

@@ -9,6 +9,7 @@ import './user.scss';
 
 // == Composant DeleteAccount
 const DeleteAccount = ({ changeModalStatus }) => {
+  /* Passage de true/false à la soumission du form */
   const handleSubmit = (event) => {
     event.preventDefault();
     changeModalStatus();
