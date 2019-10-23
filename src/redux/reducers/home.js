@@ -3,7 +3,6 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  searchBar: true,
   value: '',
 };
 

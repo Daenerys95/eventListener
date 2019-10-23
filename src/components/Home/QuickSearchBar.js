@@ -5,31 +5,24 @@ import PropTypes from 'prop-types';
 
 // == Composant QuickSearchBar
 const QuickSearchBar = ({
-  searchBar,
   value,
   handleChange,
-}) => {
-  /* Permet de conditionner l'afficher de la searchBar */
-  const searchBarClass = searchBar ? 'searchbar-visible' : 'searchbar';
-
-  return (
-    <form className={searchBarClass}>
-      <input
-        type="search"
-        className="searchbar-input"
-        placeholder="Rechercher..."
-        value={value}
-        /* Récupération de la valeur entrée dans l'input */
-        onChange={(event) => handleChange(event.target.value)}
-      />
-    </form>
-  );
-};
+}) => (
+  <form className="searchbar-visible">
+    <input
+      type="search"
+      className="searchbar-input"
+      placeholder="Rechercher..."
+      value={value}
+      /* Récupération de la valeur entrée dans l'input */
+      onChange={(event) => handleChange(event.target.value)}
+    />
+  </form>
+);
 
 
 // == PropTypes
 QuickSearchBar.propTypes = {
-  searchBar: PropTypes.bool.isRequired,
   value: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
 };

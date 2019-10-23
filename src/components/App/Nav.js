@@ -2,7 +2,7 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 
 
 // == Import : local
@@ -38,7 +38,9 @@ const Nav = ({
         >
         eventListener
         </NavLink>
-        <QuickSearchBar />
+        <Route path="/(evenement|profil)">
+          <QuickSearchBar />
+        </Route>    
       </div>
 
       {/* Au click sur l'icon du menu burger, la props "menuBurger" passe à "true" et donc la propriété CSS change ET l'icone change également */}
