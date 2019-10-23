@@ -86,7 +86,7 @@ class User {
       callback({
         status: 'OK',
         rowMatch: result.length,
-        data: result,
+        data: result[0],
       });
     });
   }
@@ -112,7 +112,7 @@ class User {
       callback({
         status: 'OK',
         rowMatch: result.length,
-        data: result,
+        data: result[0],
       });
     });
   }

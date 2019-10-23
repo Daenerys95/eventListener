@@ -9,7 +9,7 @@ module.exports = (server, router) => {
    * Home page
    */
   router.get('/', (request, response) => {
-    response.type('text/html');
+    response.type('text/plain');
     response.send('Home page');
   });
 
@@ -20,7 +20,6 @@ module.exports = (server, router) => {
    * Get all events
    */
   router.get('/events', (request, response) => {
-    response.type('application/json');
     EventController.getAll(request, response);
   });
 
@@ -31,7 +30,6 @@ module.exports = (server, router) => {
    * Create an account
    */
   router.post('/users/add', (request, response) => {
-    response.type('application/json');
     UserController.add(request, response);
   });
 

@@ -9,16 +9,10 @@ const EventController = {
    */
   getAll(request, response) {
     Event.getAll((result) => {
-      response.type('application/json');
-      
-      if (result.status === "Error") {
-        response.status(404);
-      } else {
-        response.status(200);
-      }
-
+      response.status(200);
       response.json(result);
     });
+    
   },
 };
 
