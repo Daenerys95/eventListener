@@ -5,11 +5,11 @@ import React from 'react';
 // Import : local
 import './eventdetails.scss';
 import Header from 'src/redux/containers/EventDetails/Header';
+import CheckButtons from 'src/redux/containers/EventDetails/CheckButtons';
 import Datetime from './Datetime';
 import Address from './Address';
 import Description from './Description';
 import Tags from './Tags';
-import CheckButtons from './CheckButtons';
 
 
 // == Composant EventDetails
