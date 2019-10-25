@@ -1,33 +1,6 @@
 const DBConnect = require('../config/db');
 
 class User {
-  
-  /**
-   * Get all users
-   * @param {callback} callback 
-   */
-  static getAll(callbackFindAllUsers) {
-    const sqlQuery = 'SELECT * FROM user';
-
-    DBConnect.query(
-      sqlQuery,
-      (error, result) => {
-        // Return result with status
-        if (error) {
-          callbackFindAllUsers({
-            error: true,
-            errorMessage: error,
-          });
-        };
-
-        callbackFindAllUsers({
-          error: false,
-          errorMessage: null,
-          data: result,
-        });
-      }
-    );
-  }
 
   /**
    * Create an account
@@ -37,32 +10,56 @@ class User {
   static create(data, callbackToAdd) {
     const {
       pseudo,
-      firstname,
-      lastname,
       email,
       password,
       notifNewEvent,
       notifNewUpdate,
     } = data;
 
-    const sqlQuery = 'INSERT INTO user(pseudo, firstname, lastname, email, password, notif_new_event, notif_new_update) VALUE(?, ?, ?, ?, ?, ?, ?)';
+    const defaultUserRole = 1;
 
+    const sqlQueryInsertUser = 'INSERT INTO user(pseudo, email, password, notif_new_event, notif_new_update) VALUE(?, ?, ?, ?, ?)';
+
+    // Check if the role exist and get his id
     DBConnect.query(
-      sqlQuery, 
-      [pseudo,firstname,lastname,email,password,notifNewEvent,notifNewUpdate],
-      (error, result) => {
-        if (error) {
+      sqlQueryInsertUser, 
+      [pseudo, email, password, notifNewEvent, notifNewUpdate],
+      (errorInsertUser, resultInsertUser) => {
+
+        if (errorInsertUser) {
+
           callbackToAdd({
             error: true,
-            errorMessage: error,
+            errorMessage: errorInsertUser,
           });
-        };
+        } else {
 
-        callbackToAdd({
-          error: false,
-          errorMessage: null,
-          data: result,
-        });
+          const sqlQueryInsertRelation = 'INSERT INTO possesses(user_id, role_id) VALUE(?, ?)';
+          
+          // Insert the new user
+          DBConnect.query(
+            sqlQueryInsertRelation, 
+            [resultInsertUser.insertId, defaultUserRole],
+            (errorInsertRelation, resultInsertRelation) => {
+              if (errorInsertRelation) {
+
+                callbackToAdd({
+                  error: true,
+                  errorMessage: errorInsertRelation,
+                });
+              } else {
+
+                callbackToAdd({
+                  error: false,
+                  errorMessage: null,
+                  data: {
+                    newId: resultInsertUser.insertId,
+                  },
+                });
+              }      
+            }
+          );
+        }
       }
     );
   }
@@ -93,7 +90,7 @@ class User {
 
   /**
    * Find specific User
-   * @param {number} number
+   * @param {integer} id
    * @param {callback} callbackGetUser
    */
   static find(id, callbackGetUser) {
@@ -121,7 +118,7 @@ class User {
 
   /**
    * Delete specific User
-   * @param {number} number
+   * @param {integer} id
    * @param {callback} callbackDeleteAccount
    */
   static delete(id, callbackDeleteAccount) {
@@ -143,6 +140,49 @@ class User {
           rowMatch: result.affectedRows > 0,
           data: result,
         });
+      }
+    );
+  }
+
+  /**
+   * Update an account
+   * @param {object} data
+   * @param {integer} id 
+   * @param {callback} callbackToEdit 
+   */
+  static change(data, id, callbackToEdit) {
+    const {
+      firstname,
+      lastname,
+      pseudo,
+      email,
+      password,
+      notifNewEvent,
+      notifNewUpdate,
+    } = data;
+
+    const sqlQueryChangeUser = 'UPDATE user SET firstname = ?, lastname = ?, pseudo = ?, email = ?, password = ?, notif_new_event = ?, notif_new_update = ?, updated_at = NOW() WHERE id = ?';
+
+    // Check if the role exist and get his id
+    DBConnect.query(
+      sqlQueryChangeUser,
+      [firstname, lastname, pseudo, email, password, notifNewEvent, notifNewUpdate, id],
+      (errorChangeUser, resultChangeUser) => {
+
+        if (errorChangeUser) {
+
+          callbackToEdit({
+            error: true,
+            errorMessage: errorChangeUser,
+          });
+        } else {
+
+          callbackToEdit({
+            error: false,
+            errorMessage: null,
+            data: resultChangeUser,
+          });
+        }
       }
     );
   }

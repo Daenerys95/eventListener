@@ -30,6 +30,7 @@ module.exports = (server, router) => {
     EventController.getEvent(request, response);
   });
 
+
   // User //
 
   /**
@@ -65,5 +66,12 @@ module.exports = (server, router) => {
    */
   router.post('/users/:userId/delete', (request, response) => {
     UserController.deleteAccount(request, response);
+  });
+
+  /**
+   * Edit an account
+   */
+  router.post('/users/:userId/edit', (request, response) => {
+    UserController.edit(request, response);
   });
 };

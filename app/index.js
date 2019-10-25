@@ -16,4 +16,3 @@ App(server, router);
 
 // Defined a port for the server, if this constant is undefined, the server take the port 3000 
 server.listen(process.env.SERVER_PORT || 3000);
-
