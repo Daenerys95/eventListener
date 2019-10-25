@@ -18,6 +18,7 @@ const initialState = {
   cancelIcon,
   profileIcon,
   logoutIcon,
+  isConnected: false,
 };
 
 export const app = (state = initialState, action = {}) => {

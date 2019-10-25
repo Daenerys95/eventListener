@@ -13,7 +13,9 @@ const Address = () => (
       30 Avenue Corentin Cariou
       75019 Paris <br />
     </address>
-    <a href="#">Afficher la carte</a>
+    <p>
+      <a href="#">Afficher la carte</a>
+    </p>
   </div>
 );
 export default Address;

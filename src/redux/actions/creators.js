@@ -13,6 +13,8 @@ import {
   HANDLE_SUBMIT,
   SWITCH_MODALS,
   DECONNECT,
+  FETCH_EVENT_DETAILS,
+  SHOW_ADVANCED_FORM,
 } from './types';
 
 // == Import : Action Creators
@@ -72,9 +74,21 @@ export const handleChange = (value) => ({
 export const handleSubmit = () => ({
   type: HANDLE_SUBMIT,
 });
+export const showAdvancedForm = () => ({
+  type: SHOW_ADVANCED_FORM,
+});
 
 
 // == EventDetails : CheckButtons.js
 export const switchModals = () => ({
   type: SWITCH_MODALS,
+});
+
+// == EventDetails : middleware
+export const getEventDetails = () => ({
+  type: FETCH_EVENT_DETAILS,
+});
+export const FetchEventDetails = (data) => ({
+  type: FETCH_EVENT_DETAILS,
+  data,
 });

@@ -6,6 +6,7 @@ import {
   OPEN_SHARE_LINKS_MODAL,
   CLOSE_SHARE_LINKS_MODAL,
   SWITCH_MODALS,
+  FETCH_EVENT_DETAILS,
 } from '../actions/types';
 
 const initialState = {
@@ -30,6 +31,11 @@ export const eventIcons = (state = initialState, action = {}) => {
       return {
         ...state,
         showModal: false,
+      };
+    case FETCH_EVENT_DETAILS:
+      return {
+        ...state,
+        data: action.data,
       };
     default:
       return state;

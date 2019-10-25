@@ -41,9 +41,8 @@ const LegalMentions = () => (
       <ul className="legal-mentions-list text">
         <li className="legal-mentions-list-item">Guillaume Terrien</li>
         <li className="legal-mentions-list-item">Claudine Brun</li>
-        <li className="legal-mentions-list-item">Inès Mouandjo-Lobé</li>
-        <li className="legal-mentions-list-item">Guillaume Ers</li>
-        <li className="legal-mentions-list-item">Clément Deligny</li>
+        <li className="legal-mentions-list-item">Inès Mouandjo Lobé</li>
+        <li className="legal-mentions-list-item">Guillaume Ersent</li>
       </ul>
     </section>
   </>

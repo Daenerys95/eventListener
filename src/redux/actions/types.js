@@ -15,11 +15,10 @@ export const CHANGE_EDITOR_MODE = 'CHANGE_EDITOR_MODE';
 // App : Nav.js
 // EventDetails : CheckButtons.js
 export const OPEN_NAV_MODAL = 'OPEN_NAV_MODAL';
-export const DECONNECT = 'DECONNECT';
-
 
 // App : Nav.js
 export const ACTIVE_NAV_MENU = 'ACTIVE_NAV_MENU';
+export const DECONNECT = 'DECONNECT';
 
 
 // Home : QuickSearchBar.js
@@ -29,7 +28,11 @@ export const HANDLE_CHANGE = 'HANDLE_CHANGE';
 
 // Events : Form.js
 export const HANDLE_SUBMIT = 'HANDLE_SUBMIT';
+export const SHOW_ADVANCED_FORM = 'SHOW_ADVANCED_FORM';
 
 
 // EventDetails : CheckButtons.js
 export const SWITCH_MODALS = 'SWITCH_MODALS';
+
+// EventsDetails
+export const FETCH_EVENT_DETAILS = 'FETCH_EVENT_DETAILS';

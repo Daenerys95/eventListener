@@ -9,66 +9,77 @@ import heartIcon from 'src/assets/images/icons/icons8-heart-50.png';
 import heartCheckedIcon from 'src/assets/images/icons/icons8-heart-checked-50.png';
 
 // == Composant Header
-const Header = ({
-  showModal,
-  likeIcon,
-  changeHeartIcon,
-  openShareModal,
-  closeShareModal,
-}) => {
-  /* CSS permettant d'avoir l'image d'un évènement en bannière */
-  const bannerStyle = {
-    backgroundImage: `url(${banner})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-  };
+class Header extends React.Component {
+  state = {}
 
-  /* Si la props likeIcon vaut "true" je change d'icon */
-  const iconHeart = likeIcon ? heartCheckedIcon : heartIcon;
+  componentDidMount() {
+    console.log('coucou');
+    this.props.getEventDetails();
+  }
 
-  return (
-    <div className="event-header">
-      <div className="event-header-banner" style={bannerStyle}>
-        Banniere-evenement
-      </div>
+  render() {
+    const {
+      showModal,
+      likeIcon,
+      changeHeartIcon,
+      openShareModal,
+      closeShareModal,
+    } = this.props;
 
-      <div className="event-header-infos">
-        <h1 className="event-header-infos-name">
-        DataJob Paris 2019 <em>par DataJob</em>
-        </h1>
-        <div className="event-header-bottom">
-          <div className="event-header-bottom-icons">
+    /* CSS permettant d'avoir l'image d'un évènement en bannière */
+    const bannerStyle = {
+      backgroundImage: `url(${banner})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+    };
 
-            {/* Passage de true/false au click sur l'icon */}
-            <button
-              type="button"
-              onClick={changeHeartIcon}
-            >
-              <img alt="like" src={iconHeart} />
-            </button>
+    /* Si la props likeIcon vaut "true" je change d'icon */
+    const iconHeart = likeIcon ? heartCheckedIcon : heartIcon;
 
-            {/* Passage de false/true au click sur l'icon de partage */}
-            <button
-              type="button"
-              onClick={openShareModal}
-            >
-              <img alt="share" src={shareIcon} />
-            </button>
+    return (
+      <div className="event-header">
+        <div className="event-header-banner" style={bannerStyle}>
+          Banniere-evenement
+        </div>
 
-            {/* Affichage de la modal que si showModal vaut "true" */}
-            { showModal && <ShareLinks closeModal={closeShareModal} /> }
+        <div className="event-header-infos">
+          <h1 className="event-header-infos-name">
+          DataJob Paris 2019 <em>par DataJob</em>
+          </h1>
+          <div className="event-header-bottom">
+            <div className="event-header-bottom-icons">
+
+              {/* Passage de true/false au click sur l'icon */}
+              <button
+                type="button"
+                onClick={changeHeartIcon}
+              >
+                <img alt="like" src={iconHeart} />
+              </button>
+
+              {/* Passage de false/true au click sur l'icon de partage */}
+              <button
+                type="button"
+                onClick={openShareModal}
+              >
+                <img alt="share" src={shareIcon} />
+              </button>
+
+              {/* Affichage de la modal que si showModal vaut "true" */}
+              { showModal && <ShareLinks closeModal={closeShareModal} /> }
+            </div>
+            <span className="event-header-bottom-price">Evenement Payant</span>
           </div>
-          <span className="event-header-bottom-price">Evenement Payant</span>
+        </div>
+
+        <div className="event-header-status-date">
+          <span>A venir</span>
+          <time>Nov. 12</time>
         </div>
       </div>
-
-      <div className="event-header-status-date">
-        <span>A venir</span>
-        <time>Nov. 12</time>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 
 // == PropTypes

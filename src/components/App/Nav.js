@@ -89,7 +89,6 @@ const Nav = ({
                 <NavLink
                   to="/"
                   exact
-                  activeClassName="navigation-item--active"
                   className="navigation-item--right online"
                   onClick={deconnect}
                 >

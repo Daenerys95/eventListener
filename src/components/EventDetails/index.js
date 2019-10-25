@@ -13,30 +13,39 @@ import Tags from './Tags';
 import './eventdetails.scss';
 
 // Composant EventDetails
-const EventDetails = () => (
-  <>
-    <div className="blurred-banner" />
-    <div className="event">
+class EventDetails extends React.Component {
+  componentDidMount() {
+    console.log('ça marche');
+  }
 
-      <section className="event-flyer">
-        <Header />
+  render() {
+    return (
+      <>
+        <div className="blurred-banner" />
+        <div className="event">
 
-        <article className="event-flyer-description">
-          <aside className="event-flyer-infos">
-            <Datetime />
-            <Address />
-            <CheckButtons />
-          </aside>
-          <div className="event-flyer-description description">
-            <Description />
-            <Tags />
-          </div>
-        </article>
+          <section className="event-flyer">
+            <Header />
 
-      </section>
+            <article className="event-flyer-description">
+              <aside className="event-flyer-infos">
+                <Datetime />
+                <Address />
+                <CheckButtons />
+              </aside>
+              <div className="event-flyer-description description">
+                <Description />
+                <Tags />
+              </div>
+            </article>
 
-    </div>
-  </>
-);
+          </section>
+
+        </div>
+      </>
+    );
+  }
+}
+
 
 export default EventDetails;
