@@ -13,7 +13,7 @@ const LegalMentions = () => (
         pour la Confiance dans l'économie numérique, dite L.C.E.N., nous portons à la connaissance
         des utilisateurs et visiteurs du site les informations suivantes :
       </p>
-      <h3 className="legal-mentions-subtitle">Éditeur :</h3>
+      <h3 className="legal-mentions-subtitle">Éditeur</h3>
       <p className="legal-mentions-paragraph">
         Le site <a href="#">eventlistener.eu</a> est la propriété exclusive de eventListener, qui l'édite.
       </p>
@@ -24,10 +24,27 @@ const LegalMentions = () => (
         <li className="legal-mentions-list-item">Directeur de la publication : <strong>Yuna</strong></li>
         <li className="legal-mentions-list-item">Contactez le responsable de la publication : <strong><a href="#">yuna@eventlistener.eu</a></strong></li>
       </ul>
-      <h3 className="legal-mentions-subtitle">Hébergement :</h3>
+      <h3 className="legal-mentions-subtitle">Hébergement</h3>
       <p className="legal-mentions-paragraph">
         Le site est hébergé par AWS.
       </p>
+
+      <h3 className="legal-mentions-subtitle">Images</h3>
+      <p className="legal-mentions-paragraph">
+        Pack d'icones "Gradient Line" par Nolan sur <a target="_blank" href="https://icons8.com/icons/nolan">Icons8</a>
+      </p>
+
+      <h3 className="legal-mentions-subtitle">Création</h3>
+      <p className="legal-mentions-paragraph">
+        Le présent site <strong>eventListener</strong> a été développé dans le cadre d'un projet de fin de formation <a target="_blank" href="https://oclock.io/">O'Clock</a> par :
+      </p>
+      <ul className="legal-mentions-list text">
+        <li className="legal-mentions-list-item">Guillaume Terrien</li>
+        <li className="legal-mentions-list-item">Claudine Brun</li>
+        <li className="legal-mentions-list-item">Inès Mouandjo-Lobé</li>
+        <li className="legal-mentions-list-item">Guillaume Ers</li>
+        <li className="legal-mentions-list-item">Clément Deligny</li>
+      </ul>
     </section>
   </>
 );

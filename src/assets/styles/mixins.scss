@@ -114,6 +114,7 @@
 
 @mixin checkbox-checked {
   background-color: $turquoise;
+  animation: fromCenter .2s ease;
 }
 
 @mixin checked-disable($color, $size, $weight) {

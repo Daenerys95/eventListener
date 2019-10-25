@@ -12,6 +12,7 @@ import {
   HANDLE_CHANGE,
   HANDLE_SUBMIT,
   SWITCH_MODALS,
+  DECONNECT,
 } from './types';
 
 // == Import : Action Creators
@@ -53,6 +54,9 @@ export const openNavModal = (name) => ({
 });
 export const activeNavMenu = () => ({
   type: ACTIVE_NAV_MENU,
+});
+export const deconnect = () => ({
+  type: DECONNECT,
 });
 
 

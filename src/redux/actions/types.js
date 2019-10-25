@@ -15,6 +15,7 @@ export const CHANGE_EDITOR_MODE = 'CHANGE_EDITOR_MODE';
 // App : Nav.js
 // EventDetails : CheckButtons.js
 export const OPEN_NAV_MODAL = 'OPEN_NAV_MODAL';
+export const DECONNECT = 'DECONNECT';
 
 
 // App : Nav.js

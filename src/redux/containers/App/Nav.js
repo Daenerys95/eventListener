@@ -13,7 +13,11 @@ const mapStateToProps = (state) => ({
   showLogin: state.app.login,
   showRegister: state.app.register,
   cancelIcon: state.app.cancelIcon,
+  profileIcon: state.app.profileIcon,
+  logoutIcon: state.app.logoutIcon,
   switchModals: state.switchModals.switch,
+  isConnected: state.app.isConnected,
+  pseudo: state.user.pseudo,
 });
 
 const mapDispatchToProps = (dispatch) => ({

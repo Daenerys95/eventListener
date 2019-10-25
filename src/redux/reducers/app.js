@@ -1,10 +1,13 @@
 // Gestion dde l'icon du menu Burger sur App > Nav.js
 import iconMenuBurger from 'src/assets/images/icons/icons8-xbox-menu-50.png';
 import cancelIcon from 'src/assets/images/icons/icons8-cancel-50.png';
+import profileIcon from 'src/assets/images/icons/icons8-settings-50.png';
+import logoutIcon from 'src/assets/images/icons/icons8-exit-50.png';
 
 import {
   OPEN_NAV_MODAL,
   ACTIVE_NAV_MENU,
+  DECONNECT,
 } from '../actions/types';
 
 const initialState = {
@@ -13,6 +16,8 @@ const initialState = {
   login: false,
   register: false,
   cancelIcon,
+  profileIcon,
+  logoutIcon,
 };
 
 export const app = (state = initialState, action = {}) => {
@@ -33,6 +38,11 @@ export const app = (state = initialState, action = {}) => {
         register: false,
       };
     }
+    case DECONNECT:
+      return {
+        ...state,
+        isConnected: false,
+      };
     default:
       return state;
   }
