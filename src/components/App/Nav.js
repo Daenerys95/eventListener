@@ -25,6 +25,7 @@ const Nav = ({
   pseudo,
   profileIcon,
   logoutIcon,
+  deconnect,
 }) => {
   /* Fonction qui gère l'ouverture des deux modals Connexion et Inscription */
   const handleNavModals = (event) => {
@@ -90,6 +91,7 @@ const Nav = ({
                   exact
                   activeClassName="navigation-item--active"
                   className="navigation-item--right online"
+                  onClick={deconnect}
                 >
                   <span>Déconnexion</span>
                   <span>
@@ -159,6 +161,7 @@ Nav.propTypes = {
   pseudo: PropTypes.string.isRequired,
   profileIcon: PropTypes.string.isRequired,
   logoutIcon: PropTypes.string.isRequired,
+  deconnect: PropTypes.func.isRequired,
 };
 
 
