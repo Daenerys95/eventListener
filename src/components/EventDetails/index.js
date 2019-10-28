@@ -1,12 +1,13 @@
 // import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // import sous-composants
 import Header from 'src/redux/containers/EventDetails/Header';
 import CheckButtons from 'src/redux/containers/EventDetails/CheckButtons';
-import Datetime from './Datetime';
-import Address from './Address';
-import Description from './Description';
+import Datetime from 'src/redux/containers/EventDetails/Datetime';
+import Address from 'src/redux/containers/EventDetails/Address';
+import Description from 'src/redux/containers/EventDetails/Description';
 import Tags from './Tags';
 
 // import local
@@ -14,7 +15,11 @@ import './eventdetails.scss';
 
 // Composant EventDetails
 class EventDetails extends React.Component {
- 
+  componentDidMount() {
+    const { getEventDetails } = this.props;
+    getEventDetails();
+  }
+
   render() {
     return (
       <>
@@ -43,6 +48,10 @@ class EventDetails extends React.Component {
     );
   }
 }
+
+EventDetails.propTypes = {
+  getEventDetails: PropTypes.func.isRequired,
+};
 
 
 export default EventDetails;
