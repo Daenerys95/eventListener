@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-
 import Header from 'src/components/EventDetails/Header';
+
 
 // action creators
 import {

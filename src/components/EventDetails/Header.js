@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 // == Import : local
 import ShareLinks from 'src/components/Modal/ShareLinks';
 import shareIcon from 'src/assets/images/icons/icons8-share-50.png';
-// import banner from 'src/assets/images/event.png';
 import heartIcon from 'src/assets/images/icons/icons8-heart-50.png';
 import heartCheckedIcon from 'src/assets/images/icons/icons8-heart-checked-50.png';
 
@@ -46,7 +45,7 @@ class Header extends React.Component {
 
         <div className="event-header-infos">
           <h1 className="event-header-infos-name">
-          {title} <em>par DataJob</em>
+            {title} <em>par DataJob</em>
           </h1>
           <div className="event-header-bottom">
             <div className="event-header-bottom-icons">
@@ -93,6 +92,7 @@ Header.propTypes = {
   closeShareModal: PropTypes.func.isRequired,
   getEventDetails: PropTypes.func.isRequired,
   banner: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 

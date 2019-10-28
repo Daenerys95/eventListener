@@ -55,7 +55,11 @@ export const switchModals = (state = modalState, action = {}) => {
   }
 };
 
-export const eventDetails = (state = {}, action = {}) => {
+
+const detailsState = {
+  data: {},
+};
+export const eventDetails = (state = detailsState, action = {}) => {
   switch (action.type) {
     case FETCH_EVENT_DETAILS:
       return {
