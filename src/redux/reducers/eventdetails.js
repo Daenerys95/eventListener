@@ -32,11 +32,6 @@ export const eventIcons = (state = initialState, action = {}) => {
         ...state,
         showModal: false,
       };
-    case FETCH_EVENT_DETAILS:
-      return {
-        ...state,
-        data: action.data,
-      };
     default:
       return state;
   }
@@ -54,6 +49,18 @@ export const switchModals = (state = modalState, action = {}) => {
       return {
         ...state,
         switch: !state.switch,
+      };
+    default:
+      return state;
+  }
+};
+
+export const eventDetails = (state = {}, action = {}) => {
+  switch (action.type) {
+    case FETCH_EVENT_DETAILS:
+      return {
+        ...state,
+        data: action.data,
       };
     default:
       return state;

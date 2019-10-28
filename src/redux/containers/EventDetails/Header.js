@@ -13,6 +13,8 @@ import {
 const mapStateToProps = (state) => ({
   showModal: state.eventIcons.showModal,
   likeIcon: state.eventIcons.likeIcon,
+  banner: state.eventDetails.data.url_image,
+  title: state.eventDetails.data.title,
 });
 
 const mapDispatchToProps = (dispatch) => ({

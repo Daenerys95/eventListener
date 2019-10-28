@@ -14,10 +14,7 @@ import './eventdetails.scss';
 
 // Composant EventDetails
 class EventDetails extends React.Component {
-  componentDidMount() {
-    console.log('ça marche');
-  }
-
+ 
   render() {
     return (
       <>

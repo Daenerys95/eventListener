@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // == Import : local
 import ShareLinks from 'src/components/Modal/ShareLinks';
 import shareIcon from 'src/assets/images/icons/icons8-share-50.png';
-import banner from 'src/assets/images/event.png';
+// import banner from 'src/assets/images/event.png';
 import heartIcon from 'src/assets/images/icons/icons8-heart-50.png';
 import heartCheckedIcon from 'src/assets/images/icons/icons8-heart-checked-50.png';
 
@@ -13,8 +13,8 @@ class Header extends React.Component {
   state = {}
 
   componentDidMount() {
-    console.log('coucou');
-    this.props.getEventDetails();
+    const { getEventDetails } = this.props;
+    getEventDetails();
   }
 
   render() {
@@ -24,6 +24,8 @@ class Header extends React.Component {
       changeHeartIcon,
       openShareModal,
       closeShareModal,
+      banner,
+      title,
     } = this.props;
 
     /* CSS permettant d'avoir l'image d'un évènement en bannière */
@@ -44,7 +46,7 @@ class Header extends React.Component {
 
         <div className="event-header-infos">
           <h1 className="event-header-infos-name">
-          DataJob Paris 2019 <em>par DataJob</em>
+          {title} <em>par DataJob</em>
           </h1>
           <div className="event-header-bottom">
             <div className="event-header-bottom-icons">
@@ -89,6 +91,8 @@ Header.propTypes = {
   changeHeartIcon: PropTypes.func.isRequired,
   openShareModal: PropTypes.func.isRequired,
   closeShareModal: PropTypes.func.isRequired,
+  getEventDetails: PropTypes.func.isRequired,
+  banner: PropTypes.string.isRequired,
 };
 
 

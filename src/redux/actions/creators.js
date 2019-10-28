@@ -14,6 +14,7 @@ import {
   SWITCH_MODALS,
   DECONNECT,
   FETCH_EVENT_DETAILS,
+  GET_EVENT_DETAILS,
   SHOW_ADVANCED_FORM,
 } from './types';
 
@@ -86,9 +87,9 @@ export const switchModals = () => ({
 
 // == EventDetails : middleware
 export const getEventDetails = () => ({
-  type: FETCH_EVENT_DETAILS,
+  type: GET_EVENT_DETAILS,
 });
-export const FetchEventDetails = (data) => ({
+export const fetchEventDetails = (data) => ({
   type: FETCH_EVENT_DETAILS,
   data,
 });

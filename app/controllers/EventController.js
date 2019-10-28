@@ -26,7 +26,8 @@ class EventController {
 
       response.status(200);
       response.json({
-        status: "Bad data received"
+        error: true,
+        errorMessage: "Bad data received"
       });
       
     } else {
@@ -42,7 +43,8 @@ class EventController {
             });
           } else {
             response.json({
-              status: "Event doesn't exist",
+              error: true,
+              errorMessage: "Event doesn't exist",
             });
           }
         });
