@@ -9,13 +9,18 @@ import {
   CHANGE_EDITOR_MODE,
   OPEN_NAV_MODAL,
   ACTIVE_NAV_MENU,
-  HANDLE_CHANGE,
+  HANDLE_FORM_CHANGE,
+  HANDLE_SEARCH_CHANGE,
+  HANDLE_SEARCH_SUBMIT,
   HANDLE_SUBMIT,
   SWITCH_MODALS,
   DECONNECT,
   FETCH_EVENT_DETAILS,
   GET_EVENT_DETAILS,
   SHOW_ADVANCED_FORM,
+  TRIGGER_MIDDLEWARE,
+  FETCH_NAME_REQUEST_DATA,
+  ALL_EVENTS,
 } from './types';
 
 // == Import : Action Creators
@@ -64,21 +69,36 @@ export const deconnect = () => ({
 
 
 // Home : QuickSearchBar.js
-// Events : Form.js
-export const handleChange = (value) => ({
-  type: HANDLE_CHANGE,
+export const handleSearchChange = (value) => ({
+  type: HANDLE_SEARCH_CHANGE,
   value,
 });
+export const handleSearchSubmit = () => ({
+  type: HANDLE_SEARCH_SUBMIT,
+});
 
-
-// == Events : Form.js
+// Events : Form.js
+export const handleFormChange = (value) => ({
+  type: HANDLE_FORM_CHANGE,
+  value,
+});
 export const handleSubmit = () => ({
   type: HANDLE_SUBMIT,
 });
 export const showAdvancedForm = () => ({
   type: SHOW_ADVANCED_FORM,
 });
-
+// Events Middlewares
+export const triggerMiddleware = () => ({
+  type: TRIGGER_MIDDLEWARE,
+});
+export const fetchNameRequestData = (data) => ({
+  type: FETCH_NAME_REQUEST_DATA,
+  data,
+});
+export const allEvents = () => ({
+  type: ALL_EVENTS,
+});
 
 // == EventDetails : CheckButtons.js
 export const switchModals = () => ({

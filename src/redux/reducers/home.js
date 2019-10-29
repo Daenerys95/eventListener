@@ -1,5 +1,6 @@
 import {
-  HANDLE_CHANGE,
+  HANDLE_SEARCH_CHANGE,
+  HANDLE_SEARCH_SUBMIT,
 } from '../actions/types';
 
 const initialState = {
@@ -8,10 +9,15 @@ const initialState = {
 
 export const home = (state = initialState, action = {}) => {
   switch (action.type) {
-    case HANDLE_CHANGE:
+    case HANDLE_SEARCH_CHANGE:
       return {
         ...state,
         value: action.value,
+      };
+    case HANDLE_SEARCH_SUBMIT:
+      return {
+        ...state,
+        value: '',
       };
     default:
       return state;

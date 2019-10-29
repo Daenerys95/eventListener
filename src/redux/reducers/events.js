@@ -1,18 +1,20 @@
 import {
-  HANDLE_CHANGE,
+  HANDLE_FORM_CHANGE,
   HANDLE_SUBMIT,
   SHOW_ADVANCED_FORM,
+  FETCH_NAME_REQUEST_DATA,
 } from '../actions/types';
 
 const initialState = {
   value: '',
   advanced: false,
+  data: [],
 };
 
 
 export const form = (state = initialState, action = {}) => {
   switch (action.type) {
-    case HANDLE_CHANGE:
+    case HANDLE_FORM_CHANGE:
       return {
         ...state,
         value: action.value,
@@ -26,6 +28,11 @@ export const form = (state = initialState, action = {}) => {
       return {
         ...state,
         value: '',
+      };
+    case FETCH_NAME_REQUEST_DATA:
+      return {
+        ...state,
+        data: action.data,
       };
     default:
       return state;

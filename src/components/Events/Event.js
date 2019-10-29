@@ -15,9 +15,9 @@ const Event = (props) => {
     url_image: urlImage,
     address,
     date_start: dateStart,
-    id,
   } = props;
-  const route = `/evenements/${id}`;
+  const date = new Date(dateStart);
+  const eventDate = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()}`;
   return (
     <div className="menu-item list">
       <div
@@ -33,13 +33,13 @@ const Event = (props) => {
       </div>
       <div className="menu-item-middle">
         <h3 className="menu-item-middle-title">{title}</h3>
-        <NavLink to={route}>
+        <NavLink to="/evenements/1">
           <img src={iconPlus} alt="plus" className="icon" />
         </NavLink>
       </div>
       <div className="menu-item-bot">
         <p className="menu-item-bot-location">{address}</p>
-        <p className="menu-item-bot-date">{dateStart}</p>
+        <p className="menu-item-bot-date">{eventDate}</p>
       </div>
     </div>
   );

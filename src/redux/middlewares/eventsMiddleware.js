@@ -1,20 +1,40 @@
+// == Import: npm
 import axios from 'axios';
-import { GET_EVENT_DETAILS } from '../actions/types';
-import { fetchEventDetails } from '../actions/creators';
 
+// == Import :  Action Types
+import {
+  TRIGGER_MIDDLEWARE,
+  ALL_EVENTS,
+} from '../actions/types';
+
+
+// == Import :  Action Creators
+import {
+  fetchNameRequestData,
+} from '../actions/creators';
+
+// == Middleware : eventsMiddleware
 const eventsMiddleware = (store) => (next) => (action) => {
-  console.log('Je suis le middleware, et je laisse passer cette action: ', action);
-
   switch (action.type) {
-    case GET_EVENT_DETAILS: {
-      axios.get(`http://localhost:3000/events/${action.id}`)
+    case TRIGGER_MIDDLEWARE: {
+      const { value } = store.getState().form;
+      axios.get(`http://localhost:3000/events/title/${value}`)
         .then((response) => {
-          console.log('from middleware : ', response.data.result.data.id);
-          store.dispatch(fetchEventDetails(response.data.result.data));
+          const { data } = response.data.result;
+          store.dispatch(fetchNameRequestData(data));
         })
         .catch((error) => {
-          console.log(error);
+          console.log('from middleware:', error);
         });
+      break;
+    }
+    case ALL_EVENTS: {
+      axios.get('http://localhost:3000/events')
+        .then((response) => {
+          const { data } = response.data;
+          store.dispatch(fetchNameRequestData(data));
+        })
+        .catch((error) => console.log('from middelware:', error));
       break;
     }
     default:
@@ -22,4 +42,6 @@ const eventsMiddleware = (store) => (next) => (action) => {
   }
 };
 
+
+// == Export
 export default eventsMiddleware;
