@@ -27,7 +27,6 @@ const Form = ({
 
   return (
     <>
-      <h3>Formulaire</h3>
       <form onSubmit={_onSubmit} className="form">
         <input
           type="text"
@@ -36,7 +35,9 @@ const Form = ({
           value={value}
           onChange={_onChange}
         />
-        <h3 onClick={showAdvancedForm}>Recherche avancée</h3>
+        <button type="button" onClick={showAdvancedForm}>
+          Voir plus de filtres
+        </button>
         { advanced && <Advanced /> }
       </form>
     </>

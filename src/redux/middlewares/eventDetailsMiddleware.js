@@ -7,9 +7,9 @@ const eventDetailsMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case GET_EVENT_DETAILS: {
+      console.log('Je suis le middleware, et j execute cette action: ', action);
       axios.get(`http://localhost:3000/events/${action.id}`)
         .then((response) => {
-          console.log('from middleware : ', response.data.result.data.id);
           store.dispatch(fetchEventDetails(response.data.result.data));
         })
         .catch((error) => {

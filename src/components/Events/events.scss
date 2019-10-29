@@ -18,71 +18,101 @@ h3 {
   margin-top: 2rem;
 }
 
+h4.events-subtitle {
+  @include subtitleType2;
+}
+
 .advanced-filter-name {
   @include subtitleType1;
 }
 
-.horizontal-menu {
-  margin: 0 -1rem 2rem;
-}
-
-.menu-item-wrapper {
-  width: calc(100% / 50);
-  height: 380px;
-}
-
+/* CSS LIST VIEW */
 .menu-item.list {
-  width: 200px;
-}
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-.menu-item {
-  margin: .5rem;
-  //user-select: none;
-
-  &-top {
+  .menu-item-top {
+    width: 200px;
+    height: 100px;
     font-size: 0;
-    height: 170px;
   }
-
-  &-middle {
-    white-space: normal;
-    background-color: white;
-    position: relative;
-    
-    &-title {
-      margin: 0.5rem 0;
-      text-transform: uppercase;
-      border-bottom: 2px solid $blue;
-      border-image-source: $mainGradient;
-      border-image-slice: 1;
-      text-align: center;
-      font-weight: 900;
-    }
-    
-    &-content {
-      padding: .5rem .5rem 2.7rem;
-      font-size: .9rem;
-    }
-
-    & .icon {
-      position: absolute;
-      right: .2rem;
-      bottom: 0;
-    }
-  }
-
-  &-bot {
+  .menu-item-middle {
+    width: 25%;
     display: flex;
     justify-content: space-between;
-    background: $blueGradient;
-    color: white;
-    padding: .3rem .5rem
+    &-title {
+      font-size: 1.2rem;
+    }
+  }
+
+  .menu-item-bot {
+    width: 50%;
   }
 }
 
-.scroll-menu-arrow {
-  color: $colorLightTheme;
-  cursor: pointer;
+/* CSS SLIDER CARD VIEW */
+.horizontal-menu {
+  margin: 0 -1rem 2rem;
+
+  .menu-item-wrapper {
+    width: calc(100% / 50);
+    height: 380px;
+  }
+
+  .menu-item.card {
+    width: 200px;
+  }
+  
+  .menu-item {
+    margin: .5rem;
+    //user-select: none;
+
+    &-top {
+      font-size: 0;
+      height: 170px;
+    }
+
+    &-middle {
+      white-space: normal;
+      background-color: white;
+      position: relative;
+      
+      &-title {
+        margin: 0.5rem 0;
+        text-transform: uppercase;
+        border-bottom: 2px solid $blue;
+        border-image-source: $mainGradient;
+        border-image-slice: 1;
+        text-align: center;
+        font-weight: 900;
+      }
+      
+      &-content {
+        padding: .5rem .5rem 2.7rem;
+        font-size: .9rem;
+      }
+
+      & .icon {
+        position: absolute;
+        right: .2rem;
+        bottom: 0;
+      }
+    }
+
+    &-bot {
+      display: flex;
+      justify-content: space-between;
+      background: $blueGradient;
+      color: white;
+      padding: .3rem .5rem
+    }
+  }
+
+  .scroll-menu-arrow {
+    color: $colorLightTheme;
+    cursor: pointer;
+  }
 }
  
 .icon {

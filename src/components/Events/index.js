@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import './events.scss';
 import HeaderGradient from 'src/components/App/HeaderGradient';
 import Form from 'src/redux/containers/Events/Form';
-import Event from './Event';
+import Event from 'src/redux/containers/Events/Event';
 
 
 // == Composant Events
@@ -33,7 +33,8 @@ class Events extends React.Component {
             Tous les événements
           </h2>
           <Form />
-          {data.map((event) => <Event key={event.id} {...event} />)}
+          <h4 className="events-subtitle">Résultats de recherche</h4>
+          {data.map((event) => <Event key={event.id} {...event} view="list" />)}
         </section>
       </>
     );

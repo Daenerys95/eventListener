@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 // == Import : local
@@ -9,17 +9,19 @@ import iconPlus from 'src/assets/images/icons/icons8-plus-50.png';
 
 
 // == Composant Event
-const Event = (props) => {
-  const {
-    title,
-    url_image: urlImage,
-    address,
-    date_start: dateStart,
-  } = props;
+const Event = ({
+  id,
+  view,
+  title,
+  url_image: urlImage,
+  address,
+  date_start: dateStart,
+}) => {
+  const viewClass = `menu-item ${view}`;
   const date = new Date(dateStart);
   const eventDate = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()}`;
   return (
-    <div className="menu-item list">
+    <div className={viewClass}>
       <div
         className="menu-item-top"
         style={{
@@ -32,10 +34,14 @@ const Event = (props) => {
         {urlImage}
       </div>
       <div className="menu-item-middle">
-        <h3 className="menu-item-middle-title">{title}</h3>
-        <NavLink to="/evenements/1">
-          <img src={iconPlus} alt="plus" className="icon" />
-        </NavLink>
+        <h4 className="menu-item-middle-title">{title}</h4>
+        <Link to={`/evenements/${id}`}>
+          <img
+            src={iconPlus}
+            alt="plus"
+            className="icon"
+          />
+        </Link>
       </div>
       <div className="menu-item-bot">
         <p className="menu-item-bot-location">{address}</p>
@@ -47,6 +53,8 @@ const Event = (props) => {
 
 
 Event.propTypes = {
+  id: PropTypes.number.isRequired,
+  view: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   url_image: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,

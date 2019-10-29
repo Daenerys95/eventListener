@@ -25,9 +25,7 @@ const App = () => (
       <Route exact path="/evenements">
         <Events />
       </Route>
-      <Route path="/evenements/:id">
-        <EventDetails />
-      </Route>
+      <Route path="/evenements/:eventId" component={EventDetails} />
       <Route path="/profil">
         <User />
       </Route>

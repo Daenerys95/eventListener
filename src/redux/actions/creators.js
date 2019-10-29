@@ -106,7 +106,7 @@ export const switchModals = () => ({
 });
 
 // == EventDetails : middleware
-export const getEventDetails = (id = 4) => ({
+export const getEventDetails = (id = 10) => ({
   type: GET_EVENT_DETAILS,
   id,
 });

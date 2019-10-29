@@ -16,8 +16,8 @@ import './eventdetails.scss';
 // Composant EventDetails
 class EventDetails extends React.Component {
   componentDidMount() {
-    const { getEventDetails } = this.props;
-    getEventDetails();
+    const { match: { params}, getEventDetails } = this.props;
+    getEventDetails(params.eventId);
   }
 
   render() {
