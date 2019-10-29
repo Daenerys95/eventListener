@@ -7,7 +7,10 @@ import {
   CLOSE_SHARE_LINKS_MODAL,
   SWITCH_MODALS,
   FETCH_EVENT_DETAILS,
+  GET_EVENT_STATUT,
+  GET_EVENT_DETAILS,
 } from '../actions/types';
+import { getEventStatut } from '../actions/selectors';
 
 const initialState = {
   showModal: false,
@@ -58,6 +61,7 @@ export const switchModals = (state = modalState, action = {}) => {
 
 const detailsState = {
   data: {},
+  eventStatut: 'A venir55',
 };
 export const eventDetails = (state = detailsState, action = {}) => {
   switch (action.type) {
@@ -66,6 +70,11 @@ export const eventDetails = (state = detailsState, action = {}) => {
         ...state,
         data: action.data,
       };
+    // case GET_EVENT_DETAILS:
+    //   return {
+    //     ...state,
+    //     eventStatut: getEventStatut(state.data),
+    //   };
     default:
       return state;
   }

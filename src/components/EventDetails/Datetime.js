@@ -1,6 +1,5 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import moment from 'moment';
 
 import iconDate from 'src/assets/images/icons/icons8-calendar-50.png';
 
@@ -8,9 +7,8 @@ class Datetime extends React.Component {
   state = {}
 
   render() {
-    const { dateStart } = this.props;
-    // https://momentjs.com/docs/#/displaying/format/
-    const date = moment(dateStart).format('ddd DD MMM YYYY'); 
+    const { dateStart, dateEnd, getEventDate } = this.props;
+    const date = getEventDate(dateStart, dateEnd);
 
     return (
       <div className="datetime">
@@ -29,9 +27,12 @@ class Datetime extends React.Component {
 
 Datetime.propTypes = {
   dateStart: Proptypes.string,
+  dateEnd: Proptypes.string,
+  getEventDate: Proptypes.func.isRequired,
 };
 Datetime.defaultProps = {
   dateStart: '',
+  dateEnd: '',
 };
 
 export default Datetime;

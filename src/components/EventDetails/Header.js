@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 
 // == Import : local
 import ShareLinks from 'src/components/Modal/ShareLinks';
@@ -20,19 +19,26 @@ const Header = ({
   price,
   dateStart,
   dateEnd,
+  getEventStatus,
+  urlLive,
+  isOnline,
 }) => {
   /* Si la props likeIcon vaut "true" je change d'icon */
   const iconHeart = likeIcon ? heartCheckedIcon : heartIcon;
   const payant = price ? 'Payant' : 'Gratuit';
-  const date = moment(dateStart).format('DD MMM');
+  const eventStatut = getEventStatus(dateStart, dateEnd);
+  const onlineClass = isOnline ? 'event-link-online' : 'event-link-offline';
 
   return (
     <div className="event-header">
-      <div className="event-header-banner" style={{
-        backgroundImage: `url(${banner})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-      }}>
+      <div
+        className="event-header-banner"
+        style={{
+          backgroundImage: `url(${banner})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+        }}
+      >
         Banniere-evenement
       </div>
 
@@ -66,9 +72,9 @@ const Header = ({
         </div>
       </div>
 
-      <div className="event-header-status-date">
-        <span>A venir</span>
-        <time>{date}</time>
+      <div className="event-header-status">
+        <span>{eventStatut}</span>
+        <a href={urlLive} className={onlineClass}>Diffusion online</a>
       </div>
     </div>
   );
@@ -82,14 +88,23 @@ Header.propTypes = {
   changeHeartIcon: PropTypes.func.isRequired,
   openShareModal: PropTypes.func.isRequired,
   closeShareModal: PropTypes.func.isRequired,
+  getEventStatus: PropTypes.func.isRequired,
   price: PropTypes.number,
   banner: PropTypes.string,
   title: PropTypes.string,
+  dateStart: PropTypes.string,
+  dateEnd: PropTypes.string,
+  urlLive: PropTypes.string,
+  isOnline: PropTypes.number,
 };
 Header.defaultProps = {
   price: 0,
   banner: '',
   title: '',
+  dateStart: '',
+  dateEnd: '',
+  urlLive: '',
+  isOnline: 0,
 };
 
 

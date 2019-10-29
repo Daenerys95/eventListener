@@ -24,7 +24,10 @@ class EventDetails extends React.Component {
     const { banner } = this.props;
     return (
       <>
-        <div className="blurred-banner" style={{backgroundImage: `url(${banner})`, }}/>
+        <div
+          className="blurred-banner"
+          style={{ backgroundImage: `url(${banner})` }}
+        />
         <div className="event">
 
           <section className="event-flyer">
@@ -54,13 +57,13 @@ EventDetails.propTypes = {
   getEventDetails: PropTypes.func.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      eventId: PropTypes.number.isRequired,
-    }).isRequired
+      eventId: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
   banner: PropTypes.string,
 };
 
-EventDetails.propTypes = {
+EventDetails.defaultProps = {
   banner: '',
 };
 

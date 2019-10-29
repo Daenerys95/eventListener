@@ -55,7 +55,7 @@
         }
       }
 
-      &-status-date {
+      &-status {
         display: flex;
         justify-content: space-between;
         background: $mainGradient;
@@ -78,6 +78,14 @@
           transform: rotate(-45deg);
           bottom: -.35rem;
           right: 0;
+        }
+
+        & .event-link-offline {
+          opacity: .2;
+
+          &:hover {
+            color: white;
+          }
         }
       } 
 
@@ -222,7 +230,7 @@
         }
       }
 
-      &-status-date {
+      &-status {
         margin: 0 -1.7rem;
         padding: .7rem 5rem;
         width: calc(100% + 5.35rem);
