@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import DOMPurify from 'dompurify';
+import moment from 'moment';
 
 
 // == Import : local
@@ -17,11 +19,12 @@ const Event = ({
   address,
   date_start: dateStart,
 }) => {
-  const viewClass = `menu-item ${view}`;
-  const date = new Date(dateStart);
-  const eventDate = `${date.getDate()}/${(date.getMonth() + 1)}/${date.getFullYear()}`;
+  const eventDate = moment(dateStart).format('DD MMM YYYY');
+  
+  const pureAddress = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(address) }} />;
+
   return (
-    <div className={viewClass}>
+    <div className={`menu-item ${view}`}>
       <div
         className="menu-item-top"
         style={{
@@ -42,10 +45,10 @@ const Event = ({
             className="icon"
           />
         </Link>
+        <p className="menu-item-middle-date">{eventDate}</p>
       </div>
       <div className="menu-item-bot">
-        <p className="menu-item-bot-location">{address}</p>
-        <p className="menu-item-bot-date">{eventDate}</p>
+        <p className="menu-item-bot-location">{pureAddress}</p>
       </div>
     </div>
   );

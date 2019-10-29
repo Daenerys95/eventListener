@@ -9,12 +9,15 @@ import {
   closeShareLinksModal,
 } from '../../actions/creators';
 
+
 const mapStateToProps = (state) => ({
   showModal: state.eventIcons.showModal,
   likeIcon: state.eventIcons.likeIcon,
   price: state.eventDetails.data.price,
   banner: state.eventDetails.data.url_image,
   title: state.eventDetails.data.title,
+  dateStart: state.eventDetails.data.date_start,
+  dateEnd: state.eventDetails.data.date_end,
 });
 
 const mapDispatchToProps = (dispatch) => ({

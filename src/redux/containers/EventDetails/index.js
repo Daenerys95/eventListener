@@ -8,6 +8,7 @@ import {
 } from '../../actions/creators';
 
 const mapStateToProps = (state) => ({
+  banner: state.eventDetails.data.url_image,
 });
 
 const mapDispatchToProps = (dispatch) => ({

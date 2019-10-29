@@ -3,7 +3,6 @@ import SearchForm from './SearchForm';
 import Contact from './Contact';
 
 import './home.scss';
-import ScrollEvents from '../Events/ScrollEvents';
 
 // == Composant
 const Home = () => (
@@ -22,7 +21,9 @@ const Home = () => (
       <h2 className="events-title">
         Prochains événements
       </h2>
-      <ScrollEvents />
+
+      {/*data.map((event) => <Event key={event.id} {...event} view="card" />)*/}
+
       <Contact />
     </main>
   </>

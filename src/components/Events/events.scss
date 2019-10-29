@@ -29,6 +29,7 @@ h4.events-subtitle {
 /* CSS LIST VIEW */
 .menu-item.list {
   display: flex;
+  flex-wrap:wrap;
   justify-content: space-between;
   align-items: center;
 
@@ -38,16 +39,21 @@ h4.events-subtitle {
     font-size: 0;
   }
   .menu-item-middle {
-    width: 25%;
+    width: 50%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    align-items: center;
+
     &-title {
       font-size: 1.2rem;
+      width: 60%;
     }
   }
 
   .menu-item-bot {
-    width: 50%;
+    min-width: 25%;
+    //padding-left: 1rem;
   }
 }
 

@@ -10,17 +10,7 @@ class Datetime extends React.Component {
   render() {
     const { dateStart } = this.props;
     // https://momentjs.com/docs/#/displaying/format/
-    const date = moment(dateStart).format('dddd d MMMM YYYY ');
-    //const now = moment().format();
-    // let eventStateText = 'Terminé';
-    // if (moment(now).isSame(moment(dateStart).format())) {
-    //   console.log('evenement en cours');
-    //   eventStateText = 'En cours';
-    // }
-    // if (moment(now).isBefore(moment(dateStart).format())) {
-    //   eventStateText = 'A venir';
-    // }
-    
+    const date = moment(dateStart).format('ddd DD MMM YYYY'); 
 
     return (
       <div className="datetime">
@@ -31,7 +21,6 @@ class Datetime extends React.Component {
         <p>
           <time>{date}</time>
           <a href="#">Ajouter au calendrier</a>
-          <span className="event-state">Evenement à venir</span>
         </p>
       </div>
     );

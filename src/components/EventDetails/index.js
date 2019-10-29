@@ -16,14 +16,15 @@ import './eventdetails.scss';
 // Composant EventDetails
 class EventDetails extends React.Component {
   componentDidMount() {
-    const { match: { params}, getEventDetails } = this.props;
+    const { match: { params }, getEventDetails } = this.props;
     getEventDetails(params.eventId);
   }
 
   render() {
+    const { banner } = this.props;
     return (
       <>
-        <div className="blurred-banner" />
+        <div className="blurred-banner" style={{backgroundImage: `url(${banner})`, }}/>
         <div className="event">
 
           <section className="event-flyer">
@@ -51,6 +52,16 @@ class EventDetails extends React.Component {
 
 EventDetails.propTypes = {
   getEventDetails: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      eventId: PropTypes.number.isRequired,
+    }).isRequired
+  }).isRequired,
+  banner: PropTypes.string,
+};
+
+EventDetails.propTypes = {
+  banner: '',
 };
 
 

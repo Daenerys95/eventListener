@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 // == Import : local
 import ShareLinks from 'src/components/Modal/ShareLinks';
@@ -17,21 +18,21 @@ const Header = ({
   banner,
   title,
   price,
+  dateStart,
+  dateEnd,
 }) => {
-  /* CSS-in-JS permettant d'avoir l'image d'un évènement en bannière */
-  const bannerStyle = {
-    backgroundImage: `url(${banner})`,
-    backgroundPosition: 'center',
-    backgroundSize: 'cover',
-  };
-
   /* Si la props likeIcon vaut "true" je change d'icon */
   const iconHeart = likeIcon ? heartCheckedIcon : heartIcon;
   const payant = price ? 'Payant' : 'Gratuit';
+  const date = moment(dateStart).format('DD MMM');
 
   return (
     <div className="event-header">
-      <div className="event-header-banner" style={bannerStyle}>
+      <div className="event-header-banner" style={{
+        backgroundImage: `url(${banner})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+      }}>
         Banniere-evenement
       </div>
 
@@ -67,7 +68,7 @@ const Header = ({
 
       <div className="event-header-status-date">
         <span>A venir</span>
-        <time>Nov. 12</time>
+        <time>{date}</time>
       </div>
     </div>
   );

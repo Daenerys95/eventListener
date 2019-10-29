@@ -8,14 +8,13 @@ const server = require('express')();
 const App = require('./App');
 
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({extended: true}));
+server.use(bodyParser.urlencoded({ extended: true }));
 server.use((request, response, next) => {
-  response.header('Access-Control-Allow-Origin', 'http://localhost:8080');
-  response.header('Access-Control-Allow-Credentials', true);
-  response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  response.header("Access-Control-Allow-Methods: GET, POST")
+  response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST, PUT, PATCH, DELETE');
+  response.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
-})
+});
 server.use(router);
 
 App(server, router);
