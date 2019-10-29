@@ -129,7 +129,12 @@
       font-size: 1.1rem;
       text-align: justify;
       
-
+    & .event-state {
+      display: block;
+      text-transform: uppercase;
+      margin: 1rem 0 0;
+      color: $purple;
+    }
       time {
         display: block;
       }

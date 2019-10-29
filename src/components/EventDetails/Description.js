@@ -21,7 +21,10 @@ const Description = ({ description }) => {
 };
 
 Description.propTypes = {
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
+};
+Description.defaultProps = {
+  description: '',
 };
 
 export default Description;

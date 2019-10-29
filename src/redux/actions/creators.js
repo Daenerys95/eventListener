@@ -86,8 +86,9 @@ export const switchModals = () => ({
 });
 
 // == EventDetails : middleware
-export const getEventDetails = () => ({
+export const getEventDetails = (id = 4) => ({
   type: GET_EVENT_DETAILS,
+  id,
 });
 export const fetchEventDetails = (data) => ({
   type: FETCH_EVENT_DETAILS,

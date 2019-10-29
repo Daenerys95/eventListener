@@ -1,9 +1,9 @@
 import React from 'react';
 import SearchForm from './SearchForm';
 import Contact from './Contact';
-import ScrollEvents from '../Events/ScrollEvents';
 
 import './home.scss';
+import ScrollEvents from '../Events/ScrollEvents';
 
 // == Composant
 const Home = () => (

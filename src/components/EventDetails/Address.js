@@ -24,7 +24,10 @@ const Address = ({ address }) => {
 };
 
 Address.propTypes = {
-  address: PropTypes.string.isRequired,
+  address: PropTypes.string,
+};
+Address.defaultProps = {
+  address: '',
 };
 
 export default Address;

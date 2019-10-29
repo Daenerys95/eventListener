@@ -16,6 +16,7 @@ const Header = ({
   closeShareModal,
   banner,
   title,
+  price,
 }) => {
   /* CSS-in-JS permettant d'avoir l'image d'un évènement en bannière */
   const bannerStyle = {
@@ -26,6 +27,7 @@ const Header = ({
 
   /* Si la props likeIcon vaut "true" je change d'icon */
   const iconHeart = likeIcon ? heartCheckedIcon : heartIcon;
+  const payant = price ? 'Payant' : 'Gratuit';
 
   return (
     <div className="event-header">
@@ -35,7 +37,7 @@ const Header = ({
 
       <div className="event-header-infos">
         <h1 className="event-header-infos-name">
-          {title} <em>par DataJob</em>
+          {title}
         </h1>
         <div className="event-header-bottom">
           <div className="event-header-bottom-icons">
@@ -59,7 +61,7 @@ const Header = ({
             {/* Affichage de la modal que si showModal vaut "true" */}
             { showModal && <ShareLinks closeModal={closeShareModal} /> }
           </div>
-          <span className="event-header-bottom-price">Evenement Payant</span>
+          <span className="event-header-bottom-price">{payant}</span>
         </div>
       </div>
 
@@ -79,8 +81,14 @@ Header.propTypes = {
   changeHeartIcon: PropTypes.func.isRequired,
   openShareModal: PropTypes.func.isRequired,
   closeShareModal: PropTypes.func.isRequired,
-  banner: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  price: PropTypes.number,
+  banner: PropTypes.string,
+  title: PropTypes.string,
+};
+Header.defaultProps = {
+  price: 0,
+  banner: '',
+  title: '',
 };
 
 

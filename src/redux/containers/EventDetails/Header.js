@@ -12,6 +12,7 @@ import {
 const mapStateToProps = (state) => ({
   showModal: state.eventIcons.showModal,
   likeIcon: state.eventIcons.likeIcon,
+  price: state.eventDetails.data.price,
   banner: state.eventDetails.data.url_image,
   title: state.eventDetails.data.title,
 });
