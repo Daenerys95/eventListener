@@ -71,7 +71,7 @@ module.exports = (server, router) => {
   /**
    * Edit an account
    */
-  router.post('/users/:userId/edit', (request, response) => {
-    UserController.edit(request, response);
+  router.post('/users/:userId/update', (request, response) => {
+    UserController.updateAccount(request, response);
   });
 };

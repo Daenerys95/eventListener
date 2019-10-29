@@ -207,7 +207,7 @@ class UserController {
   * @param {object} request
   * @param {object} response
   */
-  static edit(request, response) {
+  static updateAccount(request, response) {
     const data = request.body;
     const { userId } = request.params;
 
@@ -223,23 +223,37 @@ class UserController {
       // Hash the password (use dep bcrypt)
       data.password = bcrypt.hashSync(data.password, 10);
 
-      User.change(
+      User.update(
         data,userId,
         (result) => {
-
-        response.status(200);
-        response.json({
-          status: "Success"
-        });
-      });
-    } else {
-
-      response.status(200);
-      response.json({
-        status: "Bad data received",
-      });
-    }    
-  }
-}
+      
+          if (request.session.token) {
+      
+            jwToken.verify(
+              request.session.token,
+              process.env.APP_KEY,
+      
+              (error, decoded) => {
+                if (error) throw error;
+      
+                response.status(200);
+                response.json({
+                  status: "Success",
+                  result
+                });
+              }
+            )
+          } else {
+      
+            response.status(200);
+            response.json({
+              status: "Bad data received",
+            });
+          }
+        }
+      )  
+    }
+  };
+}    
 
 module.exports = UserController;

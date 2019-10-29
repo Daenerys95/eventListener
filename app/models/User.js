@@ -148,9 +148,9 @@ class User {
    * Update an account
    * @param {object} data
    * @param {integer} id 
-   * @param {callback} callbackToEdit 
+   * @param {callback} callbackToUpdate
    */
-  static change(data, id, callbackToEdit) {
+  static update(data, id, callbackToUpdate) {
     const {
       firstname,
       lastname,
@@ -161,26 +161,26 @@ class User {
       notifNewUpdate,
     } = data;
 
-    const sqlQueryChangeUser = 'UPDATE user SET firstname = ?, lastname = ?, pseudo = ?, email = ?, password = ?, notif_new_event = ?, notif_new_update = ?, updated_at = NOW() WHERE id = ?';
+    const sqlQueryUpdateUser = 'UPDATE user SET firstname = ?, lastname = ?, pseudo = ?, email = ?, password = ?, notif_new_event = ?, notif_new_update = ?, updated_at = NOW() WHERE id = ?';
 
     // Check if the role exist and get his id
     DBConnect.query(
-      sqlQueryChangeUser,
+      sqlQueryUpdateUser,
       [firstname, lastname, pseudo, email, password, notifNewEvent, notifNewUpdate, id],
-      (errorChangeUser, resultChangeUser) => {
+      (errorUpdateUser, resultUpdateUser) => {
 
-        if (errorChangeUser) {
+        if (errorUpdateUser) {
 
-          callbackToEdit({
+          callbackToUpdate({
             error: true,
-            errorMessage: errorChangeUser,
+            errorMessage: errorUpdateUser,
           });
         } else {
 
-          callbackToEdit({
+          callbackToUpdate({
             error: false,
             errorMessage: null,
-            data: resultChangeUser,
+            data: resultUpdateUser,
           });
         }
       }
