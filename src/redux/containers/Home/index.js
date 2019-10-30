@@ -3,25 +3,24 @@ import { connect } from 'react-redux';
 
 
 // == Import : local
-import Events from 'src/components/Events';
+import Home from 'src/components/Home';
 
 
 // == Import : Action Creators
 import {
-  allEvents,
+  nextEvents,
 } from '../../actions/creators';
 
 
 const mapStateToProps = (state) => ({
-  data: state.form.data,
-  value: state.form.value,
+  data: state.home.data,
 });
 
 
 const mapDispatchToProps = (dispatch) => ({
-  showEvents: () => dispatch(allEvents()),
+  showNextEvents: () => dispatch(nextEvents()),
 });
 
 
 // == Export
-export default connect(mapStateToProps, mapDispatchToProps)(Events);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -8,7 +8,7 @@ import Events from 'src/redux/containers/Events';
 import EventDetails from 'src/redux/containers/EventDetails';
 import Nav from 'src/redux/containers/App/Nav';
 import User from 'src/components/User';
-import Home from 'src/components/Home';
+import Home from 'src/redux/containers/Home';
 import LegalMentions from 'src/components/LegalMentions';
 import PrivatePolicy from 'src/components/PrivatePolicy';
 import Errors from 'src/components/Errors';

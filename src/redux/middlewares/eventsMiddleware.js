@@ -5,12 +5,13 @@ import axios from 'axios';
 import {
   TRIGGER_MIDDLEWARE,
   ALL_EVENTS,
+  NEXT_EVENTS,
 } from '../actions/types';
 
 
 // == Import :  Action Creators
 import {
-  fetchNameRequestData,
+  fetchNameRequestData, fetchNextEvents,
 } from '../actions/creators';
 
 // == Middleware : eventsMiddleware
@@ -33,6 +34,18 @@ const eventsMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           const { data } = response.data;
           store.dispatch(fetchNameRequestData(data));
+        })
+        .catch((error) => console.log('from middelware:', error));
+      break;
+    }
+    /**
+      * requête pour récupérer les prochains événements à afficher sur l'accueil
+      * next-events/:number => nombre d'evt à afficher
+      */
+    case NEXT_EVENTS: {
+      axios.post('http://localhost:3000/events/next-events/4')
+        .then((response) => {
+          store.dispatch(fetchNextEvents(response.data.result.data));
         })
         .catch((error) => console.log('from middelware:', error));
       break;

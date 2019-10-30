@@ -21,6 +21,8 @@ import {
   TRIGGER_MIDDLEWARE,
   FETCH_NAME_REQUEST_DATA,
   ALL_EVENTS,
+  NEXT_EVENTS,
+  FETCH_NEXT_EVENTS,
 } from './types';
 
 // == Import : Action Creators
@@ -88,6 +90,11 @@ export const handleSubmit = () => ({
 export const showAdvancedForm = () => ({
   type: SHOW_ADVANCED_FORM,
 });
+// EVENTS : Home.js
+export const fetchNextEvents = (data) => ({
+  type: FETCH_NEXT_EVENTS,
+  data,
+});
 // Events Middlewares
 export const triggerMiddleware = () => ({
   type: TRIGGER_MIDDLEWARE,
@@ -98,6 +105,9 @@ export const fetchNameRequestData = (data) => ({
 });
 export const allEvents = () => ({
   type: ALL_EVENTS,
+});
+export const nextEvents = () => ({
+  type: NEXT_EVENTS,
 });
 
 // == EventDetails : CheckButtons.js

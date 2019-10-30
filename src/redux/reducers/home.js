@@ -1,10 +1,12 @@
 import {
   HANDLE_SEARCH_CHANGE,
   HANDLE_SEARCH_SUBMIT,
+  FETCH_NEXT_EVENTS,
 } from '../actions/types';
 
 const initialState = {
   value: '',
+  data: [],
 };
 
 export const home = (state = initialState, action = {}) => {
@@ -18,6 +20,11 @@ export const home = (state = initialState, action = {}) => {
       return {
         ...state,
         value: '',
+      };
+    case FETCH_NEXT_EVENTS:
+      return {
+        ...state,
+        data: action.data,
       };
     default:
       return state;

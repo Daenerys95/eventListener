@@ -29,10 +29,13 @@ export const HANDLE_SEARCH_SUBMIT = 'HANDLE_SEARCH_SUBMIT';
 export const HANDLE_FORM_CHANGE = 'HANDLE_FORM_CHANGE';
 export const HANDLE_SUBMIT = 'HANDLE_SUBMIT';
 export const SHOW_ADVANCED_FORM = 'SHOW_ADVANCED_FORM';
+// Events : Home.js
+export const FETCH_NEXT_EVENTS = 'FETCH NEXT EVENTS';
 // == Events Middlewares
 export const TRIGGER_MIDDLEWARE = 'TRIGGER_MIDDLEWARE';
 export const FETCH_NAME_REQUEST_DATA = 'FETCH_NAME_REQUEST_DATA';
 export const ALL_EVENTS = 'ALL_EVENTS';
+export const NEXT_EVENTS = 'NEXT_EVENTS';
 
 
 // EventDetails : CheckButtons.js
