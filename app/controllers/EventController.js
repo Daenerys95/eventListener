@@ -114,7 +114,7 @@ class EventController {
               status: "Event doesn't exist",
             });
           }
-         });
+        });
      }
    }
 
@@ -127,22 +127,21 @@ class EventController {
   static getEventByLocalisation(request, response) {
     const { loc } = request.params;
 
-      Event.findLocalisation(
-        loc,
-        (result) => {
+    Event.findLocalisation(
+      loc,
+      (result) => {
 
-          if(result.rowMatch) {
-            response.json({
-              status: "success",
-              result,
-            });
-          } else {
-            response.json({
-              status: "Event doesn't exist",
-            });
-          }
+        if(result.rowMatch) {
+          response.json({
+            status: "success",
+            result,
           });
-    
+        } else {
+          response.json({
+            status: "Event doesn't exist",
+          });
+        }
+      });
   }
 
   /**
@@ -154,22 +153,21 @@ class EventController {
   static getEventByTags(request, response) {
     const { tag } = request.params;
 
-      Event.findTags(
-        tag,
-        (result) => {
+    Event.findTags(
+      tag,
+      (result) => {
 
-          if(result.rowMatch) {
-            response.json({
-              status: "success",
-              result,
-            });
-          } else {
-            response.json({
-              status: "Event doesn't exist",
-            });
-          }
+        if(result.rowMatch) {
+          response.json({
+            status: "success",
+            result,
           });
-    
+        } else {
+          response.json({
+            status: "Event doesn't exist",
+          });
+        }
+      });
   }
 
   /**
@@ -181,22 +179,21 @@ class EventController {
   static getEventByTitle(request, response) {
     const { name } = request.params;
 
-      Event.findTitle(
-        name,
-        (result) => {
+    Event.findTitle(
+      name,
+      (result) => {
 
-          if(result.rowMatch) {
-            response.json({
-              status: "success",
-              result,
-            });
-          } else {
-            response.json({
-              status: "Event doesn't exist",
-            });
-          }
+        if(result.rowMatch) {
+          response.json({
+            status: "success",
+            result,
           });
-    
+        } else {
+          response.json({
+            status: "Event doesn't exist",
+          });
+        }
+      });
   }
 
   /**
@@ -208,22 +205,21 @@ class EventController {
   static getEventByStartingDate(request, response) {
     const { start } = request.params;
 
-      Event.findStart(
-        start,
-        (result) => {
+    Event.findStart(
+      start,
+      (result) => {
 
-          if(result.rowMatch) {
-            response.json({
-              status: "success",
-              result,
-            });
-          } else {
-            response.json({
-              status: "Event doesn't exist",
-            });
-          }
+        if(result.rowMatch) {
+          response.json({
+            status: "success",
+            result,
           });
-    
+        } else {
+          response.json({
+            status: "Event doesn't exist",
+          });
+        }
+      });
   }
 
   /**
@@ -235,22 +231,21 @@ class EventController {
   static getEventByEndingDate(request, response) {
     const { finish } = request.params;
 
-      Event.findFinish(
-        finish,
-        (result) => {
+    Event.findFinish(
+      finish,
+      (result) => {
 
-          if(result.rowMatch) {
-            response.json({
-              status: "success",
-              result,
-            });
-          } else {
-            response.json({
-              status: "Event doesn't exist",
-            });
-          }
+        if(result.rowMatch) {
+          response.json({
+            status: "success",
+            result,
           });
-    
+        } else {
+          response.json({
+            status: "Event doesn't exist",
+          });
+        }
+      });
   }
 
   /**
@@ -262,24 +257,50 @@ class EventController {
   static getEventByDate(request, response) {
     const { start, finish } = request.params;
 
-      Event.findDate(
-        start, 
-        finish,
-        (result) => {
+    Event.findDate(
+      start, 
+      finish,
+      (result) => {
 
-          if(result.rowMatch) {
-            response.json({
-              status: "success",
-              result,
-            });
-          } else {
-            response.json({
-              status: "Event doesn't exist",
-            });
-          }
+        if(result.rowMatch) {
+          response.json({
+            status: "success",
+            result,
           });
-    
+        } else {
+          response.json({
+            status: "Event doesn't exist",
+          });
+        }
+      });
   }
+
+  /**
+   * Sort events by start_date and reduce to x results
+   * @param {object} request
+   * @param {object} response
+   */
+
+   static getNextEvents(request, response) {
+    //const { number } = request.params;
+
+    Event.sortByStartDate(
+      //number,
+      (result) => {
+
+        if(result.rowMatch) {
+          response.json({
+            status: "success",
+            result,
+          });
+        } else {
+          response.json({
+            status: "Event doesn't exist",
+          });
+        }
+      });    
+  }
+
 };
 
 module.exports = EventController;

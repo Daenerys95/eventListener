@@ -86,6 +86,13 @@ module.exports = (server, router) => {
     EventController.getEventByDate(request, response);
   });
 
+    /**
+   * Get next events (sort by start_date and reduce to :number first results)
+   */
+   router.post('/events/next-events', (request, response) => {
+    EventController.getNextEvents(request, response);
+  });
+
   // User //
 
   /**

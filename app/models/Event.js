@@ -331,6 +331,40 @@ class Event {
       }
     )
   }
+
+  /**
+   * Sort events by start date
+   * @param {number} number
+   * @param {callback} callbackNextEvents
+   */
+
+   static sortByStartDate(callbackNextEvents) {
+    const sqlQuery = 'SELECT * FROM event ORDER BY date_start';
+
+    DBConnect.query(
+      sqlQuery,
+      //number,
+      (error, result) => {
+
+       if(error) {
+
+        callbackNextEvents({
+          error: true,
+          errorMessage: error,
+        });
+       } else {
+
+        callbackNextEvents({
+          error: false,
+          errorMessage: null,
+          rowMatch: result.length > 0,
+          data: result,
+        });
+       }
+      }
+    )
+  }
+
 };
 
 module.exports = Event;
