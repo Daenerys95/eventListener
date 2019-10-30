@@ -89,7 +89,7 @@ module.exports = (server, router) => {
     /**
    * Get next events (sort by start_date and reduce to :number first results)
    */
-   router.post('/events/next-events', (request, response) => {
+   router.post('/events/next-events/:number', (request, response) => {
     EventController.getNextEvents(request, response);
   });
 

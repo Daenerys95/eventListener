@@ -310,7 +310,7 @@ class Event {
 
     DBConnect.query(
       sqlQuery,
-     [ start, finish],
+      [start, finish],
       (error, result) => {
 
        if(error) {
@@ -338,12 +338,11 @@ class Event {
    * @param {callback} callbackNextEvents
    */
 
-   static sortByStartDate(callbackNextEvents) {
-    const sqlQuery = 'SELECT * FROM event ORDER BY date_start';
+   static sortByStartDate(number, callbackNextEvents) {
+    const sqlQuery = `SELECT * FROM event ORDER BY date_start LIMIT ${number}`;
 
     DBConnect.query(
       sqlQuery,
-      //number,
       (error, result) => {
 
        if(error) {

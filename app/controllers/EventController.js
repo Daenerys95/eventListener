@@ -282,23 +282,31 @@ class EventController {
    */
 
    static getNextEvents(request, response) {
-    //const { number } = request.params;
+    const { number } = request.params;
 
-    Event.sortByStartDate(
-      //number,
-      (result) => {
+    if (isNaN(number)) {
+      response.status(200);
+      response.json({
+        status:"Not a number"
+      });
 
-        if(result.rowMatch) {
-          response.json({
-            status: "success",
-            result,
-          });
-        } else {
-          response.json({
-            status: "Event doesn't exist",
-          });
-        }
-      });    
+    } else {
+      Event.sortByStartDate(
+        number,
+        (result) => { // = callbackNextEvents
+
+          if(result.rowMatch) {
+            response.json({
+              status: "success",
+              result,
+            });
+          } else {
+            response.json({
+              status: "Event doesn't exist",
+            });
+          }
+        });
+    }    
   }
 
 };
