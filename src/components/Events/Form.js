@@ -35,7 +35,7 @@ const Form = ({
           value={value}
           onChange={_onChange}
         />
-        <button type="button" onClick={showAdvancedForm}>
+        <button type="button" onClick={showAdvancedForm} className="form-button">
           Voir plus de filtres
         </button>
         { advanced && <Advanced /> }

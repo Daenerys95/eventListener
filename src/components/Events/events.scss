@@ -26,38 +26,74 @@ h4.events-subtitle {
   @include subtitleType1;
 }
 
-/* CSS LIST VIEW */
-.menu-item.list {
+.form {
   display: flex;
-  flex-wrap:wrap;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
 
-  .menu-item-top {
-    width: 200px;
-    height: 100px;
-    font-size: 0;
+  &-input {
+    @include form-element;
+    border-color: $purple;
   }
-  .menu-item-middle {
-    width: 50%;
+
+  &-button {
+    @include form-element;
+    width: fit-content;
+    background: white;
+    border: 1px solid $turquoise;
+  }
+}
+.advanced-filter {
+  flex: 1 100%;
+  display: flex;
+}
+
+/* CSS LIST VIEW */
+.events-view-list {
+  & .event {
+    width: 100%;
+    height: 300px;
+    background-size: auto 20vmax;
+    background-position: top center;
+    position: relative;
+    padding: 0;
+    border: 1px solid $turquoise;
+    margin: 1rem 0;
+    font-size: .9rem;
+
+    &-link {
+      display: block;
+    }
+    
+    &-gradient {
+    position: absolute;
+    top: 20vmax;
+    left: 0;
+    width: 100%;
+    height: calc(300px - 20vmax);
     display: flex;
-    flex-wrap:wrap;
-    justify-content: space-around;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+    }
 
     &-title {
-      font-size: 1.2rem;
-      width: 60%;
+      flex: 1 100%;
+      text-align: center;
+      font-weight: 900;
+      padding: 0 1rem;
     }
-  }
-
-  .menu-item-bot {
-    min-width: 25%;
-    //padding-left: 1rem;
+    &-address {
+      padding-top: .8rem;
+    }
+    &-date {
+      flex: 1 100%;
+      color: $purple;
+      align-self: flex-end;
+      text-align: right;
+    }
   }
 }
 
-/* CSS CARD VIEW */
 .arrow {
   display: flex;
   justify-content: center;
@@ -71,10 +107,11 @@ h4.events-subtitle {
   }
 }
 
+/* CSS CARD VIEW */
 .events-view-card {
   overflow: hidden;
   
-  .events-container {
+  & .events-container {
     width: 1250px;
     display: flex;
     justify-content: space-around;
@@ -82,8 +119,10 @@ h4.events-subtitle {
     transition: all .2s ease;
   }
 
-  .event {
+  & .event {
     width: 250px;
+    background-size: cover;
+    background-position: center;
     margin: 0 .4rem; 
     color: $colorDarkTheme;
     position: relative;
@@ -133,6 +172,7 @@ h4.events-subtitle {
   }
 }
 
+/* CSS OLD SLIDER */
 .horizontal-menu {
   margin: 0 -1rem 2rem;
 
@@ -211,6 +251,53 @@ h4.events-subtitle {
     .menu-item-wrapper {
       width: calc(100% / 42);
       padding: 0 .5rem;
+    }
+
+    .events-view-list {
+      & .event {
+        width: 100%;
+        height: 150px;
+        background-size: 20vmax;
+        background-position: left center;
+        position: relative;
+        padding: 0;
+        border: 1px solid $turquoise;
+        margin: 1rem 0;
+        font-size: .9rem;
+    
+        &-link {
+          display: block;
+        }
+        
+        &-gradient {
+        position: absolute;
+        top: 0;
+        left: 20vmax;
+        width: calc(100% - 20vmax);
+        height: 150px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        }
+    
+        &-title {
+          flex: 2;
+          text-transform: uppercase;
+          font-weight: inherit;
+        }
+        &-address {
+          flex: 1;
+        }
+        &-date {
+          flex: 1;
+          padding-left: 1rem;
+          color: inherit;
+          align-self: inherit;
+          text-align: inherit;
+        }
+      }
     }
   }
   

@@ -19,7 +19,7 @@ const Event = ({
   address,
   date_start: dateStart,
 }) => {
-  const eventDate = moment(dateStart).format('DD MMM');
+  const eventDate = moment(dateStart).format('DD MMM YYYY');
   const pureAddress = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(address) }} />;
 
   return (
@@ -27,8 +27,6 @@ const Event = ({
       className="event"
       style={{
         backgroundImage: `url(${urlImage})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
       }}
     >

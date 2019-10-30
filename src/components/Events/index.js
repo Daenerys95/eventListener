@@ -33,8 +33,12 @@ class Events extends React.Component {
             Tous les événements
           </h2>
           <Form />
-          <h4 className="events-subtitle">Résultats de recherche</h4>
-          {data.map((event) => <Event key={event.id} {...event} view="list" />)}
+
+          <div className="events-view-list">
+            <div className="events-container">
+              {data.map((event) => <Event key={event.id} {...event} />)}
+            </div>
+          </div>
         </section>
       </>
     );
