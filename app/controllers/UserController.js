@@ -210,11 +210,10 @@ class UserController {
   static updateAccount(request, response) {
     const data = request.body;
     const { userId } = request.params;
-
+    
     // check if all fields are correct
     if ((data.pseudo && data.pseudo.trim().length > 2) &&
-    (data.email && data.email.trim().length > 8) &&
-    (checkEmail(data.email)) &&
+    (data.email && checkEmail(data.email)) &&
     (data.password && data.password.trim().length > 6) &&
     (data.confirmPassword === data.password) &&
     (typeof data.notifNewEvent === 'boolean') &&
@@ -227,33 +226,76 @@ class UserController {
         data,userId,
         (result) => {
       
-          if (request.session.token) {
-      
-            jwToken.verify(
-              request.session.token,
-              process.env.APP_KEY,
-      
-              (error, decoded) => {
-                if (error) throw error;
-      
-                response.status(200);
-                response.json({
-                  status: "Success",
-                  result
-                });
-              }
-            )
-          } else {
-      
-            response.status(200);
-            response.json({
-              status: "Bad data received",
-            });
-          }
-        }
+          response.status(200);
+          response.json({
+            status: "Success",
+            result
+          });
+        }         
       )  
-    }
+      
+    } else {
+
+      response.status(401);
+      response.json({
+        status: "Bad data received",
+      });
+    }    
   };
 }    
 
 module.exports = UserController;
+
+// static updateAccount(request, response) {
+//   const data = request.body;
+//   const { userId } = request.params;
+
+//   // check if all fields are correct
+//   if ((data.pseudo && data.pseudo.trim().length > 2) &&
+//   (data.email && data.email.trim().length > 8) &&
+//   (checkEmail(data.email)) &&
+//   (data.password && data.password.trim().length > 6) &&
+//   (data.confirmPassword === data.password) &&
+//   (typeof data.notifNewEvent === 'boolean') &&
+//   (typeof data.notifNewUpdate === 'boolean')) {
+
+//     // Hash the password (use dep bcrypt)
+//     data.password = bcrypt.hashSync(data.password, 10);
+    
+//     if (request.headers.authorization) {
+//       const token = request.headers.authorization.split(' ')[1];
+      
+//       try {
+//         jwToken.verify(
+//           token,
+//           process.env.APP_KEY,
+//           { expiresIn: '2d' },
+//           (error, decoded) => {
+//             if (error) throw error;
+//             User.update(
+//               data,userId,
+//               (result) => {
+                
+//                 response.status(200);
+//                 response.json({
+//                   status: "Success",
+//                   result
+//                 });
+//               })
+//           }
+//         )
+//       } catch (error) {
+//         response.status(401);
+//         response.json({
+//           status: "Unauthorization",
+//         });
+//       }
+//     } else {
+
+//       response.status(200);
+//       response.json({
+//         status: "Bad data received",
+//       });
+//     }
+//   }
+// };

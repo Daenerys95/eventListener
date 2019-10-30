@@ -6,13 +6,14 @@ import {
 } from '../actions/types';
 
 const initialState = {
+  id: 2,
   pseudo: 'Teriyaki',
   urlAvatar: undefined,
   firstname: 'Guillaume',
   lastname: 'Terrien',
   email: 'guillaume.terrien.gt@gmail.com',
   password: '',
-  confirmePassword: '',
+  confirmPassword: '',
   notifNewEvent: false,
   notifNewUpdate: true,
   editorModeDisabled: true,

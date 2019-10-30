@@ -7,6 +7,7 @@ import {
   CHANGE_MODAL_STATUS,
   CHANGE_CHECK_INPUT_VALUE,
   CHANGE_EDITOR_MODE,
+  CHANGE_UPDATE_USER,
 } from './types';
 
 // == Action Creators
@@ -38,4 +39,10 @@ export const changeCheckInputValue = (name) => ({
 });
 export const handleChangEditorModeDisabled = () => ({
   type: CHANGE_EDITOR_MODE,
+});
+
+// User : Update
+export const changeUpdateUser = (user) => ({
+  type: CHANGE_UPDATE_USER,
+  user,
 });

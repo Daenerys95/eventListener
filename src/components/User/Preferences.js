@@ -1,43 +1,55 @@
-// import npm
-import React, { useState } from 'react';
+// == Import : npm
+import React from 'react';
 import PropTypes from 'prop-types';
 
-// import local
+
+// == Import : local
 import './user.scss';
 import DeleteAccount from 'src/components/User/DeleteAccount';
 
-// composant
+// == Composant Preferences
 const Preferences = ({
+  user,
   firstname,
   lastname,
   email,
   password,
-  confirmePassword,
+  confirmPassword,
   notifNewEvent,
   notifNewUpdate,
+  changeCheckInputValue,
   changeValue,
-  changeCheckValue,
+  modalStatus,
+  changeModalStatus,
+  editorModeDisabled,
+  handleChangEditorMode,
+  updateValueUser,
 }) => {
-  // Hook for display/hidden the modal
-  const [modalStatus, changeModalStatus] = useState(false);
-  // Hook for display/hidden editor mode
-  const [editorModeDisabled, changEditorModeDisabled] = useState(true);
-
+  /* Passade de true/false pour affichage des modals */
   const handleChangeModalStatus = () => {
-    changeModalStatus(!modalStatus);
+    changeModalStatus();
   };
 
-  const handleChangEditorModeDisabled = () => {
-    changEditorModeDisabled(!editorModeDisabled);
+  const handleChangEditorModeDisabled = (event) => {
+    event.preventDefault();
+    handleChangEditorMode();
   };
 
+  /* Permet de récupérer la valeur entrée dans l'input */
   const handleChangeValue = (event) => {
     const { value, name } = event.target;
-    changeValue(value, name);
+    changeValue(name, value);
   };
+
+  /* Passage de true/false sur les checkbox */
   const handleChangeCheckValue = (event) => {
     const { name } = event.target;
-    changeCheckValue(name);
+    changeCheckInputValue(name);
+  };
+  /* Update User*/
+  const handleUpdateUser = (event) => {
+    event.preventDefault();
+    updateValueUser(user);
   };
 
   return (
@@ -45,11 +57,8 @@ const Preferences = ({
       <h2 className="preferences-title">
         Mes informations
       </h2>
-
-      <form className="preferences-infos">
-
+      <form className="preferences-infos" onSubmit={handleUpdateUser}>
         <div className="preferences-infos-container">
-
           <div className="content content--left">
 
             <label
@@ -117,16 +126,16 @@ const Preferences = ({
                 />
                 <label
                   className="content-input-label-field"
-                  htmlFor="confirmePasswordInput"
+                  htmlFor="confirmPasswordInput"
                 >
                   Confirmer :
                 </label>
                 <input
                   className="content-input-field"
-                  id="confirmePasswordInput"
-                  name="confirmePassword"
+                  id="confirmPasswordInput"
+                  name="confirmPassword"
                   type="password"
-                  value={confirmePassword}
+                  value={confirmPassword}
                   onChange={handleChangeValue}
                 />
               </>
@@ -134,7 +143,6 @@ const Preferences = ({
           </div>
 
           <div className="content content--right">
-
             <div className="content-input-checkbox">
               <input
                 className="checkbox"
@@ -143,7 +151,7 @@ const Preferences = ({
                 type="checkbox"
                 disabled={editorModeDisabled}
                 checked={notifNewEvent}
-                onChange={handleChangeCheckValue}
+                onClick={handleChangeCheckValue}
               />
               <label
                 className="label"
@@ -186,7 +194,6 @@ const Preferences = ({
             <button
               className="button button--validate-preferences"
               type="submit"
-              onClick={handleChangEditorModeDisabled}
             >
               Valider mes modifications
             </button>
@@ -206,16 +213,23 @@ const Preferences = ({
     </section>
   );
 };
+// == PropTypes
 Preferences.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
-  confirmePassword: PropTypes.string.isRequired,
+  confirmPassword: PropTypes.string.isRequired,
   notifNewEvent: PropTypes.bool.isRequired,
   notifNewUpdate: PropTypes.bool.isRequired,
   changeValue: PropTypes.func.isRequired,
-  changeCheckValue: PropTypes.func.isRequired,
+  changeCheckInputValue: PropTypes.func.isRequired,
+  modalStatus: PropTypes.bool.isRequired,
+  changeModalStatus: PropTypes.func.isRequired,
+  editorModeDisabled: PropTypes.bool.isRequired,
+  handleChangEditorMode: PropTypes.func.isRequired,
+  updateValueUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
 };
-// export
+// == Export
 export default Preferences;
