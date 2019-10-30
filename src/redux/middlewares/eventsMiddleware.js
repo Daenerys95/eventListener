@@ -43,7 +43,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
       * next-events/:number => nombre d'evt à afficher
       */
     case NEXT_EVENTS: {
-      axios.post('http://localhost:3000/events/next-events/4')
+      axios.post('http://localhost:3000/events/next-events/5')
         .then((response) => {
           store.dispatch(fetchNextEvents(response.data.result.data));
         })

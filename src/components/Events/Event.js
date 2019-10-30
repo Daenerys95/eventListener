@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -13,43 +14,37 @@ import iconPlus from 'src/assets/images/icons/icons8-plus-50.png';
 // == Composant Event
 const Event = ({
   id,
-  view,
   title,
   url_image: urlImage,
   address,
   date_start: dateStart,
 }) => {
-  const eventDate = moment(dateStart).format('DD MMM YYYY');
-  
+  const eventDate = moment(dateStart).format('DD MMM');
   const pureAddress = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(address) }} />;
 
   return (
-    <div className={`menu-item ${view}`}>
-      <div
-        className="menu-item-top"
-        style={{
-          backgroundImage: `url(${urlImage})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        {urlImage}
-      </div>
-      <div className="menu-item-middle">
-        <h4 className="menu-item-middle-title">{title}</h4>
-        <Link to={`/evenements/${id}`}>
-          <img
-            src={iconPlus}
-            alt="plus"
-            className="icon"
-          />
-        </Link>
-        <p className="menu-item-middle-date">{eventDate}</p>
-      </div>
-      <div className="menu-item-bot">
-        <p className="menu-item-bot-location">{pureAddress}</p>
-      </div>
+    <div
+      className="event"
+      style={{
+        backgroundImage: `url(${urlImage})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <Link to={`/evenements/${id}`} className="event-link">
+        <div className="event-gradient">
+          <div className="event-title">
+            {title}
+          </div>
+          <div className="event-address">
+            {pureAddress}
+          </div>
+          <div className="event-date">
+            {eventDate}
+          </div>
+        </div>
+      </Link>
     </div>
   );
 };
@@ -57,7 +52,6 @@ const Event = ({
 
 Event.propTypes = {
   id: PropTypes.number.isRequired,
-  view: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   url_image: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
