@@ -16,7 +16,7 @@ Trello.
 
 Voici l'Arborescence de notre projet.
 
-<a href="medias/Arborescence.png" target="_blank"><img src="medias/Arborescence.png"></a>
+<a href="DOCS/Arborescence.png" target="_blank"><img src="DOCS/Arborescence.png"></a>
 
 
 ## MCD Mocodo 
@@ -41,7 +41,7 @@ ACTUALITY: ID, description, created_at, updated_at, event_id, user_id
 HAS_STATUS, 11 EVENT, 0N STATUS
 STATUS: ID, name, created_date, updated_at
 
-<a href="medias/MCD--Teriyaki.png" target="_blank"><img src="medias/MCD--Teriyaki.png"></a>
+<a href="DOCS/MCD--Teriyaki.png" target="_blank"><img src="DOCS/MCD--Teriyaki.png"></a>
 
 *****************************************
 *****************************************
@@ -80,7 +80,7 @@ Pour cela, il existe les _Pull Requests_
 -> https://github.com/O-clock-Alumni/fiches-recap/blob/master/ldc/git-pull-request.md
 
 
-<a href="medias/git-overview.png" target="_blank"><img src="medias/git-overview.png"></a>
+<a href="DOCS/git-overview.png" target="_blank"><img src="DOCS/git-overview.png"></a>
 
 Pour un dossier de travail donné, Git manipule différents « espaces virtuels » :
 
