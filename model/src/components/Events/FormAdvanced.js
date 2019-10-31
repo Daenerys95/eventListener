@@ -13,6 +13,24 @@ class FormAdvanced extends React.Component {
         this.buttonClick = this.buttonClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        buttonClick = () => {
+            event.preventDefault();
+            console.log('bouton cliqué');
+            this.setState({
+                clicked : !this.state.clicked
+            });
+            console.log(this);
+            // effectuer ici une recherche par mot-clef
+        }
+    
+        handleChange(event) {
+            this.setState({search: event.target.search});
+        }
+    
+        handleSubmit(event) {
+            console.log('test : ' + this.state.search);
+        }
     }
     render() {
         let Form = this.props.Form;
@@ -54,23 +72,7 @@ class FormAdvanced extends React.Component {
                     </div>
         );
     }
-    buttonClick = () => {
-        event.preventDefault();
-        console.log('bouton cliqué');
-        this.setState({
-            clicked : !this.state.clicked
-        });
-        console.log(this);
-        // effectuer ici une recherche par mot-clef
-    }
-
-    handleChange(event) {
-        this.setState({search: event.target.search});
-    }
-
-    handleSubmit(event) {
-        console.log('test : ' + this.state.search);
-    }
+    
 }
 
 // == Export
