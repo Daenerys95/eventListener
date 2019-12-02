@@ -5,5 +5,5 @@ Pour voir le code de la version finale, merci de consulter la branche "dev".
 
 ## Liens :
 
-<a href="eventlistener.moin1855.odns.fr">eventListener</a>
+<a href="http://eventlistener.moin1855.odns.fr/">eventListener</a>
  (lien temporaire)
