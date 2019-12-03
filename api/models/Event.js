@@ -346,35 +346,32 @@ class Event {
     )
   }
 
- /**
+  /**
   * Sort events by start date
   * @param {number} number
   * @param {callback} callbackNextEvents
   */
   static sortByStartDate(number, callbackNextEvents) {
-   const sqlQuery = `SELECT * FROM event ORDER BY date_start LIMIT ${number}`;
+    const sqlQuery = `SELECT * FROM \`event\` WHERE date_start > NOW() ORDER BY date_start LIMIT ${number}`;
 
-   DBConnect.query(
-     sqlQuery,
-     (error, result) => {
-
-      if(error) {
-
-       callbackNextEvents({
-         error: true,
-         errorMessage: error,
-       });
-      } else {
-
-       callbackNextEvents({
-         error: false,
-         errorMessage: null,
-         rowMatch: result.length > 0,
-         data: result,
-       });
-      }
-     }
-   )
+    DBConnect.query(
+      sqlQuery,
+      (error, result) => {
+        if (error) {
+          callbackNextEvents({
+            error: true,
+            errorMessage: error,
+          });
+        } else {
+          callbackNextEvents({
+            error: false,
+            errorMessage: null,
+            rowMatch: result.length > 0,
+            data: result,
+          });
+        }
+      },
+    );
   }
 
   /**
