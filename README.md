@@ -5,13 +5,13 @@ Have you ever searched for tech related events but couldn't find a platform gath
 
 ## Technos
 
--React
--Redux
--Router
--HTML5
--CSS3 / Sass
--NodeJS
--Express.js
--Axios
--Leaflet.js
+- React
+- Redux
+- Router
+- HTML5
+- CSS3 / Sass
+- NodeJS
+- Express.js
+- Axios
+- Leaflet.js
 
