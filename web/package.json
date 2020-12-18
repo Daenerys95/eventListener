@@ -60,7 +60,7 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "classnames": "^2.2.6",
-    "dompurify": "^2.0.7",
+    "dompurify": "^2.0.17",
     "dotenv": "^8.2.0",
     "emotion": "^10.0.17",
     "express": "^4.17.1",
